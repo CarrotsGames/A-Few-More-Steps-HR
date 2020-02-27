@@ -4435,7 +4435,7 @@ GameObject:
   - component: {fileID: 845450224}
   - component: {fileID: 845450223}
   m_Layer: 0
-  m_Name: RingTossRules
+  m_Name: CarnivalGameRules
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

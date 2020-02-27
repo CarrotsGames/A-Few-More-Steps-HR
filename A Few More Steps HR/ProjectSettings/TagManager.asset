@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Pole
+  - PoleL2
+  - PoleL3
   layers:
   - Default
   - TransparentFX

@@ -26,13 +26,14 @@ public class CarnivalGameRules : MonoBehaviour
     }
     private void Update()
     {
+     
         if (Input.GetKeyDown(KeyCode.R))
         {
             ReloadRings();
         }
         totalScore.text = "" + score;
     }
-    void ReloadRings()
+    public void ReloadRings()
     {
         for (int i = 0; i < throwableSpawner.transform.childCount; i++)
         {

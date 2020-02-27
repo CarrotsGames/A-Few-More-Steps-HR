@@ -12,7 +12,7 @@ public class Ring : MonoBehaviour
             other.tag = "Untagged";
             CarnivalGameRules.score += 150;
         }
-
+       
     }
 
 }
