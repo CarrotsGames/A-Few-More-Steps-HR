@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class Ring : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    private void OnTriggerEnter(Collider other)
     {
-        GameObject Player = GameObject.FindGameObjectWithTag("Player");
-        Physics.IgnoreCollision(Player.GetComponent<CharacterController>(), GetComponent<Collider>());
+        if(other.tag == "Pole")
+        {
+            other.tag = "Untagged";
+            CarnivalGameRules.score += 150;
+        }
+
     }
 
-    
 }
