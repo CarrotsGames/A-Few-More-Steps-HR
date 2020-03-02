@@ -19,9 +19,8 @@ public class Shooting : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
-        {
- 
-            carnivalGameRules.RestartDuckGame();
+        {       
+            carnivalGameRules.RestartDuckGame();           
         }
         if(Input.GetKeyDown(KeyCode.Escape))
         {

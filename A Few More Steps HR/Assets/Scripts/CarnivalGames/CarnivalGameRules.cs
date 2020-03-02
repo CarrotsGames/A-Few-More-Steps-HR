@@ -10,7 +10,7 @@ public class CarnivalGameRules : MonoBehaviour
     public Text totalDuckScore;
     public Text totalMoleScore;
     public Text totalShotsFired;
-
+    
     [Header("RingToss game")]
     public int numberOfThrowables;
     [Header("Add rings here!")]
@@ -39,6 +39,7 @@ public class CarnivalGameRules : MonoBehaviour
     public GameObject[] throwableReceivers;
     private IEnumerator coroutine;
     public static int shotsFired;
+    public static bool resetMat;
     int test;
     bool spawnMoreDucks;
     private void Start()
@@ -113,22 +114,23 @@ public class CarnivalGameRules : MonoBehaviour
             bulletSpawner.transform.GetChild(i).transform.rotation = Quaternion.Euler(0, 0, 0);
             duckGameInProgress = true;
         }
-        int length = fastDuck.Length + slowDucks.Length + normalDuck.Length;
-        for (int i = 0; i < length; i++)
-        {
-            if(fastDuck.Length > i)
-            {
-                fastDuck[i].GetComponent<Renderer>().enabled = true;
-            }
-            if (slowDucks.Length > i)
-            {
-                slowDucks[i].GetComponent<Renderer>().enabled = true;
-            }
-            if (normalDuck.Length > i)
-            {
-                normalDuck[i].GetComponent<Renderer>().enabled = true;
-            }
-        }
+         
+         int length = fastDuck.Length + slowDucks.Length + normalDuck.Length;
+         for (int i = 0; i < length; i++)
+         {
+             if(fastDuck.Length > i)
+             {
+                 fastDuck[i].GetComponent<Renderer>().enabled = true;
+             }
+             if (slowDucks.Length > i)
+             {
+                 slowDucks[i].GetComponent<Renderer>().enabled = true;
+             }
+             if (normalDuck.Length > i)
+             {
+                 normalDuck[i].GetComponent<Renderer>().enabled = true;
+             }
+         }
         rifle.SetActive(true);
         index = 0;
         test = 0;
