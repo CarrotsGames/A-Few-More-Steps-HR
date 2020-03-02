@@ -99,7 +99,7 @@ public class CarnivalGameRules : MonoBehaviour
         }
         for (int i = 0; i < throwableReceivers.Length; i++)
         {
-            throwableReceivers[i].transform.tag = "Pole";
+            throwableReceivers[i].GetComponent<Ring>().hasRing = false;
         }
         ringScore = 0;
         index = 0;
@@ -119,17 +119,20 @@ public class CarnivalGameRules : MonoBehaviour
          for (int i = 0; i < length; i++)
          {
              if(fastDuck.Length > i)
-             {
-                 fastDuck[i].GetComponent<Renderer>().enabled = true;
-             }
+             {          
+                fastDuck[i].GetComponent<Renderer>().enabled = true;
+                fastDuck[i].GetComponent<Duck>().hasBeenHit = false;
+            }
              if (slowDucks.Length > i)
              {
-                 slowDucks[i].GetComponent<Renderer>().enabled = true;
-             }
-             if (normalDuck.Length > i)
-             {
-                 normalDuck[i].GetComponent<Renderer>().enabled = true;
-             }
+                slowDucks[i].GetComponent<Renderer>().enabled = true;
+                slowDucks[i].GetComponent<Duck>().hasBeenHit = false;
+            }           
+            if (normalDuck.Length > i)           
+            {
+                normalDuck[i].GetComponent<Renderer>().enabled = true;
+                normalDuck[i].GetComponent<Duck>().hasBeenHit = false;
+            }
          }
         rifle.SetActive(true);
         index = 0;

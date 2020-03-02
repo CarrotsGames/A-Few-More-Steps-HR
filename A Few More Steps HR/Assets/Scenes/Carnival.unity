@@ -3064,6 +3064,7 @@ MonoBehaviour:
   speed: 2
   points: 1
   spawner: {fileID: 1321948289}
+  hasBeenHit: 0
 --- !u!65 &50822090
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3173,6 +3174,7 @@ MonoBehaviour:
   speed: 2
   points: 1
   spawner: {fileID: 1321948289}
+  hasBeenHit: 0
 --- !u!65 &71448182
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3444,6 +3446,7 @@ GameObject:
   - component: {fileID: 142765286}
   - component: {fileID: 142765285}
   - component: {fileID: 142765284}
+  - component: {fileID: 142765287}
   m_Layer: 0
   m_Name: Cylinder (1)
   m_TagString: Pole
@@ -3526,6 +3529,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 142765282}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &142765287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 142765282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78e9401d261d3a74eafcb2a6b6823885, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasRing: 0
+  score: 300
 --- !u!1 &150836625
 GameObject:
   m_ObjectHideFlags: 0
@@ -3645,6 +3662,7 @@ GameObject:
   - component: {fileID: 234381239}
   - component: {fileID: 234381238}
   - component: {fileID: 234381237}
+  - component: {fileID: 234381240}
   m_Layer: 0
   m_Name: Cylinder (2)
   m_TagString: Pole
@@ -3727,6 +3745,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 234381235}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &234381240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234381235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78e9401d261d3a74eafcb2a6b6823885, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasRing: 0
+  score: 300
 --- !u!1 &249748304
 GameObject:
   m_ObjectHideFlags: 0
@@ -4294,6 +4326,7 @@ MonoBehaviour:
   speed: 2
   points: 2
   spawner: {fileID: 1256047985}
+  hasBeenHit: 0
 --- !u!65 &379600670
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4403,6 +4436,7 @@ MonoBehaviour:
   speed: 2
   points: 2
   spawner: {fileID: 1256047985}
+  hasBeenHit: 0
 --- !u!65 &384777894
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4512,6 +4546,7 @@ MonoBehaviour:
   speed: 2
   points: 2
   spawner: {fileID: 1256047985}
+  hasBeenHit: 0
 --- !u!65 &386459038
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4584,6 +4619,7 @@ GameObject:
   - component: {fileID: 388452690}
   - component: {fileID: 388452689}
   - component: {fileID: 388452688}
+  - component: {fileID: 388452691}
   m_Layer: 0
   m_Name: Cylinder (3)
   m_TagString: Pole
@@ -4666,6 +4702,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 388452686}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &388452691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388452686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78e9401d261d3a74eafcb2a6b6823885, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasRing: 0
+  score: 50
 --- !u!1 &403682621
 GameObject:
   m_ObjectHideFlags: 0
@@ -4715,6 +4765,7 @@ MonoBehaviour:
   speed: 2
   points: 1
   spawner: {fileID: 1321948289}
+  hasBeenHit: 0
 --- !u!65 &403682624
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4824,6 +4875,7 @@ MonoBehaviour:
   speed: 3
   points: 3
   spawner: {fileID: 1990565478}
+  hasBeenHit: 0
 --- !u!65 &410219173
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5026,6 +5078,7 @@ MonoBehaviour:
   speed: 3
   points: 3
   spawner: {fileID: 1990565478}
+  hasBeenHit: 0
 --- !u!65 &531385890
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5141,6 +5194,7 @@ MonoBehaviour:
   speed: 3
   points: 3
   spawner: {fileID: 1990565478}
+  hasBeenHit: 0
 --- !u!65 &590836142
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5602,6 +5656,7 @@ GameObject:
   - component: {fileID: 815455483}
   - component: {fileID: 815455482}
   - component: {fileID: 815455481}
+  - component: {fileID: 815455484}
   m_Layer: 0
   m_Name: Cylinder (3)
   m_TagString: Pole
@@ -5684,6 +5739,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 815455479}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &815455484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815455479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78e9401d261d3a74eafcb2a6b6823885, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasRing: 0
+  score: 150
 --- !u!1 &818063981
 GameObject:
   m_ObjectHideFlags: 0
@@ -6042,6 +6111,7 @@ GameObject:
   - component: {fileID: 903457221}
   - component: {fileID: 903457220}
   - component: {fileID: 903457219}
+  - component: {fileID: 903457222}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Pole
@@ -6124,6 +6194,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 903457217}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &903457222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 903457217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78e9401d261d3a74eafcb2a6b6823885, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasRing: 0
+  score: 50
 --- !u!1 &1030564012
 GameObject:
   m_ObjectHideFlags: 0
@@ -6203,6 +6287,7 @@ MonoBehaviour:
   speed: 2
   points: 1
   spawner: {fileID: 1321948289}
+  hasBeenHit: 0
 --- !u!65 &1067663468
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9138,6 +9223,7 @@ GameObject:
   - component: {fileID: 1238564412}
   - component: {fileID: 1238564411}
   - component: {fileID: 1238564410}
+  - component: {fileID: 1238564413}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Pole
@@ -9220,6 +9306,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1238564408}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1238564413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238564408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78e9401d261d3a74eafcb2a6b6823885, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasRing: 0
+  score: 300
 --- !u!224 &1239035361 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4055625570934982459, guid: 2ab708988b3134040addd4c2b725a56e,
@@ -9238,6 +9338,7 @@ GameObject:
   - component: {fileID: 1239709449}
   - component: {fileID: 1239709448}
   - component: {fileID: 1239709447}
+  - component: {fileID: 1239709450}
   m_Layer: 0
   m_Name: Cylinder (2)
   m_TagString: Pole
@@ -9320,6 +9421,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1239709445}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1239709450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239709445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78e9401d261d3a74eafcb2a6b6823885, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasRing: 0
+  score: 50
 --- !u!1 &1256047985
 GameObject:
   m_ObjectHideFlags: 0
@@ -9404,6 +9519,7 @@ GameObject:
   - component: {fileID: 1436511503}
   - component: {fileID: 1436511502}
   - component: {fileID: 1436511501}
+  - component: {fileID: 1436511504}
   m_Layer: 0
   m_Name: Cylinder (3)
   m_TagString: Pole
@@ -9486,6 +9602,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1436511499}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1436511504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436511499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78e9401d261d3a74eafcb2a6b6823885, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasRing: 0
+  score: 300
 --- !u!1 &1441235097 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4027616773248722416, guid: cb651ecb12b7de24cbcae23783ea7618,
@@ -9732,6 +9862,7 @@ MonoBehaviour:
   speed: 2
   points: 1
   spawner: {fileID: 1321948289}
+  hasBeenHit: 0
 --- !u!1 &1494515632
 GameObject:
   m_ObjectHideFlags: 0
@@ -9781,6 +9912,7 @@ MonoBehaviour:
   speed: 3
   points: 3
   spawner: {fileID: 1990565478}
+  hasBeenHit: 0
 --- !u!65 &1494515635
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9890,6 +10022,7 @@ MonoBehaviour:
   speed: 2
   points: 2
   spawner: {fileID: 1256047985}
+  hasBeenHit: 0
 --- !u!65 &1524578151
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10059,6 +10192,7 @@ GameObject:
   - component: {fileID: 1609930704}
   - component: {fileID: 1609930703}
   - component: {fileID: 1609930702}
+  - component: {fileID: 1609930705}
   m_Layer: 0
   m_Name: Cylinder (2)
   m_TagString: Pole
@@ -10141,6 +10275,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1609930700}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1609930705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609930700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78e9401d261d3a74eafcb2a6b6823885, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasRing: 0
+  score: 150
 --- !u!1001 &1617676491
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10313,6 +10461,7 @@ MonoBehaviour:
   speed: 3
   points: 3
   spawner: {fileID: 1990565478}
+  hasBeenHit: 0
 --- !u!65 &1618532283
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10584,6 +10733,7 @@ GameObject:
   - component: {fileID: 1632095052}
   - component: {fileID: 1632095051}
   - component: {fileID: 1632095050}
+  - component: {fileID: 1632095053}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Pole
@@ -10599,7 +10749,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1632095048}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.30273542, y: 9.043901, z: 0.07087397}
+  m_LocalPosition: {x: -0.308, y: 9.043901, z: 0.1}
   m_LocalScale: {x: 0.013817117, y: 9.81836, z: 1}
   m_Children: []
   m_Father: {fileID: 1604399448}
@@ -10666,6 +10816,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1632095048}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1632095053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632095048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78e9401d261d3a74eafcb2a6b6823885, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasRing: 0
+  score: 150
 --- !u!4 &1703765491 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2096245193, guid: cb651ecb12b7de24cbcae23783ea7618,
@@ -10757,6 +10921,7 @@ GameObject:
   - component: {fileID: 1765287648}
   - component: {fileID: 1765287647}
   - component: {fileID: 1765287646}
+  - component: {fileID: 1765287649}
   m_Layer: 0
   m_Name: Cylinder (1)
   m_TagString: Pole
@@ -10839,6 +11004,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1765287644}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1765287649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765287644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78e9401d261d3a74eafcb2a6b6823885, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasRing: 0
+  score: 150
 --- !u!1001 &1765815724
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11026,7 +11205,7 @@ PrefabInstance:
     - target: {fileID: 3533109693553982052, guid: b7fd1be8834e9c547bec5a557ad39c0c,
         type: 3}
       propertyPath: m_Name
-      value: GameBooth
+      value: Ringtoss
       objectReference: {fileID: 0}
     - target: {fileID: 3533109693553982055, guid: b7fd1be8834e9c547bec5a557ad39c0c,
         type: 3}
@@ -11302,6 +11481,7 @@ MonoBehaviour:
   speed: 3
   points: 3
   spawner: {fileID: 1990565478}
+  hasBeenHit: 0
 --- !u!65 &1977758988
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11604,6 +11784,7 @@ MonoBehaviour:
   speed: 2
   points: 1
   spawner: {fileID: 1321948289}
+  hasBeenHit: 0
 --- !u!65 &2018664327
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11790,6 +11971,7 @@ MonoBehaviour:
   speed: 3
   points: 3
   spawner: {fileID: 1990565478}
+  hasBeenHit: 0
 --- !u!65 &2036518011
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12335,6 +12517,7 @@ GameObject:
   - component: {fileID: 2118774137}
   - component: {fileID: 2118774136}
   - component: {fileID: 2118774135}
+  - component: {fileID: 2118774138}
   m_Layer: 0
   m_Name: Cylinder (1)
   m_TagString: Pole
@@ -12417,6 +12600,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2118774133}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2118774138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118774133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78e9401d261d3a74eafcb2a6b6823885, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasRing: 0
+  score: 50
 --- !u!1 &2137292195
 GameObject:
   m_ObjectHideFlags: 0
@@ -12466,6 +12663,7 @@ MonoBehaviour:
   speed: 3
   points: 3
   spawner: {fileID: 1990565478}
+  hasBeenHit: 0
 --- !u!65 &2137292198
 BoxCollider:
   m_ObjectHideFlags: 0

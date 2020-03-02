@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class Ring : MonoBehaviour
 {
-
+    [HideInInspector]
+    public bool hasRing = false;
+    public int score = 150;
+ 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Pole")
+        if (!hasRing)
         {
-            other.tag = "Untagged";
-            CarnivalGameRules.ringScore += 150;
+            if (other.tag == "Ring")
+            {
+                hasRing = true;
+                this.tag = "Untagged";
+                CarnivalGameRules.ringScore += score;
+            }
         }
        
     }
-
 }

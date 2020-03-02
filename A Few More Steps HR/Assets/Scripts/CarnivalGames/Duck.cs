@@ -8,15 +8,17 @@ public class Duck : MonoBehaviour
     public float points;
     public GameObject spawner;
     Vector3 defPositon;
+    public bool hasBeenHit;
     // Start is called before the first frame update
     void Start()
     {
+        hasBeenHit = false;
         defPositon = transform.position;
     }
 
     // Update is called once per frame
     void Update()
-    {
+    {       
          transform.Translate(Vector3.right * speed * Time.deltaTime);
         if(!gameObject.GetComponent<Renderer>().enabled)
         {
@@ -30,10 +32,15 @@ public class Duck : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log("Collision");
-        if(collision.transform.tag == "Bullet")
+        if (!hasBeenHit)
         {
-           gameObject.GetComponent<Renderer>().enabled = false;
-            CarnivalGameRules.duckScore += points;
+            if (collision.transform.tag == "Bullet")
+            {
+                gameObject.GetComponent<Renderer>().enabled = false;
+                CarnivalGameRules.duckScore += points;
+                hasBeenHit = true;
+            }
         }
     }
+ 
 }

@@ -9,6 +9,7 @@ TagManager:
   - PoleL3
   - Duck
   - Bullet
+  - Ring
   layers:
   - Default
   - TransparentFX
