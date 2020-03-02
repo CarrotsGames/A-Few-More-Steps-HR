@@ -19,9 +19,9 @@ public class CarnivalGameRules : MonoBehaviour
     [Header ("duck shooting game")]
     public int numberOfBullets;
     public float shootTimer;
-    private int timeStore;
+    private float timeStore;
     public GameObject rifle;
-   
+    public GameObject[] ducks;
     [Header("Add Spawner here!")]
     public GameObject throwableSpawner;
     public GameObject bulletSpawner;
@@ -50,13 +50,14 @@ public class CarnivalGameRules : MonoBehaviour
     }
     private void Update()
     {
+        totalRingScore.text = "" + ringScore;
+        totalDuckScore.text = "" + duckScore;
      
         if (Input.GetKeyDown(KeyCode.R))
         {
             RestartDuckGame();
         }
-        totalRingScore.text = "" + ringScore;
-        totalDuckScore.text = "" + duckScore;
+       
         if(duckGameInProgress)
         {
             shootTimer -= Time.deltaTime;
@@ -66,7 +67,14 @@ public class CarnivalGameRules : MonoBehaviour
                 shootTimer = timeStore;
             }
         }
-        
+        for (int i = 0; i < 8; i++)
+        {
+            Invoke("SpawnDuck", 0.5f);
+        }
+    }
+    public void SpawnDuck()
+    {
+        Debug.Log("DuckSpawned");
     }
     public void RestartRingToss()
     {

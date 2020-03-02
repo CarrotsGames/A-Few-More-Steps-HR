@@ -7,6 +7,7 @@ TagManager:
   - Pole
   - PoleL2
   - PoleL3
+  - Duck
   layers:
   - Default
   - TransparentFX
