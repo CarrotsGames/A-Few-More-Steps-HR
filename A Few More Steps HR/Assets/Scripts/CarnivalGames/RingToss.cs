@@ -52,6 +52,7 @@ public class RingToss : MonoBehaviour
                 forceSlider.value = force;
 
             }
+
         }
     }
     

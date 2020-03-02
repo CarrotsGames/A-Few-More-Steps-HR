@@ -9,7 +9,8 @@ public class CarnivalGameRules : MonoBehaviour
     public Text totalRingScore;
     public Text totalDuckScore;
     public Text totalMoleScore;
- 
+    public Text totalShotsFired;
+
     [Header("RingToss game")]
     public int numberOfThrowables;
     [Header("Add rings here!")]
@@ -21,21 +22,32 @@ public class CarnivalGameRules : MonoBehaviour
     public float shootTimer;
     private float timeStore;
     public GameObject rifle;
-    public GameObject[] ducks;
+    public GameObject[] fastDuck;
+    public GameObject[] normalDuck;
+    public GameObject[] slowDucks;  
+
     [Header("Add Spawner here!")]
     public GameObject throwableSpawner;
     public GameObject bulletSpawner;
+   
     public static float ringScore;
     public static float duckScore;
     public static float score;
     public static bool duckGameInProgress;
+    public static bool RingTossInProgress;
+
     public GameObject[] throwableReceivers;
-    
+    private IEnumerator coroutine;
+    public static int shotsFired;
+    int test;
+    bool spawnMoreDucks;
     private void Start()
     {
         timeStore = shootTimer;
         totalDuckScore.text = "" + 0;
         totalRingScore.text = "" + 0;
+        totalShotsFired.text = "" + 0;
+        shotsFired = numberOfBullets;
         for (int i = 0; i < numberOfThrowables; i++)
         {     
             GameObject Go =  Instantiate(throwables, throwableSpawner.transform.position, Quaternion.identity);
@@ -47,19 +59,25 @@ public class CarnivalGameRules : MonoBehaviour
             Go.transform.parent = bulletSpawner.transform;
             Go.SetActive(false);
         }
+     //   StartCoroutine(SpawnDuck());
+
     }
     private void Update()
     {
         totalRingScore.text = "" + ringScore;
         totalDuckScore.text = "" + duckScore;
-     
-        if (Input.GetKeyDown(KeyCode.R))
+        totalShotsFired.text = "" + shotsFired;
+
+        if (Input.GetKeyDown(KeyCode.R) && duckGameInProgress)
         {
             RestartDuckGame();
         }
-       
-        if(duckGameInProgress)
+        else if (Input.GetKeyDown(KeyCode.R) && RingTossInProgress)
         {
+            RestartRingToss();
+        }
+        if (duckGameInProgress)
+        {                   
             shootTimer -= Time.deltaTime;
             if(shootTimer < 0)
             {
@@ -67,15 +85,9 @@ public class CarnivalGameRules : MonoBehaviour
                 shootTimer = timeStore;
             }
         }
-        for (int i = 0; i < 8; i++)
-        {
-            Invoke("SpawnDuck", 0.5f);
-        }
+       
     }
-    public void SpawnDuck()
-    {
-        Debug.Log("DuckSpawned");
-    }
+ 
     public void RestartRingToss()
     {
         for (int i = 0; i < throwableSpawner.transform.childCount; i++)
@@ -100,10 +112,49 @@ public class CarnivalGameRules : MonoBehaviour
             bulletSpawner.transform.GetChild(i).transform.position = new Vector3(0, 0, 0);
             bulletSpawner.transform.GetChild(i).gameObject.SetActive(false);
             bulletSpawner.transform.GetChild(i).transform.rotation = Quaternion.Euler(0, 0, 0);
-
+            duckGameInProgress = true;
+        }
+        int length = fastDuck.Length + slowDucks.Length + normalDuck.Length;
+        for (int i = 0; i < length; i++)
+        {
+            if(fastDuck.Length > i)
+            {
+                fastDuck[i].GetComponent<Renderer>().enabled = true;
+            }
+            if (slowDucks.Length > i)
+            {
+                slowDucks[i].GetComponent<Renderer>().enabled = true;
+            }
         }
         rifle.SetActive(true);
         index = 0;
+        test = 0;
+        duckScore = 0;
+       
+        shotsFired = numberOfBullets;
 
+    }
+    public IEnumerator SpawnDuck()
+    {
+        int length = fastDuck.Length + slowDucks.Length;
+        for (int i = 0; i < length; ++i)
+        {
+            if (i < slowDucks.Length)
+            {
+                slowDucks[i].SetActive(true);
+ 
+                test++;
+                Debug.Log("DuckSpawned");
+            }
+            yield return new WaitForSeconds(0.75f);
+            if (i < fastDuck.Length)
+            {
+                fastDuck[i].SetActive(true);
+
+                test++;
+                Debug.Log("DuckSpawned");
+            }
+        }
+   
     }
 }

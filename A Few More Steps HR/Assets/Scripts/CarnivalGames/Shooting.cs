@@ -20,8 +20,11 @@ public class Shooting : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
-            if (CarnivalGameRules.index <= bulletSpawer.transform.childCount)
+            if (CarnivalGameRules.index < bulletSpawer.transform.childCount)
             {
+
+                CarnivalGameRules.shotsFired -= 1;
+
                 // resets velocity
                 bulletSpawer.transform.GetChild(CarnivalGameRules.index).GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
 

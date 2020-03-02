@@ -24,9 +24,11 @@ public class StartGame : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.Escape))
         {         
-            gameManager.GetComponent<GameManager>().ResumePlayerControls();
-            //
+            gameManager.GetComponent<GameManager>().ResumePlayerControls();             
             player.GetComponent<RingToss>().enabled = false;
+            player.GetComponent<Shooting>().enabled = false;
+            CarnivalGameRules.RingTossInProgress = false;
+            CarnivalGameRules.duckGameInProgress = false;
             if (staminaSlider.activeSelf)
             {
                 staminaSlider.SetActive(false);
@@ -52,7 +54,7 @@ public class StartGame : MonoBehaviour
                     {
                         // staminaSlider.SetActive(true);
                         carnivalGames.GetComponent<CarnivalGameRules>().RestartDuckGame();
-
+                        CarnivalGameRules.RingTossInProgress = true;
                         player.GetComponent<Shooting>().enabled = true;
                     }
                     break;
