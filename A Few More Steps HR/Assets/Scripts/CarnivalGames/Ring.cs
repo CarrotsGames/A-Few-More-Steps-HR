@@ -10,7 +10,7 @@ public class Ring : MonoBehaviour
         if(other.tag == "Pole")
         {
             other.tag = "Untagged";
-            CarnivalGameRules.score += 150;
+            CarnivalGameRules.ringScore += 150;
         }
        
     }

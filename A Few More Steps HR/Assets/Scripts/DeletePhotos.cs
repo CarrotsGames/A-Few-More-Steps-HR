@@ -22,6 +22,6 @@ public class DeletePhotos : MonoBehaviour
         GetComponent<Image>().color = alpha;
         // REMOVE PHOTO TAG
         this.gameObject.tag = "Untagged";
-        PhotoCamera.photoIndex = index;
+      //  PhotoCamera.photoIndex = index;
     }
 }

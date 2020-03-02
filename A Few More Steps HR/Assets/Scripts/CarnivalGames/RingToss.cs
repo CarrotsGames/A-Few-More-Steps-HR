@@ -19,7 +19,7 @@ public class RingToss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // if player holds down mouse 1 it increased throw force
         if(Input.GetKey(KeyCode.Mouse0))
         {
             if (force < 5)
@@ -32,28 +32,27 @@ public class RingToss : MonoBehaviour
         {
             if (CarnivalGameRules.index <= ringSpawner.transform.childCount)
             {
+                //resets velocity carried on the ring
+                ringSpawner.transform.GetChild(CarnivalGameRules.index).GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+
+                // Transports ring to players position + y ands x offset to appear in front
                 ringSpawner.transform.GetChild(CarnivalGameRules.index).transform.position = transform.position + transform.up * 1;
                 ringSpawner.transform.GetChild(CarnivalGameRules.index).transform.position += transform.forward * 1;
+                // resets rotation to avoid throwing rotated ring
                 ringSpawner.transform.GetChild(CarnivalGameRules.index).transform.rotation = Quaternion.Euler(0, 0, 0);
+                //enables ring
                 ringSpawner.transform.GetChild(CarnivalGameRules.index).gameObject.SetActive(true);
+                // Adds up and forward force to give a throwing feel. 
                 ringSpawner.transform.GetChild(CarnivalGameRules.index).GetComponent<Rigidbody>().AddForce(camera.transform.forward * force * 100);
                 ringSpawner.transform.GetChild(CarnivalGameRules.index).GetComponent<Rigidbody>().AddForce(camera.transform.up * force * 50);
+                // Marks ring as thrown
                 CarnivalGameRules.index++;
+                //resets force value and slider
                 force = 0;
                 forceSlider.value = force;
 
             }
         }
     }
-    //void ReloadRings()
-    //{
-    //    for (int i = 0; i < ringSpawner.transform.childCount; i++)
-    //    {
-    //        Debug.Log("ReloadRings");
-    //        ringSpawner.transform.GetChild(i).transform.position = new Vector3(0, 0, 0);
-    //        ringSpawner.transform.GetChild(i).gameObject.SetActive(false);
-
-    //    }
-       
-    //}
+    
 }

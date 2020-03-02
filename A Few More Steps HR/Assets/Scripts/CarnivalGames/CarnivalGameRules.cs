@@ -6,22 +6,46 @@ using UnityEngine;
 public class CarnivalGameRules : MonoBehaviour
 {
     public static int index = 0;
-    public Text totalScore;
-    public int numberOfThrowables;   
+    public Text totalRingScore;
+    public Text totalDuckScore;
+    public Text totalMoleScore;
+ 
+    [Header("RingToss game")]
+    public int numberOfThrowables;
+    [Header("Add rings here!")]
+    public GameObject throwables;
+    public GameObject bullets;
+  
+    [Header ("duck shooting game")]
+    public int numberOfBullets;
+    public float shootTimer;
+    private int timeStore;
+    public GameObject rifle;
+   
     [Header("Add Spawner here!")]
     public GameObject throwableSpawner;
-    [Header("Add rings or basketbals here!")]
-    public GameObject throwables;
+    public GameObject bulletSpawner;
+    public static float ringScore;
+    public static float duckScore;
     public static float score;
+    public static bool duckGameInProgress;
     public GameObject[] throwableReceivers;
+    
     private void Start()
     {
-   
-        totalScore.text = "" + 0;
+        timeStore = shootTimer;
+        totalDuckScore.text = "" + 0;
+        totalRingScore.text = "" + 0;
         for (int i = 0; i < numberOfThrowables; i++)
         {     
             GameObject Go =  Instantiate(throwables, throwableSpawner.transform.position, Quaternion.identity);
             Go.transform.parent = throwableSpawner.transform;
+        }
+        for (int i = 0; i < numberOfBullets; i++)
+        {
+            GameObject Go = Instantiate(bullets, bulletSpawner.transform.position, Quaternion.identity);
+            Go.transform.parent = bulletSpawner.transform;
+            Go.SetActive(false);
         }
     }
     private void Update()
@@ -29,11 +53,22 @@ public class CarnivalGameRules : MonoBehaviour
      
         if (Input.GetKeyDown(KeyCode.R))
         {
-            ReloadRings();
+            RestartDuckGame();
         }
-        totalScore.text = "" + score;
+        totalRingScore.text = "" + ringScore;
+        totalDuckScore.text = "" + duckScore;
+        if(duckGameInProgress)
+        {
+            shootTimer -= Time.deltaTime;
+            if(shootTimer < 0)
+            {
+                duckGameInProgress = false;
+                shootTimer = timeStore;
+            }
+        }
+        
     }
-    public void ReloadRings()
+    public void RestartRingToss()
     {
         for (int i = 0; i < throwableSpawner.transform.childCount; i++)
         {
@@ -46,7 +81,21 @@ public class CarnivalGameRules : MonoBehaviour
         {
             throwableReceivers[i].transform.tag = "Pole";
         }
-        score = 0;
+        ringScore = 0;
         index = 0;
+    }
+    public void RestartDuckGame()
+    { 
+        for (int i = 0; i < bulletSpawner.transform.childCount; i++)
+        {
+            Debug.Log("Reload bullets");
+            bulletSpawner.transform.GetChild(i).transform.position = new Vector3(0, 0, 0);
+            bulletSpawner.transform.GetChild(i).gameObject.SetActive(false);
+            bulletSpawner.transform.GetChild(i).transform.rotation = Quaternion.Euler(0, 0, 0);
+
+        }
+        rifle.SetActive(true);
+        index = 0;
+
     }
 }

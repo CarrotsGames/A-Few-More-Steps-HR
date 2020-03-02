@@ -10,7 +10,7 @@ public class LoadPhotos : MonoBehaviour
     {
          for (int i = 0; i < 8; i++)
         {
-            GetComponent<GetPhotos>().LoadNewSprite(Application.dataPath + "/CameraShot " + i + ".png");
+           // GetComponent<GetPhotos>().LoadNewSprite(Application.dataPath + "/CameraShot " + i + ".png");
             
         }
 

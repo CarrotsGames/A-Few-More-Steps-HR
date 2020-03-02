@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnableCamera : MonoBehaviour
 {
-    
+    public Camera camera;
     public GameObject photoAlbum;
     public Camera mainCamera;
     [SerializeField]
@@ -27,16 +27,17 @@ public class EnableCamera : MonoBehaviour
             CameraToggle();
 
         }
+       
         // take photos
-        if (PhotoCamera.photoIndex < 8 && camToggle == 0 && !GetPhotos.inInventory)
-        {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
-            {
-                Debug.Log("ScreenShot");
-                PhotoCamera.TakeScreenShotStatic(800, 800);
-            }
+        //if (camToggle == 0 && !GetPhotos.inInventory)
+        //{
+        //    if (Input.GetKeyDown(KeyCode.Mouse0))
+        //    {
+        //        Debug.Log("ScreenShot");
+        //       // PhotoCamera.TakeScreenShotStatic(800, 800);
+        //    }
 
-        }
+        //}
     }
     void CameraToggle()
     {

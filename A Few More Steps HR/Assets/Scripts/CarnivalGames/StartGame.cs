@@ -18,17 +18,19 @@ public class StartGame : MonoBehaviour
         gameManager = GameObject.Find("GameManager");
         player = GameObject.FindGameObjectWithTag("Player");
         player.GetComponent<RingToss>().enabled = false;
-        staminaSlider.SetActive(false);
+      //  staminaSlider.SetActive(false);
     }
     private void Update()
     {
         if (Input.GetKeyUp(KeyCode.Escape))
         {         
             gameManager.GetComponent<GameManager>().ResumePlayerControls();
-            carnivalGames.GetComponent<CarnivalGameRules>().ReloadRings();
+            //
             player.GetComponent<RingToss>().enabled = false;
-            staminaSlider.SetActive(false);
-
+            if (staminaSlider.activeSelf)
+            {
+                staminaSlider.SetActive(false);
+            }
         }
     }
     private void OnTriggerStay(Collider other)
@@ -42,8 +44,16 @@ public class StartGame : MonoBehaviour
                 case "RingToss":
                     {
                         staminaSlider.SetActive(true);
-
+                        carnivalGames.GetComponent<CarnivalGameRules>().RestartRingToss();
                         player.GetComponent<RingToss>().enabled = true;
+                    }
+                    break;
+                case "DuckShooting":
+                    {
+                        // staminaSlider.SetActive(true);
+                        carnivalGames.GetComponent<CarnivalGameRules>().RestartDuckGame();
+
+                        player.GetComponent<Shooting>().enabled = true;
                     }
                     break;
             }
