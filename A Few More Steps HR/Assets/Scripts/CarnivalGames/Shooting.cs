@@ -9,7 +9,7 @@ public class Shooting : MonoBehaviour
     public GameObject bulletSpawer;
     private GameObject carnivalGameRulesGameObj;
     private CarnivalGameRules carnivalGameRules;
-
+    public GameObject barrel;
     private void Start()
     {
         carnivalGameRulesGameObj = GameObject.Find("CarnivalGameRules");
@@ -18,6 +18,15 @@ public class Shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+ 
+            carnivalGameRules.RestartDuckGame();
+        }
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            carnivalGameRules.rifle.SetActive(false);
+        }
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
             if (CarnivalGameRules.index < bulletSpawer.transform.childCount)
@@ -29,12 +38,12 @@ public class Shooting : MonoBehaviour
                 bulletSpawer.transform.GetChild(CarnivalGameRules.index).GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
 
                 // transports bullet to players pos 
-                bulletSpawer.transform.GetChild(CarnivalGameRules.index).transform.position += camera.transform.position;
-                bulletSpawer.transform.GetChild(CarnivalGameRules.index).transform.position += camera.transform.forward;
+                bulletSpawer.transform.GetChild(CarnivalGameRules.index).transform.position += barrel.transform.position;
+                bulletSpawer.transform.GetChild(CarnivalGameRules.index).transform.position += barrel.transform.forward;
                 // enables rifle
                 bulletSpawer.transform.GetChild(CarnivalGameRules.index).gameObject.SetActive(true);
                 // shoots bullet using forward force
-                bulletSpawer.transform.GetChild(CarnivalGameRules.index).GetComponent<Rigidbody>().AddForce(carnivalGameRules.rifle.transform.forward * 100 * 300 * Time.deltaTime);
+                bulletSpawer.transform.GetChild(CarnivalGameRules.index).GetComponent<Rigidbody>().AddForce(barrel.transform.forward * 200 * Time.time);
                 //bulletSpawer.transform.GetChild(CarnivalGameRules.index).GetComponent<Rigidbody>().AddForce(camera.transform.up * force * 50);
                 CarnivalGameRules.index++;
             }

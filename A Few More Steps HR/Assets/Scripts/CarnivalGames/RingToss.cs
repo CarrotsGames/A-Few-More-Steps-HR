@@ -30,7 +30,7 @@ public class RingToss : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
-            if (CarnivalGameRules.index <= ringSpawner.transform.childCount)
+            if (CarnivalGameRules.index < ringSpawner.transform.childCount)
             {
                 //resets velocity carried on the ring
                 ringSpawner.transform.GetChild(CarnivalGameRules.index).GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);

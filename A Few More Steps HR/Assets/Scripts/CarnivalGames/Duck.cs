@@ -17,8 +17,7 @@ public class Duck : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
- 
-        transform.Translate(Vector3.right * speed * Time.deltaTime);
+         transform.Translate(Vector3.right * speed * Time.deltaTime);
         if(!gameObject.GetComponent<Renderer>().enabled)
         {
             Debug.Log("DeadAndGone");

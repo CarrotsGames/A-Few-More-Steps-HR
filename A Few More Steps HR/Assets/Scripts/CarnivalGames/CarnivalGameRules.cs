@@ -68,7 +68,7 @@ public class CarnivalGameRules : MonoBehaviour
         totalDuckScore.text = "" + duckScore;
         totalShotsFired.text = "" + shotsFired;
 
-        if (Input.GetKeyDown(KeyCode.R) && duckGameInProgress)
+        if (Input.GetKeyDown(KeyCode.R) )
         {
             RestartDuckGame();
         }
@@ -76,17 +76,16 @@ public class CarnivalGameRules : MonoBehaviour
         {
             RestartRingToss();
         }
-        if (duckGameInProgress)
-        {                   
-            shootTimer -= Time.deltaTime;
-            if(shootTimer < 0)
-            {
-                duckGameInProgress = false;
-                shootTimer = timeStore;
-            }
+                    
+        if(shotsFired <= 0)
+        {
+            duckGameInProgress = false;
+            shootTimer = timeStore;
         }
-       
+        
     }
+       
+ 
  
     public void RestartRingToss()
     {
@@ -124,6 +123,10 @@ public class CarnivalGameRules : MonoBehaviour
             if (slowDucks.Length > i)
             {
                 slowDucks[i].GetComponent<Renderer>().enabled = true;
+            }
+            if (normalDuck.Length > i)
+            {
+                normalDuck[i].GetComponent<Renderer>().enabled = true;
             }
         }
         rifle.SetActive(true);
