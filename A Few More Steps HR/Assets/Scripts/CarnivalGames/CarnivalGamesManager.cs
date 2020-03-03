@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class CarnivalGameRules : MonoBehaviour
+public class CarnivalGamesManager : MonoBehaviour
 {
     public static int index = 0;
     public Text totalRingScore;
@@ -11,56 +11,57 @@ public class CarnivalGameRules : MonoBehaviour
     public Text totalMoleScore;
     public Text totalShotsFired;
     public Text totalStrength;
-  
+
     [Header("Strenth game")]
     public float strenthTimer;
+    public int strengthScore;
+    [HideInInspector]
+    public float strengthTimeStore;
 
     [Header("RingToss game")]
-    public int numberOfThrowables;
-    [Header("Add rings here!")]
-    public GameObject throwables;
-    public GameObject bullets;
-  
-    [Header ("duck shooting game")]
+    public float ringtossWinningScore;
+    public int numberOfThrowables;     
+    public GameObject rings;
+    public GameObject[] throwableReceivers;
+
+    [Header("duck shooting game")]
     public int numberOfBullets;
-    public float shootTimer;
-    private float timeStore;
+    public int duckWinningScore = 20;
     public GameObject rifle;
+    public GameObject bullets;
     public GameObject[] fastDuck;
     public GameObject[] normalDuck;
-    public GameObject[] slowDucks;  
+    public GameObject[] slowDucks;
+    private float timeStore;
 
     [Header("Add Spawner here!")]
     public GameObject throwableSpawner;
     public GameObject bulletSpawner;
 
-    public float strengthTimeStore;
-    public int strengthScore;
     public static float ringScore;
     public static float duckScore;
     public static float score;
     public static bool duckGameInProgress;
     public static bool RingTossInProgress;
 
-    public GameObject[] throwableReceivers;
     private IEnumerator coroutine;
     public static int shotsFired;
     public static bool resetMat;
-    int test;
     bool spawnMoreDucks;
     private void Start()
     {
         strengthTimeStore = strenthTimer;
-        timeStore = shootTimer;
         totalDuckScore.text = "" + 0;
         totalRingScore.text = "" + 0;
         totalShotsFired.text = "" + 0;
         totalStrength.text = "" + 0;
         shotsFired = numberOfBullets;
+        // creates all throwables before scene starts to avoid instantiate stutter
         for (int i = 0; i < numberOfThrowables; i++)
-        {     
-            GameObject Go =  Instantiate(throwables, throwableSpawner.transform.position, Quaternion.identity);
+        {
+            GameObject Go = Instantiate(rings, throwableSpawner.transform.position, Quaternion.identity);
             Go.transform.parent = throwableSpawner.transform;
+            Go.SetActive(false);
         }
         for (int i = 0; i < numberOfBullets; i++)
         {
@@ -68,116 +69,106 @@ public class CarnivalGameRules : MonoBehaviour
             Go.transform.parent = bulletSpawner.transform;
             Go.SetActive(false);
         }
-     //   StartCoroutine(SpawnDuck());
-
+ 
     }
     private void Update()
     {
+        // dislays all game texts
         totalRingScore.text = "" + ringScore;
         totalDuckScore.text = "" + duckScore;
         totalShotsFired.text = "" + shotsFired;
-        totalStrength.text = "" + strengthScore;
-
-        //if (Input.GetKeyDown(KeyCode.R) )
-        //{
-        //    RestartDuckGame();
-        //}
-        //else if (Input.GetKeyDown(KeyCode.R) && RingTossInProgress)
-        //{
-        //    RestartRingToss();
-        //}
-                    
-        if(shotsFired <= 0)
-        {
-            duckGameInProgress = false;
-            shootTimer = timeStore;
-        }
-        
+        totalStrength.text = "" + strengthScore;     
+  
     }
-       
- 
+
+  // Strength test rules
     public void RestartStrengthTest()
     {
+        // resets timer and score
         strenthTimer = strengthTimeStore;
         strengthScore = 0;
     }
-
+    public void RingTossGameover()
+    {
+        if(ringScore > ringtossWinningScore)
+        {
+            Debug.Log("You win");
+        }
+        else
+        {
+            Debug.Log("You lose");
+        }
+    }
     public void RestartRingToss()
     {
         for (int i = 0; i < throwableSpawner.transform.childCount; i++)
         {
             Debug.Log("ReloadRings");
+            // Retreives all thrown rings, disables them and moves them to pos 0,0,0
             throwableSpawner.transform.GetChild(i).transform.position = new Vector3(0, 0, 0);
             throwableSpawner.transform.GetChild(i).gameObject.SetActive(false);
-             
+
         }
         for (int i = 0; i < throwableReceivers.Length; i++)
         {
+            // tells the poles to accept ring score
             throwableReceivers[i].GetComponent<Ring>().hasRing = false;
         }
+        // resets rings score and list index
         ringScore = 0;
         index = 0;
     }
+    // Duck game Properties
+    public void DuckGameOver()
+    {
+        if (duckScore >= duckWinningScore)
+        {
+            Debug.Log("You win");
+        }
+        else
+        {
+            Debug.Log("You lose");
+        }
+        
+
+    }
     public void RestartDuckGame()
-    { 
+    {
         for (int i = 0; i < bulletSpawner.transform.childCount; i++)
         {
+            // Retreives all bullets, disables them and moves them to pos 0,0,0
             Debug.Log("Reload bullets");
             bulletSpawner.transform.GetChild(i).transform.position = new Vector3(0, 0, 0);
             bulletSpawner.transform.GetChild(i).gameObject.SetActive(false);
             bulletSpawner.transform.GetChild(i).transform.rotation = Quaternion.Euler(0, 0, 0);
             duckGameInProgress = true;
         }
-         
-         int length = fastDuck.Length + slowDucks.Length + normalDuck.Length;
-         for (int i = 0; i < length; i++)
-         {
-             if(fastDuck.Length > i)
-             {          
+
+        int length = fastDuck.Length + slowDucks.Length + normalDuck.Length;
+        for (int i = 0; i < length; i++)
+        {
+            if (fastDuck.Length > i)
+            {
                 fastDuck[i].GetComponent<Renderer>().enabled = true;
                 fastDuck[i].GetComponent<Duck>().hasBeenHit = false;
             }
-             if (slowDucks.Length > i)
-             {
+            if (slowDucks.Length > i)
+            {
                 slowDucks[i].GetComponent<Renderer>().enabled = true;
                 slowDucks[i].GetComponent<Duck>().hasBeenHit = false;
-            }           
-            if (normalDuck.Length > i)           
+            }
+            if (normalDuck.Length > i)
             {
                 normalDuck[i].GetComponent<Renderer>().enabled = true;
                 normalDuck[i].GetComponent<Duck>().hasBeenHit = false;
             }
-         }
-        rifle.SetActive(true);
-        index = 0;
-        test = 0;
-        duckScore = 0;
-       
-        shotsFired = numberOfBullets;
-
-    }
- 
-    public IEnumerator SpawnDuck()
-    {
-        int length = fastDuck.Length + slowDucks.Length;
-        for (int i = 0; i < length; ++i)
-        {
-            if (i < slowDucks.Length)
-            {
-                slowDucks[i].SetActive(true);
- 
-                test++;
-                Debug.Log("DuckSpawned");
-            }
-            yield return new WaitForSeconds(0.75f);
-            if (i < fastDuck.Length)
-            {
-                fastDuck[i].SetActive(true);
-
-                test++;
-                Debug.Log("DuckSpawned");
-            }
         }
-   
+        rifle.SetActive(true);
+        // resets all values
+        index = 0;
+        duckScore = 0;
+        shotsFired = numberOfBullets;
     }
 }
+ 
+  

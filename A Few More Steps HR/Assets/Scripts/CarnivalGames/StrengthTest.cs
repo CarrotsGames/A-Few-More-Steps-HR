@@ -7,13 +7,13 @@ public class StrengthTest : MonoBehaviour
 {
     public int numOfClicks;
     public Slider strength;
-    private GameObject carnivalGameRulesGameObj;
-    private CarnivalGameRules carnivalGameRules;
+    private GameObject carnivalGamesObj;
+    private CarnivalGamesManager carnivalGamesManager;
     // Start is called before the first frame update
     void Start()
     {
-        carnivalGameRulesGameObj = GameObject.Find("CarnivalGameRules");
-        carnivalGameRules = carnivalGameRulesGameObj.GetComponent<CarnivalGameRules>();
+        carnivalGamesObj = GameObject.Find("CarnivalGamesManager");
+        carnivalGamesManager = carnivalGamesObj.GetComponent<CarnivalGamesManager>();
 
         // strength.enabled = false;
     }
@@ -27,12 +27,13 @@ public class StrengthTest : MonoBehaviour
         {
             
             numOfClicks = 0;
-            carnivalGameRules.RestartStrengthTest();
+            carnivalGamesManager.RestartStrengthTest();
         }
-        carnivalGameRules.strenthTimer -= Time.deltaTime;
-        Debug.Log(carnivalGameRules.strenthTimer);
-        if (carnivalGameRules.strenthTimer > 0)
+        Debug.Log(carnivalGamesManager.strenthTimer);
+        if (carnivalGamesManager.strenthTimer > 0)
         {
+            carnivalGamesManager.strenthTimer -= Time.deltaTime;
+
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 numOfClicks += 1;
@@ -41,7 +42,7 @@ public class StrengthTest : MonoBehaviour
         }
         else
         {
-            carnivalGameRules.strengthScore = numOfClicks;
+            carnivalGamesManager.strengthScore = numOfClicks;
             Debug.Log("Gameover");
         }
     }

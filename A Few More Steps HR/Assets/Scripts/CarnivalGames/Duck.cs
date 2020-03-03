@@ -37,7 +37,7 @@ public class Duck : MonoBehaviour
             if (collision.transform.tag == "Bullet")
             {
                 gameObject.GetComponent<Renderer>().enabled = false;
-                CarnivalGameRules.duckScore += points;
+                CarnivalGamesManager.duckScore += points;
                 hasBeenHit = true;
             }
         }

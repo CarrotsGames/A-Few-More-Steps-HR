@@ -16,7 +16,7 @@ public class Ring : MonoBehaviour
             {
                 hasRing = true;
                 this.tag = "Untagged";
-                CarnivalGameRules.ringScore += score;
+                CarnivalGamesManager.ringScore += score;
             }
         }
        

@@ -7,46 +7,52 @@ public class Shooting : MonoBehaviour
     public GameObject camera;
     public LayerMask duckMask;
     public GameObject bulletSpawer;
-    private GameObject carnivalGameRulesGameObj;
-    private CarnivalGameRules carnivalGameRules;
+    private GameObject carnivalGamesObj;
+    private CarnivalGamesManager carnivalGameManager;
     public GameObject barrel;
     private void Start()
     {
-        carnivalGameRulesGameObj = GameObject.Find("CarnivalGameRules");
-        carnivalGameRules = carnivalGameRulesGameObj.GetComponent<CarnivalGameRules>();
+        carnivalGamesObj = GameObject.Find("CarnivalGamesManager");
+        carnivalGameManager = carnivalGamesObj.GetComponent<CarnivalGamesManager>();
     }
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
-        {       
-            carnivalGameRules.RestartDuckGame();           
+        {
+            carnivalGameManager.RestartDuckGame();           
         }
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            carnivalGameRules.rifle.SetActive(false);
+            carnivalGameManager.rifle.SetActive(false);
         }
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
-            if (CarnivalGameRules.index < bulletSpawer.transform.childCount)
+            if (CarnivalGamesManager.index < bulletSpawer.transform.childCount)
             {
-
-                CarnivalGameRules.shotsFired -= 1;
-
+                TakenShot();
                 // resets velocity
-                bulletSpawer.transform.GetChild(CarnivalGameRules.index).GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+                bulletSpawer.transform.GetChild(CarnivalGamesManager.index).GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
 
                 // transports bullet to players pos 
-                bulletSpawer.transform.GetChild(CarnivalGameRules.index).transform.position += barrel.transform.position;
-                bulletSpawer.transform.GetChild(CarnivalGameRules.index).transform.position += barrel.transform.forward;
+                bulletSpawer.transform.GetChild(CarnivalGamesManager.index).transform.position += barrel.transform.position;
+                bulletSpawer.transform.GetChild(CarnivalGamesManager.index).transform.position += barrel.transform.forward;
                 // enables rifle
-                bulletSpawer.transform.GetChild(CarnivalGameRules.index).gameObject.SetActive(true);
+                bulletSpawer.transform.GetChild(CarnivalGamesManager.index).gameObject.SetActive(true);
                 // shoots bullet using forward force
-                bulletSpawer.transform.GetChild(CarnivalGameRules.index).GetComponent<Rigidbody>().AddForce(barrel.transform.forward * 1000 * 75 * Time.deltaTime);
+                bulletSpawer.transform.GetChild(CarnivalGamesManager.index).GetComponent<Rigidbody>().AddForce(barrel.transform.forward * 1000 * 75 * Time.deltaTime);
                 //bulletSpawer.transform.GetChild(CarnivalGameRules.index).GetComponent<Rigidbody>().AddForce(camera.transform.up * force * 50);
-                CarnivalGameRules.index++;
+                CarnivalGamesManager.index++;
             }
             // You just fixed the force issue now add scoring 
+        }
+    }
+    public void TakenShot()
+    {
+        CarnivalGamesManager.shotsFired -= 1;
+        if (CarnivalGamesManager.shotsFired <= 0)
+        {
+            carnivalGameManager.DuckGameOver();
         }
     }
 }

@@ -14,7 +14,7 @@ public class StartGame : MonoBehaviour
 
     private void Start()
     {
-        carnivalGames = GameObject.Find("CarnivalGameRules");
+        carnivalGames = GameObject.Find("CarnivalGamesManager");
         playingGame = false;
         gameManager = GameObject.Find("GameManager");
         player = GameObject.FindGameObjectWithTag("Player");
@@ -51,14 +51,14 @@ public class StartGame : MonoBehaviour
                 case "RingToss":
                     {
                         staminaSlider.SetActive(true);
-                        carnivalGames.GetComponent<CarnivalGameRules>().RestartRingToss();
+                        carnivalGames.GetComponent<CarnivalGamesManager>().RestartRingToss();
                         player.GetComponent<RingToss>().enabled = true;
                     }
                     break;
                 case "DuckShooting":
                     {
                         // staminaSlider.SetActive(true);
-                        carnivalGames.GetComponent<CarnivalGameRules>().RestartDuckGame();
+                        carnivalGames.GetComponent<CarnivalGamesManager>().RestartDuckGame();
                       //  CarnivalGameRules.RingTossInProgress = true;
                         player.GetComponent<Shooting>().enabled = true;
                     }
@@ -66,7 +66,7 @@ public class StartGame : MonoBehaviour
                 case "StrengthTest":
                     {
                         // staminaSlider.SetActive(true);
-                        carnivalGames.GetComponent<CarnivalGameRules>().RestartDuckGame();
+                        carnivalGames.GetComponent<CarnivalGamesManager>().RestartDuckGame();
                         //  CarnivalGameRules.RingTossInProgress = true;
                         player.GetComponent<StrengthTest>().enabled = true;
                        
