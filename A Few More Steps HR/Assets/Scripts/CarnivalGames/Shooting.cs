@@ -42,7 +42,7 @@ public class Shooting : MonoBehaviour
                 // enables rifle
                 bulletSpawer.transform.GetChild(CarnivalGameRules.index).gameObject.SetActive(true);
                 // shoots bullet using forward force
-                bulletSpawer.transform.GetChild(CarnivalGameRules.index).GetComponent<Rigidbody>().AddForce(barrel.transform.forward * 1000 * 20 * Time.deltaTime);
+                bulletSpawer.transform.GetChild(CarnivalGameRules.index).GetComponent<Rigidbody>().AddForce(barrel.transform.forward * 1000 * 75 * Time.deltaTime);
                 //bulletSpawer.transform.GetChild(CarnivalGameRules.index).GetComponent<Rigidbody>().AddForce(camera.transform.up * force * 50);
                 CarnivalGameRules.index++;
             }

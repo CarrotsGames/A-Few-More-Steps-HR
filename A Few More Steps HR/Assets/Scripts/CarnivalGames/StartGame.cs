@@ -11,6 +11,7 @@ public class StartGame : MonoBehaviour
     private GameObject carnivalGames;
     public static bool playingGame;
     public GameObject staminaSlider;
+
     private void Start()
     {
         carnivalGames = GameObject.Find("CarnivalGameRules");
@@ -18,7 +19,9 @@ public class StartGame : MonoBehaviour
         gameManager = GameObject.Find("GameManager");
         player = GameObject.FindGameObjectWithTag("Player");
         player.GetComponent<RingToss>().enabled = false;
-      //  staminaSlider.SetActive(false);
+        player.GetComponent<Shooting>().enabled = false;
+        player.GetComponent<StrengthTest>().enabled = false;
+        //  staminaSlider.SetActive(false);
     }
     private void Update()
     {
@@ -27,11 +30,13 @@ public class StartGame : MonoBehaviour
             gameManager.GetComponent<GameManager>().ResumePlayerControls();             
             player.GetComponent<RingToss>().enabled = false;
             player.GetComponent<Shooting>().enabled = false;
-            CarnivalGameRules.RingTossInProgress = false;
-            CarnivalGameRules.duckGameInProgress = false;
-            if (staminaSlider.activeSelf)
+            player.GetComponent<StrengthTest>().enabled = false;
+            if (staminaSlider != null)
             {
-                staminaSlider.SetActive(false);
+                if (staminaSlider.activeSelf)
+                {
+                    staminaSlider.SetActive(false);
+                }
             }
         }
     }
@@ -54,8 +59,17 @@ public class StartGame : MonoBehaviour
                     {
                         // staminaSlider.SetActive(true);
                         carnivalGames.GetComponent<CarnivalGameRules>().RestartDuckGame();
-                        CarnivalGameRules.RingTossInProgress = true;
+                      //  CarnivalGameRules.RingTossInProgress = true;
                         player.GetComponent<Shooting>().enabled = true;
+                    }
+                    break;
+                case "StrengthTest":
+                    {
+                        // staminaSlider.SetActive(true);
+                        carnivalGames.GetComponent<CarnivalGameRules>().RestartDuckGame();
+                        //  CarnivalGameRules.RingTossInProgress = true;
+                        player.GetComponent<StrengthTest>().enabled = true;
+                       
                     }
                     break;
             }

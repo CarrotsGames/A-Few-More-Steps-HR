@@ -12,15 +12,23 @@ public class RingToss : MonoBehaviour
     public Slider forceSlider;
     public GameObject camera;
     private GameObject player;
+    private GameObject carnivalGameRulesGameObj;
+    private CarnivalGameRules carnivalGameRules;
     private void Start()
     {
+        carnivalGameRulesGameObj = GameObject.Find("CarnivalGameRules");
+        carnivalGameRules = carnivalGameRulesGameObj.GetComponent<CarnivalGameRules>();
         player = GameObject.FindGameObjectWithTag("Player");
     }
     // Update is called once per frame
     void Update()
     {
-        // if player holds down mouse 1 it increased throw force
-        if(Input.GetKey(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.R))
+           {
+             carnivalGameRules.RestartRingToss();
+           }
+            // if player holds down mouse 1 it increased throw force
+            if (Input.GetKey(KeyCode.Mouse0))
         {
             if (force < 5)
             {

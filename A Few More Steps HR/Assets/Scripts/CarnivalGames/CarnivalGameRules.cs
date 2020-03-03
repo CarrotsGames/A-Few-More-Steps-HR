@@ -10,7 +10,11 @@ public class CarnivalGameRules : MonoBehaviour
     public Text totalDuckScore;
     public Text totalMoleScore;
     public Text totalShotsFired;
-    
+    public Text totalStrength;
+  
+    [Header("Strenth game")]
+    public float strenthTimer;
+
     [Header("RingToss game")]
     public int numberOfThrowables;
     [Header("Add rings here!")]
@@ -29,7 +33,9 @@ public class CarnivalGameRules : MonoBehaviour
     [Header("Add Spawner here!")]
     public GameObject throwableSpawner;
     public GameObject bulletSpawner;
-   
+
+    public float strengthTimeStore;
+    public int strengthScore;
     public static float ringScore;
     public static float duckScore;
     public static float score;
@@ -44,10 +50,12 @@ public class CarnivalGameRules : MonoBehaviour
     bool spawnMoreDucks;
     private void Start()
     {
+        strengthTimeStore = strenthTimer;
         timeStore = shootTimer;
         totalDuckScore.text = "" + 0;
         totalRingScore.text = "" + 0;
         totalShotsFired.text = "" + 0;
+        totalStrength.text = "" + 0;
         shotsFired = numberOfBullets;
         for (int i = 0; i < numberOfThrowables; i++)
         {     
@@ -68,15 +76,16 @@ public class CarnivalGameRules : MonoBehaviour
         totalRingScore.text = "" + ringScore;
         totalDuckScore.text = "" + duckScore;
         totalShotsFired.text = "" + shotsFired;
+        totalStrength.text = "" + strengthScore;
 
-        if (Input.GetKeyDown(KeyCode.R) )
-        {
-            RestartDuckGame();
-        }
-        else if (Input.GetKeyDown(KeyCode.R) && RingTossInProgress)
-        {
-            RestartRingToss();
-        }
+        //if (Input.GetKeyDown(KeyCode.R) )
+        //{
+        //    RestartDuckGame();
+        //}
+        //else if (Input.GetKeyDown(KeyCode.R) && RingTossInProgress)
+        //{
+        //    RestartRingToss();
+        //}
                     
         if(shotsFired <= 0)
         {
@@ -87,7 +96,12 @@ public class CarnivalGameRules : MonoBehaviour
     }
        
  
- 
+    public void RestartStrengthTest()
+    {
+        strenthTimer = strengthTimeStore;
+        strengthScore = 0;
+    }
+
     public void RestartRingToss()
     {
         for (int i = 0; i < throwableSpawner.transform.childCount; i++)
@@ -142,6 +156,7 @@ public class CarnivalGameRules : MonoBehaviour
         shotsFired = numberOfBullets;
 
     }
+ 
     public IEnumerator SpawnDuck()
     {
         int length = fastDuck.Length + slowDucks.Length;
