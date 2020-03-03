@@ -14,8 +14,10 @@ public class RingToss : MonoBehaviour
     private GameObject player;
     private GameObject carnivalGamesObj;
     private CarnivalGamesManager carnivalGameManager;
+    private bool checkGameOver;
     private void Start()
     {
+        checkGameOver = false;
         carnivalGamesObj = GameObject.Find("CarnivalGamesManager");
         carnivalGameManager = carnivalGamesObj.GetComponent<CarnivalGamesManager>();
         player = GameObject.FindGameObjectWithTag("Player");
@@ -23,7 +25,18 @@ public class RingToss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        if (checkGameOver)
+        {
+            int lastRing = ringSpawner.transform.childCount - 1;
+            GameObject go = carnivalGameManager.throwableSpawner.transform.GetChild(lastRing).gameObject;
+           // GameObject go = carnivalGameManager.throwableSpawner.transform.GetChild(CarnivalGamesManager.index - 1).gameObject;
+           // Debug.Log(go.GetComponent<Rigidbody>().velocity);
+            if (go.GetComponent<Rigidbody>().IsSleeping())
+            {
+                carnivalGameManager.RingTossGameover();
+                checkGameOver = false;
+            }
+        }
         if (Input.GetKeyDown(KeyCode.R))  
         {
 
@@ -64,20 +77,12 @@ public class RingToss : MonoBehaviour
                 forceSlider.value = force;
 
             }
-         
-            //if (CarnivalGamesManager.index >= ringSpawner.transform.childCount)
-            //{
-                
-            //    int lastRing = ringSpawner.transform.childCount - 1;
-            //    GameObject go =  carnivalGameManager.throwableSpawner.transform.GetChild(lastRing).gameObject;
-            //    if (go.GetComponent<Rigidbody>().velocity.y <= 0)
-            //    {
-            //        carnivalGameManager.RingTossGameover();
-            //    }
-            //    Debug.Log(go.GetComponent<Rigidbody>().velocity.y);
-            //}
+            if (CarnivalGamesManager.index >= ringSpawner.transform.childCount)
+            {
+                checkGameOver = true;
+            }
 
-
+           
         }
     }
 

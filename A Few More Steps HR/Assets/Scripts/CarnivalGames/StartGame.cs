@@ -69,7 +69,8 @@ public class StartGame : MonoBehaviour
                         carnivalGames.GetComponent<CarnivalGamesManager>().RestartDuckGame();
                         //  CarnivalGameRules.RingTossInProgress = true;
                         player.GetComponent<StrengthTest>().enabled = true;
-                       
+                        staminaSlider.SetActive(true);
+
                     }
                     break;
             }

@@ -112,7 +112,7 @@ public class CarnivalGamesManager : MonoBehaviour
         for (int i = 0; i < throwableReceivers.Length; i++)
         {
             // tells the poles to accept ring score
-            throwableReceivers[i].GetComponent<Ring>().hasRing = false;
+            throwableReceivers[i].GetComponent<Pole>().hasRing = false;
         }
         // resets rings score and list index
         ringScore = 0;

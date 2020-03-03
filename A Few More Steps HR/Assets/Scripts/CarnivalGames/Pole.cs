@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ring : MonoBehaviour
+public class Pole : MonoBehaviour
 {
     [HideInInspector]
     public bool hasRing = false;
