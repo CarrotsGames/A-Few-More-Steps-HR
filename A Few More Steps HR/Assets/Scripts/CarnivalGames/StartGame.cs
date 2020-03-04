@@ -74,6 +74,17 @@ public class StartGame : MonoBehaviour
                         staminaSlider.SetActive(true);
                     }
                     break;
+                case "DunkTank":
+                    {
+                        //gameManager.GetComponent<GameManager>().StopPLayerControls();
+                        // staminaSlider.SetActive(true);
+                        carnivalGames.GetComponent<CarnivalGamesManager>().RestartDunkTank();
+                        CarnivalGamesManager.startDunkGame = true;
+                        player.GetComponent<ThrowBall>().enabled = true;
+                        staminaSlider.SetActive(true);
+
+                    }
+                    break;
             }
         }
     }

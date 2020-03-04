@@ -20,10 +20,10 @@ public class Duck : MonoBehaviour
     void Update()
     {       
          transform.Translate(Vector3.right * speed * Time.deltaTime);
-        if(!gameObject.GetComponent<Renderer>().enabled)
-        {
-            Debug.Log("DeadAndGone");
-        }
+        //if(!gameObject.GetComponent<Renderer>().enabled)
+        //{
+        //    Debug.Log("DeadAndGone");
+        //}
     }
     private void OnTriggerEnter(Collider other)
     {

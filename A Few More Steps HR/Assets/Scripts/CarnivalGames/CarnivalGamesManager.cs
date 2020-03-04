@@ -11,6 +11,11 @@ public class CarnivalGamesManager : MonoBehaviour
     public Text totalMoleScore;
     public Text totalShotsFired;
     public Text totalStrength;
+    [Header("Dunk tank game")]
+    public int numberOfBalls;
+    private int ballStore;
+
+    public GameObject balls;
 
     [Header("Strenth game")]
     public float strenthTimer;
@@ -38,6 +43,7 @@ public class CarnivalGamesManager : MonoBehaviour
     [Header("Add Spawner here!")]
     public GameObject throwableSpawner;
     public GameObject bulletSpawner;
+    public GameObject ballSpawner;
 
     public static float ringScore;
     public static float duckScore;
@@ -45,6 +51,7 @@ public class CarnivalGamesManager : MonoBehaviour
     public static bool duckGameInProgress;
     public static bool startRingToss;
     public static bool startStrengthTest;
+    public static bool startDunkGame;
 
     private IEnumerator coroutine;
     public static int shotsFired;
@@ -52,8 +59,10 @@ public class CarnivalGamesManager : MonoBehaviour
     bool spawnMoreDucks;
     private void Start()
     {
+        ballStore = numberOfBalls;
         startStrengthTest = false;
         startRingToss = false;
+        startDunkGame = false;
         strengthTimeStore = strenthTimer;
         totalDuckScore.text = "" + 0;
         totalRingScore.text = "" + 0;
@@ -73,7 +82,12 @@ public class CarnivalGamesManager : MonoBehaviour
             Go.transform.parent = bulletSpawner.transform;
             Go.SetActive(false);
         }
- 
+        for (int i = 0; i < numberOfBalls; i++)
+        {
+            GameObject Go = Instantiate(balls, ballSpawner.transform.position, Quaternion.identity);
+            Go.transform.parent = ballSpawner.transform;
+            Go.SetActive(false);
+        }
     }
     private void Update()
     {
@@ -84,7 +98,28 @@ public class CarnivalGamesManager : MonoBehaviour
         totalStrength.text = "" + strengthScore;     
   
     }
-
+    public void RestartDunkTank()
+    {
+        startDunkGame = true;
+        numberOfBalls = ballStore;
+        index = 0;
+    }
+    // this game is done like this because results can
+    //be found in two scripts
+    public void DunkTankGameover(string results)
+    {
+        startDunkGame = false;
+        switch(results)
+        {
+            case "win":
+                Debug.Log("WIN");
+                break;
+            case "lose":
+                Debug.Log("LOST");
+                break;
+        }  
+        Debug.Log("GAMEOVER");
+    }
   // Strength test rules
     public void RestartStrengthTest()
     {
