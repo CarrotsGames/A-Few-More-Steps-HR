@@ -42,14 +42,14 @@ public class CarnivalGamesManager : MonoBehaviour
     public static float duckScore;
     public static float score;
     public static bool duckGameInProgress;
-    public static bool RingTossInProgress;
-
+    public static bool startRingToss;
     private IEnumerator coroutine;
     public static int shotsFired;
     public static bool resetMat;
     bool spawnMoreDucks;
     private void Start()
     {
+        startRingToss = false;
         strengthTimeStore = strenthTimer;
         totalDuckScore.text = "" + 0;
         totalRingScore.text = "" + 0;
@@ -90,11 +90,11 @@ public class CarnivalGamesManager : MonoBehaviour
     }
     public void RingTossGameover()
     {
-        if(ringScore > ringtossWinningScore)
+        if(ringScore >= ringtossWinningScore)
         {
             Debug.Log("You win");
         }
-        else
+        else if (ringScore < ringtossWinningScore)
         {
             Debug.Log("You lose");
         }
@@ -114,7 +114,8 @@ public class CarnivalGamesManager : MonoBehaviour
             // tells the poles to accept ring score
             throwableReceivers[i].GetComponent<Pole>().hasRing = false;
         }
-        // resets rings score and list index
+        startRingToss = true;
+        // resets rings score and list ind  ex
         ringScore = 0;
         index = 0;
     }
