@@ -31,7 +31,8 @@ public class StartGame : MonoBehaviour
             player.GetComponent<RingToss>().enabled = false;
             player.GetComponent<Shooting>().enabled = false;
             player.GetComponent<StrengthTest>().enabled = false;
- 
+            player.GetComponent<ThrowBall>().enabled = false;
+
             if (staminaSlider != null)
             {
                 if (staminaSlider.activeSelf)
