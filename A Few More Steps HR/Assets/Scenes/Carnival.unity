@@ -5180,7 +5180,7 @@ PrefabInstance:
     - target: {fileID: 5626561730016714705, guid: d33fe9bfab40f704f97caa068bae6716,
         type: 3}
       propertyPath: m_Name
-      value: StartGame (1)
+      value: StrongManStart
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d33fe9bfab40f704f97caa068bae6716, type: 3}
@@ -5248,7 +5248,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d3d494945a62d514987c19f698e2ad07, type: 2}
+  - {fileID: 2100000, guid: 267a2bd92fa7fd04d98117b0b149794a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6278,6 +6278,7 @@ MonoBehaviour:
   totalStrength: {fileID: 2037864709}
   strenthTimer: 8
   strengthScore: 0
+  strengthWinningScore: 85
   strengthTimeStore: 0
   ringtossWinningScore: 1250
   numberOfThrowables: 12
@@ -12087,6 +12088,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.62
       objectReference: {fileID: 0}
+    - target: {fileID: 3533109694038989866, guid: b7fd1be8834e9c547bec5a557ad39c0c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 267a2bd92fa7fd04d98117b0b149794a, type: 2}
     - target: {fileID: 3533109694615877858, guid: b7fd1be8834e9c547bec5a557ad39c0c,
         type: 3}
       propertyPath: m_Size.y

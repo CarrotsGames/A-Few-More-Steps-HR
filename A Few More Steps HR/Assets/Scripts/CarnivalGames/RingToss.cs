@@ -35,7 +35,7 @@ public class RingToss : MonoBehaviour
             {
                 carnivalGameManager.RingTossGameover();
                 checkGameOver = false;
-                CarnivalGamesManager.startRingToss = false;
+                //CarnivalGamesManager.startRingToss = false;
             }
         }
         if (Input.GetKeyDown(KeyCode.R))  

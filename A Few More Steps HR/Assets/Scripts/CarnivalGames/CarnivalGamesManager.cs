@@ -15,6 +15,7 @@ public class CarnivalGamesManager : MonoBehaviour
     [Header("Strenth game")]
     public float strenthTimer;
     public int strengthScore;
+    public int strengthWinningScore;
     [HideInInspector]
     public float strengthTimeStore;
 
@@ -43,12 +44,15 @@ public class CarnivalGamesManager : MonoBehaviour
     public static float score;
     public static bool duckGameInProgress;
     public static bool startRingToss;
+    public static bool startStrengthTest;
+
     private IEnumerator coroutine;
     public static int shotsFired;
     public static bool resetMat;
     bool spawnMoreDucks;
     private void Start()
     {
+        startStrengthTest = false;
         startRingToss = false;
         strengthTimeStore = strenthTimer;
         totalDuckScore.text = "" + 0;
@@ -87,6 +91,19 @@ public class CarnivalGamesManager : MonoBehaviour
         // resets timer and score
         strenthTimer = strengthTimeStore;
         strengthScore = 0;
+        startStrengthTest = true;
+    }
+    public void StrenthTestGameover()
+    {
+        if(strengthScore >= strengthWinningScore)
+        {
+            Debug.Log("YOU WIN");
+        }
+        else if (strengthScore < strengthWinningScore)
+        {
+            Debug.Log("YOU LOSE");
+        }
+        startStrengthTest = false;
     }
     public void RingTossGameover()
     {
@@ -98,6 +115,7 @@ public class CarnivalGamesManager : MonoBehaviour
         {
             Debug.Log("You lose");
         }
+        startRingToss = false;
     }
     public void RestartRingToss()
     {

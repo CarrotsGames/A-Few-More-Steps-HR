@@ -31,6 +31,7 @@ public class StartGame : MonoBehaviour
             player.GetComponent<RingToss>().enabled = false;
             player.GetComponent<Shooting>().enabled = false;
             player.GetComponent<StrengthTest>().enabled = false;
+ 
             if (staminaSlider != null)
             {
                 if (staminaSlider.activeSelf)
@@ -65,12 +66,12 @@ public class StartGame : MonoBehaviour
                     break;
                 case "StrengthTest":
                     {
+                        gameManager.GetComponent<GameManager>().StopPLayerControls();
                         // staminaSlider.SetActive(true);
-                        carnivalGames.GetComponent<CarnivalGamesManager>().RestartDuckGame();
+                        carnivalGames.GetComponent<CarnivalGamesManager>().RestartStrengthTest();
                         //  CarnivalGameRules.RingTossInProgress = true;
                         player.GetComponent<StrengthTest>().enabled = true;
                         staminaSlider.SetActive(true);
-
                     }
                     break;
             }

@@ -22,28 +22,32 @@ public class StrengthTest : MonoBehaviour
     void Update()
     {
         strength.value = numOfClicks;
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            
-            numOfClicks = 0;
-            carnivalGamesManager.RestartStrengthTest();
-        }
-        Debug.Log(carnivalGamesManager.strenthTimer);
-        if (carnivalGamesManager.strenthTimer > 0)
-        {
-            carnivalGamesManager.strenthTimer -= Time.deltaTime;
-
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+           if (Input.GetKeyDown(KeyCode.R))
             {
-                numOfClicks += 1;
-              //  carnivalGameRules.strengthScore = numOfClicks;
+
+                numOfClicks = 0;
+                carnivalGamesManager.RestartStrengthTest();
             }
-        }
-        else
+        if (CarnivalGamesManager.startStrengthTest)
         {
-            carnivalGamesManager.strengthScore = numOfClicks;
-            Debug.Log("Gameover");
+
+            Debug.Log(carnivalGamesManager.strenthTimer);
+            if (carnivalGamesManager.strenthTimer > 0)
+            {
+                carnivalGamesManager.strenthTimer -= Time.deltaTime;
+
+                if (Input.GetKeyDown(KeyCode.Mouse0))
+                {
+                    numOfClicks += 1;
+                    //  carnivalGameRules.strengthScore = numOfClicks;
+                }
+            }
+            else
+            {
+                carnivalGamesManager.strengthScore = numOfClicks;
+                carnivalGamesManager.StrenthTestGameover();
+                Debug.Log("Gameover");
+            }
         }
     }
 }
