@@ -59,10 +59,8 @@ public class ThrowBall : MonoBehaviour
                     ballSpawner.transform.GetChild(CarnivalGamesManager.index).GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
 
                     //// Transports ring to players position + y ands x offset to appear in front
-                    ballSpawner.transform.GetChild(CarnivalGamesManager.index).transform.position = transform.position + transform.up * 1;
+                    ballSpawner.transform.GetChild(CarnivalGamesManager.index).transform.position = transform.position;
                     ballSpawner.transform.GetChild(CarnivalGamesManager.index).transform.position += transform.forward * 1;
-                    //// resets rotation to avoid throwing rotated ring
-                    //ringSpawner.transform.GetChild(CarnivalGamesManager.index).transform.rotation = Quaternion.Euler(0, 0, 0);
                     ////enables ring
                     ballSpawner.transform.GetChild(CarnivalGamesManager.index).gameObject.SetActive(true);
                     //// Adds up and forward force to give a throwing feel. 

@@ -63,7 +63,7 @@ public class RingToss : MonoBehaviour
                     ringSpawner.transform.GetChild(CarnivalGamesManager.index).GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
 
                     // Transports ring to players position + y ands x offset to appear in front
-                    ringSpawner.transform.GetChild(CarnivalGamesManager.index).transform.position = transform.position + transform.up * 1;
+                    ringSpawner.transform.GetChild(CarnivalGamesManager.index).transform.position = transform.position;
                     ringSpawner.transform.GetChild(CarnivalGamesManager.index).transform.position += transform.forward * 1;
                     // resets rotation to avoid throwing rotated ring
                     ringSpawner.transform.GetChild(CarnivalGamesManager.index).transform.rotation = Quaternion.Euler(0, 0, 0);
