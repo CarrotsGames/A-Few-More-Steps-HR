@@ -4,17 +4,22 @@ using UnityEngine;
 //Equips to cameraCM
 public class ReadScript : MonoBehaviour
 {
+    
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit))
-        { 
-            if (hit.transform.tag == "Book" && Input.GetKeyDown(KeyCode.Mouse0))
-            {
-                hit.transform.gameObject.GetComponent<Notes>().ReadNote();
-                Debug.Log(hit.transform.name);
-            }
+        LayerMask mask = LayerMask.GetMask("Book");
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit,5, mask))
+        {
+            Debug.Log("in range");
+          // if (hit.transform.tag == "Book")
+          // {
+                if (Input.GetKey(KeyCode.F))
+                {
+                    hit.transform.gameObject.GetComponent<Notes>().ReadNote();
+                }
+           // }
         }
     }
 }
