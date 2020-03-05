@@ -13,6 +13,7 @@ public class ReadScript : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit,5, mask))
         {
             Debug.Log("in range");
+            reticle.HighliteObject();
           // if (hit.transform.tag == "Book")
           // {
                 if (Input.GetKey(KeyCode.F))
@@ -20,6 +21,11 @@ public class ReadScript : MonoBehaviour
                     hit.transform.gameObject.GetComponent<Notes>().ReadNote();
                 }
            // }
+        }
+        else
+        {
+            reticle.disableHighlite();
+
         }
     }
 }

@@ -6,6 +6,8 @@ using UnityEngine;
 public class Notes : MonoBehaviour
 {
     public GameObject noteUi;
+    [TextArea(15, 20)]
+
     public string noteText;
     private GameObject player;
     private void Start()
