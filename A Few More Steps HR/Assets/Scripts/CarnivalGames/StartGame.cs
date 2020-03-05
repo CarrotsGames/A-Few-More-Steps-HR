@@ -9,9 +9,10 @@ public class StartGame : MonoBehaviour
     private GameObject player;
     private GameObject gameManager;
     private GameObject carnivalGames;
-    public static bool playingGame;
     public GameObject staminaSlider;
-
+    
+    private Transform lookAt;
+    public static bool playingGame;
     private void Start()
     {
         carnivalGames = GameObject.Find("CarnivalGamesManager");
@@ -42,12 +43,23 @@ public class StartGame : MonoBehaviour
             }
         }
     }
+    void LookAtGame()
+    {
+        lookAt = transform.GetChild(0).transform;
+        // player.transform.position = transform.position + transform.up * 1;
+        Vector3 lookPos = lookAt.position - player.transform.position;
+        lookPos.y = 0;
+        Quaternion rotation = Quaternion.LookRotation(lookPos);
+        player.transform.rotation = Quaternion.Slerp(player.transform.rotation, rotation, Time.deltaTime * 100);
+        //player.transform.LookAt(lookAt);
+    }
     private void OnTriggerStay(Collider other)
     {
         if (Input.GetKeyDown(KeyCode.Space) && other.tag == "Player")
         {
             playingGame = true;
             gameManager.GetComponent<GameManager>().StopMovement();
+            LookAtGame();
             switch (gametype)
             {
                 case "RingToss":
@@ -72,6 +84,7 @@ public class StartGame : MonoBehaviour
                         carnivalGames.GetComponent<CarnivalGamesManager>().RestartStrengthTest();
                         //  CarnivalGameRules.RingTossInProgress = true;
                         player.GetComponent<StrengthTest>().enabled = true;
+                        player.GetComponent<StrengthTest>().numOfClicks = 0;
                         staminaSlider.SetActive(true);
                     }
                     break;
