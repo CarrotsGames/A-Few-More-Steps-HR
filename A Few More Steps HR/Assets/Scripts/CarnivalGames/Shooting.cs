@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
+    public float bulletSpeed = 75;
     public GameObject camera;
     public LayerMask duckMask;
     public GameObject bulletSpawer;
@@ -40,7 +41,7 @@ public class Shooting : MonoBehaviour
                 // enables rifle
                 bulletSpawer.transform.GetChild(CarnivalGamesManager.index).gameObject.SetActive(true);
                 // shoots bullet using forward force
-                bulletSpawer.transform.GetChild(CarnivalGamesManager.index).GetComponent<Rigidbody>().AddForce(barrel.transform.forward * 1000 * 75 * Time.deltaTime);
+                bulletSpawer.transform.GetChild(CarnivalGamesManager.index).GetComponent<Rigidbody>().AddForce(barrel.transform.forward * 1000 * bulletSpeed * Time.deltaTime);
                 //bulletSpawer.transform.GetChild(CarnivalGameRules.index).GetComponent<Rigidbody>().AddForce(camera.transform.up * force * 50);
                 CarnivalGamesManager.index++;
             }

@@ -2898,7 +2898,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5a85485e79317394bbc89ca16446c729, type: 2}
+  - {fileID: 2100000, guid: 7b84aa7f6d3e69148b3d8e06dd3ca1b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2935,8 +2935,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 17523118}
   m_LocalRotation: {x: -0, y: 0.06703233, z: -0, w: 0.9977508}
-  m_LocalPosition: {x: 105.33, y: 91.42, z: -0.77}
-  m_LocalScale: {x: 1, y: 1.6161562, z: 1}
+  m_LocalPosition: {x: 105.85, y: 91.42, z: -0.84}
+  m_LocalScale: {x: 1.7250593, y: 1.6161562, z: 1}
   m_Children:
   - {fileID: 650570554}
   - {fileID: 338273910}
@@ -5730,7 +5730,7 @@ PrefabInstance:
     - target: {fileID: 2800846916204148172, guid: d33fe9bfab40f704f97caa068bae6716,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 97.68
+      value: 96.8
       objectReference: {fileID: 0}
     - target: {fileID: 2800846916204148172, guid: d33fe9bfab40f704f97caa068bae6716,
         type: 3}
@@ -5740,7 +5740,7 @@ PrefabInstance:
     - target: {fileID: 2800846916204148172, guid: d33fe9bfab40f704f97caa068bae6716,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.63
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 2800846916204148172, guid: d33fe9bfab40f704f97caa068bae6716,
         type: 3}
@@ -6922,7 +6922,7 @@ MonoBehaviour:
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: New Text
 --- !u!222 &883288201
@@ -7633,7 +7633,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1178792252}
   m_LocalRotation: {x: -0, y: 0.7651767, z: -0, w: 0.6438203}
-  m_LocalPosition: {x: 0, y: 0, z: -4.33}
+  m_LocalPosition: {x: 0, y: 0, z: -4.1299996}
   m_LocalScale: {x: 0.05435625, y: 0.05435625, z: 0.05435625}
   m_Children: []
   m_Father: {fileID: 249748308}
@@ -7641,7 +7641,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 99.845, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 16.35, y: 2.07}
+  m_AnchoredPosition: {x: 15.190004, y: 2.1299975}
   m_SizeDelta: {x: 129.527, y: 39.861}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1178792254
@@ -7672,8 +7672,8 @@ MonoBehaviour:
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: New Text
 --- !u!222 &1178792255
@@ -10955,6 +10955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 769cba06740bff44aafe5b06fd85b1c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletSpeed: 80
   camera: {fileID: 1322830527}
   duckMask:
     serializedVersion: 2
@@ -13610,7 +13611,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2030616604}
   m_LocalRotation: {x: -0, y: 0.7651767, z: -0, w: 0.6438203}
-  m_LocalPosition: {x: 0, y: 0, z: 1.01}
+  m_LocalPosition: {x: 0, y: 0, z: 1.21}
   m_LocalScale: {x: 0.05435625, y: 0.05435625, z: 0.05435625}
   m_Children: []
   m_Father: {fileID: 249748308}
@@ -13618,7 +13619,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 99.845, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 17.28, y: 2.07}
+  m_AnchoredPosition: {x: 16.12, y: 2.13}
   m_SizeDelta: {x: 129.527, y: 39.861}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2030616606
@@ -13649,8 +13650,8 @@ MonoBehaviour:
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: New Text
 --- !u!222 &2030616607
@@ -13837,7 +13838,7 @@ MonoBehaviour:
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: New Text
 --- !u!222 &2037864710
