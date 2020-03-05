@@ -5290,11 +5290,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5503190953217020625, guid: d33fe9bfab40f704f97caa068bae6716,
         type: 3}
-      propertyPath: gametype
-      value: StrengthTest
-      objectReference: {fileID: 0}
-    - target: {fileID: 5503190953217020625, guid: d33fe9bfab40f704f97caa068bae6716,
-        type: 3}
       propertyPath: staminaSlider
       value: 
       objectReference: {fileID: 1779241499}
@@ -5398,6 +5393,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 482389216}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &494230886 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1906479938295950288, guid: d33fe9bfab40f704f97caa068bae6716,
+    type: 3}
+  m_PrefabInstance: {fileID: 882270388}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &526033749
 GameObject:
   m_ObjectHideFlags: 0
@@ -5701,6 +5702,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1906479938295950288, guid: d33fe9bfab40f704f97caa068bae6716,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -11.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1906479938295950288, guid: d33fe9bfab40f704f97caa068bae6716,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 1906479938295950288, guid: d33fe9bfab40f704f97caa068bae6716,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 2395192815456585779, guid: d33fe9bfab40f704f97caa068bae6716,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 2395192815456585779, guid: d33fe9bfab40f704f97caa068bae6716,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.06
+      objectReference: {fileID: 0}
     - target: {fileID: 2800846916204148172, guid: d33fe9bfab40f704f97caa068bae6716,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5760,6 +5786,11 @@ PrefabInstance:
         type: 3}
       propertyPath: gametype
       value: DuckShooting
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503190953217020625, guid: d33fe9bfab40f704f97caa068bae6716,
+        type: 3}
+      propertyPath: lookAt
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5626561730016714705, guid: d33fe9bfab40f704f97caa068bae6716,
         type: 3}
@@ -6733,6 +6764,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1906479938295950288, guid: d33fe9bfab40f704f97caa068bae6716,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 1906479938295950288, guid: d33fe9bfab40f704f97caa068bae6716,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 1906479938295950288, guid: d33fe9bfab40f704f97caa068bae6716,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
     - target: {fileID: 2800846916204148172, guid: d33fe9bfab40f704f97caa068bae6716,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6798,6 +6844,11 @@ PrefabInstance:
       propertyPath: staminaSlider
       value: 
       objectReference: {fileID: 1930500042}
+    - target: {fileID: 5503190953217020625, guid: d33fe9bfab40f704f97caa068bae6716,
+        type: 3}
+      propertyPath: lookAt
+      value: 
+      objectReference: {fileID: 494230886}
     - target: {fileID: 5626561730016714705, guid: d33fe9bfab40f704f97caa068bae6716,
         type: 3}
       propertyPath: m_Name
@@ -10673,6 +10724,36 @@ Transform:
   m_Father: {fileID: 338273910}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1259857963
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1259857964}
+  m_Layer: 0
+  m_Name: LookAtMe
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1259857964
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259857963}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 3.2, z: -7.53}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1703036360}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1321948289
 GameObject:
   m_ObjectHideFlags: 0
@@ -12124,6 +12205,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasRing: 0
   score: 150
+--- !u!4 &1703036360 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3533109694615877863, guid: b7fd1be8834e9c547bec5a557ad39c0c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1856865812}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1703765491 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2096245193, guid: cb651ecb12b7de24cbcae23783ea7618,
@@ -12971,6 +13058,11 @@ PrefabInstance:
       propertyPath: staminaSlider
       value: 
       objectReference: {fileID: 1930500042}
+    - target: {fileID: 3533109694615877862, guid: b7fd1be8834e9c547bec5a557ad39c0c,
+        type: 3}
+      propertyPath: lookAt
+      value: 
+      objectReference: {fileID: 1259857964}
     - target: {fileID: 3533109694615877863, guid: b7fd1be8834e9c547bec5a557ad39c0c,
         type: 3}
       propertyPath: m_LocalPosition.y

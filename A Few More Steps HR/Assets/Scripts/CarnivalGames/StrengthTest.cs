@@ -47,6 +47,7 @@ public class StrengthTest : MonoBehaviour
                 carnivalGamesManager.strengthScore = numOfClicks;
                 carnivalGamesManager.StrenthTestGameover();
                 Debug.Log("Gameover");
+                numOfClicks = 0;
             }
         }
     }
