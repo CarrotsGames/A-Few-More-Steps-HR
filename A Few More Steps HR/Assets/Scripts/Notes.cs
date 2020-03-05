@@ -21,7 +21,7 @@ public class Notes : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         MouseLook.canLook = false;
         player.GetComponent<CharacterController>().enabled = false;
-        noteUi.transform.GetChild(0).GetComponent<Text>().text = noteText;
+        noteUi.transform.GetChild(1).GetComponent<Text>().text = noteText;
         noteUi.SetActive(true);
      //   EnableCamera.stopTakingPhotos = true;
     }   
