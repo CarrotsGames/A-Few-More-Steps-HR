@@ -5,10 +5,9 @@ using UnityEngine;
 
 public class Notes : MonoBehaviour
 {
-    public GameObject noteUi;
+    public GameObject noteUi;   
     [TextArea(15, 20)]
-
-    public string noteText;
+    public string[] noteText;
     private GameObject player;
     private void Start()
     {
@@ -20,11 +19,17 @@ public class Notes : MonoBehaviour
     }
     public void ReadNote()
     {
+      
         Cursor.lockState = CursorLockMode.None;
         MouseLook.canLook = false;
         player.GetComponent<CharacterController>().enabled = false;
-        noteUi.transform.GetChild(1).GetComponent<Text>().text = noteText;
+        for (int i = 0; i < noteText.Length; i++)
+        {
+            noteUi.transform.GetChild(i + 1).GetComponent<Text>().text = noteText[i];
+        }
+        noteUi.transform.GetChild(0).transform.GetComponent<NextPage>().numberOfPages = noteText.Length;
         noteUi.SetActive(true);
+        noteUi.transform.GetChild(1).gameObject.SetActive(true);
      //   EnableCamera.stopTakingPhotos = true;
     }   
 }

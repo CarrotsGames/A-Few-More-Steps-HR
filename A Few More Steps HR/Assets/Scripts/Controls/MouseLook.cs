@@ -26,7 +26,7 @@ public class MouseLook : MonoBehaviour
 
             rotateX -= mouseY;             //up  down
             rotateX = Mathf.Clamp(rotateX, -60, 60);
-
+            // turns player model based on mouse x
             transform.localRotation = Quaternion.Euler(rotateX, 0f, 0f);
             playerBody.Rotate(Vector3.up * mouseX);
         }

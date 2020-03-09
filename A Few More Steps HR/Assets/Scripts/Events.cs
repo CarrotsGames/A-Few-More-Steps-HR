@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Events : MonoBehaviour
 {
+    // eventname is set in inspector
     [Header("Cutscene,  Sounds, Dialogue, Action")]
     public string eventName;
     
@@ -23,6 +24,7 @@ public class Events : MonoBehaviour
         source = GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player");
     }
+ 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
@@ -41,7 +43,6 @@ public class Events : MonoBehaviour
                 case "Action":
                     Action();
                     break;
-
             }
         }
     }
@@ -56,13 +57,19 @@ public class Events : MonoBehaviour
             // WHEN OVER PLAYER CAN MOVE AGAIN
 
     }
-    // cutscenes
+    // This void will hold animation properties and change lighting 
+    // to inform the player that gameplay will shift into cutscene.
     void PlayCutscene()
     {
+        // REMOVE ANY UI ON SCREEN
+        
+        // PLAY ANIM
+
+        // TURN DOWN LIGHTING
         Debug.Log("PlayCutscene");
 
     }
-    // nature sounds or other
+    // purpose of this is to play nature sounds, house setting or music
     void PlaySoundEvent()
     {
         Debug.Log("SoundEffects");
@@ -74,20 +81,20 @@ public class Events : MonoBehaviour
         GetComponent<BoxCollider>().enabled = false;
         destroy = true;
     }
-    // player talking 
-    void PlayDialogue()
-    {
-        source.clip = dialogue;
-        source.Play();
-        Debug.Log("PlayDialogue");
-    }
-    // Player slipping , climbing etc
+   
+    // Plays first person animations such as pick up, falling etc
     void Action()
     {
         Debug.Log("Action");
         // ADD ANIMATION HERE
         // DISABLE PLAYER CONTROLS AND CAMERA
         // GO TO UPDATE FUNCTION
+    }
+    void PlayDialogue()
+    {
+        source.clip = dialogue;
+        source.Play();
+        Debug.Log("PlayDialogue");
     }
     void DestroyMe()
     {

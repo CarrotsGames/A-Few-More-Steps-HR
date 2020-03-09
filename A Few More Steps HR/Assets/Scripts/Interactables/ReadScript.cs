@@ -4,7 +4,6 @@ using UnityEngine;
 //Equips to cameraCM
 public class ReadScript : MonoBehaviour
 {
-    
     // Update is called once per frame
     void FixedUpdate()
     {
