@@ -15,7 +15,7 @@ public class AddItem : MonoBehaviour
         inventory = GameObject.Find("Inventory");
     }
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         RaycastHit hit;
         if(Physics.Raycast(transform.position, transform.forward,out hit, distance, mask) && !PlayerMovement.stopMovement)
@@ -36,7 +36,7 @@ public class AddItem : MonoBehaviour
         }
         else
         {
-            reticle.disableHighlite();
+           // reticle.disableHighlite();
         }
     }
 }
