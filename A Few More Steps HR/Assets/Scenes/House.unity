@@ -20816,6 +20816,11 @@ PrefabInstance:
       propertyPath: pickUps.Array.data[5]
       value: 
       objectReference: {fileID: 1271055198}
+    - target: {fileID: 7948243979399521653, guid: 755df34f2df11094ab49b8a474fd4f7a,
+        type: 3}
+      propertyPath: inHouse
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7948243979399521658, guid: 755df34f2df11094ab49b8a474fd4f7a,
         type: 3}
       propertyPath: m_LocalPosition.x

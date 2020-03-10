@@ -35,7 +35,7 @@ public class ItemSaveManager : MonoBehaviour
     }
        
     // Gets saved list
-    private void SaveItems(IList<GameObject> ItemSlots, string fileName)
+    private void SaveItems(IList<string> ItemSlots, string fileName)
     {
         var saveData = new ItemContainerSaveData(ItemSlots.Count);
         // saves list stuff 
@@ -43,14 +43,14 @@ public class ItemSaveManager : MonoBehaviour
         {
             
             // saves each item collected into a file
-            GameObject itemSlot = ItemSlots[i];
+            string itemSlot = ItemSlots[i];
             if(itemSlot == null)
             {
                 saveData.SavedSlots[i] = null;
             }
             else
             {
-                saveData.SavedSlots[i] = new ItemsaveData(itemSlot.name);
+                saveData.SavedSlots[i] = new ItemsaveData(itemSlot);
                 ItemSaveIO.SaveItems(saveData, fileName);
             }
         }

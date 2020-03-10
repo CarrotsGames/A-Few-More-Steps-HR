@@ -5,7 +5,7 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     public bool inHouse = false;
-    public List<GameObject> collectedItems;
+    public List<string> collectedItems;
     private GameObject saveManager;
     [Header("Items placed in the house")]
     public GameObject[] collectables;
@@ -14,7 +14,7 @@ public class Inventory : MonoBehaviour
 
     private void Start()
     {
-        collectedItems = new List<GameObject>();
+        collectedItems = new List<string>();
         saveManager = GameObject.Find("SaveManager");
         saveManager.GetComponent<ItemSaveManager>().LoadInventory(this);
     }
@@ -31,6 +31,7 @@ public class Inventory : MonoBehaviour
     }
     void EnableCollectable(int collectableNum)
     {
+      
         if (inHouse)
         {
             collectables[collectableNum].SetActive(true);
@@ -38,15 +39,19 @@ public class Inventory : MonoBehaviour
     }
     public void inventory(string itemName )
     {
-       
+        // adds collected item name for saving
+        // this is always added so when saving it will save all found items
+        // even when found in previous levels
+        collectedItems.Add(itemName);
         switch (itemName)
         {
             case "A":
                 // Spawns the saved inventory items into the house
                 // CHECK IF IN HOUSE SCENES COLLECTABLES ARE ONLY IN HOUSE SCENES!!!!    
                 EnableCollectable(0);
-               // pickUps[0].gameObject.SetActive(false);          
+                // pickUps[0].gameObject.SetActive(false);          
                 // ALWAYS SAVE INVENTORY
+                
                 saveManager.GetComponent<ItemSaveManager>().SaveInventory(this);
                 break;
             case "B":

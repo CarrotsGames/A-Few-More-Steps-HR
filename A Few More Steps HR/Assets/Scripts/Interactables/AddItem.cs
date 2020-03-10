@@ -26,7 +26,7 @@ public class AddItem : MonoBehaviour
             {
                 // saves name of object
                 items.Add(hit.transform.gameObject);
-                inventory.GetComponent<Inventory>().collectedItems.Add(hit.transform.gameObject);
+                inventory.GetComponent<Inventory>().collectedItems.Add(hit.transform.name);
                 // inventory.GetComponent<Inventory>().
                 // saves item into the inventory
                 inventory.GetComponent<Inventory>().inventory(hit.transform.gameObject.name);
