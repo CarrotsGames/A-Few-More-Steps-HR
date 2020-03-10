@@ -15,19 +15,26 @@ public class AddItem : MonoBehaviour
         inventory = GameObject.Find("Inventory");
     }
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         RaycastHit hit;
         if(Physics.Raycast(transform.position, transform.forward,out hit, distance, mask) && !PlayerMovement.stopMovement)
         {
+            reticle.HighliteObject();
+
             if (Input.GetKeyDown(KeyCode.E))
             {
                 items.Add(hit.transform.gameObject);
-                inventory.GetComponent<Inventory>().collectables.Add(hit.transform.gameObject);
+               // inventory.GetComponent<Inventory>().
+               // saves item into the inventory
                 inventory.GetComponent<Inventory>().inventory(hit.transform.gameObject.name);
                 hit.transform.gameObject.SetActive(false);
-              
+                Debug.Log(hit.transform.name + "Has been collected!!!");
             }
+        }
+        else
+        {
+            reticle.disableHighlite();
         }
     }
 }

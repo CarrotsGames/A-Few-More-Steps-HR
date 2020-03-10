@@ -12,6 +12,7 @@ public class ItemsaveData
     }
 
 }
+// Gets size of saved items from the inventory
 [Serializable]
 public class ItemContainerSaveData
 {

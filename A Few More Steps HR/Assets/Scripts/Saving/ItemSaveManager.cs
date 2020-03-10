@@ -11,7 +11,7 @@ public class ItemSaveManager : MonoBehaviour
     // private const string ItemInGame = "Inventory";
 
 
-        // JUST SAVED INVENTORY GOTTEN FROM THE INVENTORY SCRIPT ON CANVAS
+    // JUST SAVED INVENTORY GOTTEN FROM THE INVENTORY SCRIPT ON CANVAS
     public void LoadInventory(Inventory inventory)
     {
         // Gets number of saved items
@@ -31,7 +31,7 @@ public class ItemSaveManager : MonoBehaviour
     public void SaveInventory(Inventory inventory)
     {
         // saves current collectables along with the filename
-        SaveItems(inventory.collectables, InventoryFileName);
+        SaveItems(inventory.collectedItems, InventoryFileName);
     }
        
     // Gets saved list
@@ -41,6 +41,7 @@ public class ItemSaveManager : MonoBehaviour
         // saves list stuff 
         for (int i = 0; i < saveData.SavedSlots.Length; i++)
         {
+            
             // saves each item collected into a file
             GameObject itemSlot = ItemSlots[i];
             if(itemSlot == null)
