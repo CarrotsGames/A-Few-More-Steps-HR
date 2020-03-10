@@ -100,7 +100,7 @@ public class Settings : MonoBehaviour
     }
     void FullScreen()
     {
-        if(fullScreenInt < 1)
+        if(fullScreenInt == 1)
         {
             fullScreenText.text = "Windowed";
             fullScreen = false;

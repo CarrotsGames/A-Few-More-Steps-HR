@@ -9,10 +9,13 @@ public class AddItem : MonoBehaviour
     public List<GameObject> items;
     public LayerMask mask;
     private GameObject inventory;
+    private GameObject objectiveManager;
     private void Start()
     {
         items = new List<GameObject>();
         inventory = GameObject.Find("Inventory");
+        objectiveManager = GameObject.Find("ObjectiveManager");
+
     }
     // Update is called once per frame
     void Update()
@@ -26,8 +29,8 @@ public class AddItem : MonoBehaviour
             {
                 // saves name of object
                 items.Add(hit.transform.gameObject);
-               // inventory.GetComponent<Inventory>().collectedItems.Add(hit.transform.name);
-                // inventory.GetComponent<Inventory>().
+                objectiveManager.GetComponent<ObjectiveManager>().itemCollected++;
+                objectiveManager.GetComponent<ObjectiveManager>().Objective();
                 // saves item into the inventory
                 inventory.GetComponent<Inventory>().inventory(hit.transform.gameObject.name);
                 hit.transform.gameObject.SetActive(false);
