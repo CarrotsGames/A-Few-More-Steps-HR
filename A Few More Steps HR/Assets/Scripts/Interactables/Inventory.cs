@@ -9,8 +9,8 @@ public class Inventory : MonoBehaviour
     private GameObject saveManager;
     [Header("Items placed in the house")]
     public GameObject[] collectables;
-    [Header("Items with pick up layer")]
-    public GameObject[] pickUps;
+   // [Header("Items with pick up layer")]
+   // public GameObject[] pickUps;
 
     private void Start()
     {
@@ -42,7 +42,10 @@ public class Inventory : MonoBehaviour
         // adds collected item name for saving
         // this is always added so when saving it will save all found items
         // even when found in previous levels
-        collectedItems.Add(itemName);
+        if (!collectedItems.Contains(itemName))
+        {
+            collectedItems.Add(itemName);
+        }
         switch (itemName)
         {
             case "A":
