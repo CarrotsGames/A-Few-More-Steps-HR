@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
     public static bool cameraOn;
     public GameObject player;
     public GameObject mainCam;
-    public GameObject photoCam;
     private void Update()
     {
         if (cameraOn)
@@ -15,7 +14,7 @@ public class GameManager : MonoBehaviour
             PlayerMovement.stopMovement = false;
         }
     }
-    public void StopPLayerControls()
+    public void StopPlayerControls()
     {
         player.GetComponent<CharacterController>().enabled = false;
         MouseLook.canLook = false;

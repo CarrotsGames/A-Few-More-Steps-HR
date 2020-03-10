@@ -5,6 +5,7 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     public bool inHouse = false;
+    [Header("Items picked up by player (Visible for debugging)")]
     public List<string> collectedItems;
     private GameObject saveManager;
     [Header("Items placed in the house")]

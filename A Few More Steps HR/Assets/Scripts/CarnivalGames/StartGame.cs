@@ -79,7 +79,7 @@ public class StartGame : MonoBehaviour
                     break;
                 case "StrengthTest":
                     {
-                        gameManager.GetComponent<GameManager>().StopPLayerControls();
+                        gameManager.GetComponent<GameManager>().StopPlayerControls();
                         // staminaSlider.SetActive(true);
                         carnivalGames.GetComponent<CarnivalGamesManager>().RestartStrengthTest();
                         //  CarnivalGameRules.RingTossInProgress = true;

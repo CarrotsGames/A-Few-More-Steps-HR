@@ -49,7 +49,7 @@ public class GetPhotos : MonoBehaviour
                
             // turn on gallery
             transform.GetChild(0).gameObject.SetActive(true);
-            gameManager.GetComponent<GameManager>().StopPLayerControls();
+            gameManager.GetComponent<GameManager>().StopPlayerControls();
             inInventory = true;
         }
     }

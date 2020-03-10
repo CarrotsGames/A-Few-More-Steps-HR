@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 828507136}
   - component: {fileID: 828507138}
   - component: {fileID: 368714676}
+  - component: {fileID: 978580131}
   m_Layer: 11
   m_Name: CMMainCamera
   m_TagString: MainCamera
@@ -198,6 +199,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60ae543f3fef04e428cf97d13cc0954d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &978580131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828507135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e8b0bbb039a562408bcbb16613f42c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distance: 5
+  items: []
+  mask:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!1 &1030564012
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,10 +460,6 @@ GameObject:
   - component: {fileID: 4027616773248722430}
   - component: {fileID: 4027616773248722417}
   - component: {fileID: 4027616773248722431}
-  - component: {fileID: 1441235098}
-  - component: {fileID: 1441235102}
-  - component: {fileID: 1441235103}
-  - component: {fileID: 1441235104}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -501,7 +515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeb7d3b47185b9e4da0f79dbc8599951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 12
+  speed: 4
   gravity: -9
   groundDist: 0.4
   groundCheck: {fileID: 4027616772541032619}
@@ -512,71 +526,6 @@ MonoBehaviour:
   canMove: 0
   controller: {fileID: 0}
   isGrounded: 0
---- !u!114 &1441235098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4027616773248722416}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d519038bda10e5847a08cf4c91b586fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camera: {fileID: 828507135}
-  ballSpawner: {fileID: 0}
-  force: 0
-  forceSlider: {fileID: 0}
---- !u!114 &1441235102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4027616773248722416}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 743a26968a7279549bcef2bc727b1611, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 0
-  ringSpawner: {fileID: 0}
-  forceSlider: {fileID: 0}
-  camera: {fileID: 828507135}
---- !u!114 &1441235103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4027616773248722416}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 769cba06740bff44aafe5b06fd85b1c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletSpeed: 80
-  camera: {fileID: 828507135}
-  duckMask:
-    serializedVersion: 2
-    m_Bits: 512
-  bulletSpawer: {fileID: 0}
-  barrel: {fileID: 1030564012}
---- !u!114 &1441235104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4027616773248722416}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7665efd5d32f0ef47bd2ee739079a5fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numOfClicks: 0
-  strength: {fileID: 0}
 --- !u!1 &4027616773942155175
 GameObject:
   m_ObjectHideFlags: 0
@@ -607,7 +556,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4027616773942155175}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.000002781162, y: 0.610002, z: 0}
+  m_LocalPosition: {x: 0.00000029038347, y: 0.610002, z: 0.0000027659116}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4027616773248722430}
