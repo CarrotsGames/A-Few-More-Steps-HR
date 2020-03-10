@@ -15,7 +15,7 @@ public class ReadScript : MonoBehaviour
             reticle.HighliteObject();
           // if (hit.transform.tag == "Book")
           // {
-                if (Input.GetKey(KeyCode.F))
+                if (Input.GetKey(KeyCode.E))
                 {
                     hit.transform.gameObject.GetComponent<Notes>().ReadNote();
                 }

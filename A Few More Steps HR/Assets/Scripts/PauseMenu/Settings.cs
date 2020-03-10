@@ -39,7 +39,7 @@ public class Settings : MonoBehaviour
     {
         if(Input.GetMouseButtonUp(0))
         {
-            Debug.Log("mouseUP");
+ 
             audioManager.GetComponent<AudioManager>().soundSource.volume = soundEffectSlider.value;
             audioManager.GetComponent<AudioManager>().musicSource.volume = musicSlider.value;
         }
