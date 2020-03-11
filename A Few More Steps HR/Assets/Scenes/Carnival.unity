@@ -7896,7 +7896,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeOut: 0
-  nextScene: 
+  nextScene: House
 --- !u!1 &1114346282
 GameObject:
   m_ObjectHideFlags: 0
