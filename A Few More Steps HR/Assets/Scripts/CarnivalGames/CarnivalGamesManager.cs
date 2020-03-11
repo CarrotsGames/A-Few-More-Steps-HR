@@ -14,7 +14,6 @@ public class CarnivalGamesManager : MonoBehaviour
     [Header("Dunk tank game")]
     public int numberOfBalls;
     private int ballStore;
-
     public GameObject balls;
 
     [Header("Strenth game")]
@@ -57,7 +56,7 @@ public class CarnivalGamesManager : MonoBehaviour
     public static bool resetMat;
     private IEnumerator coroutine;
     private GameObject objectiveManager;
-
+   
      private void Start()
     {
         ballStore = numberOfBalls;
@@ -113,9 +112,8 @@ public class CarnivalGamesManager : MonoBehaviour
         startDunkGame = false;
         if(results == "win")
         {
-            objectiveManager.GetComponent<ObjectiveManager>().itemCollected++;
-            objectiveManager.GetComponent<ObjectiveManager>().Objective();
-
+            //objectiveManager.GetComponent<ObjectiveManager>().itemCollected++;
+            //objectiveManager.GetComponent<ObjectiveManager>().Objective();
             Debug.Log("WIN");
         }
         else
@@ -137,9 +135,9 @@ public class CarnivalGamesManager : MonoBehaviour
     {
         if(strengthScore >= strengthWinningScore)
         {
-            objectiveManager.GetComponent<ObjectiveManager>().itemCollected++;
-            objectiveManager.GetComponent<ObjectiveManager>().Objective();
-
+            //objectiveManager.GetComponent<ObjectiveManager>().itemCollected++;
+            //objectiveManager.GetComponent<ObjectiveManager>().Objective();
+            GetComponent<GivePrizes>().GrantPrize("C");
             Debug.Log("YOU WIN");
         }
         else if (strengthScore < strengthWinningScore)
@@ -148,13 +146,16 @@ public class CarnivalGamesManager : MonoBehaviour
         }
         startStrengthTest = false;
     }
+    // ring toss rules
     public void RingTossGameover()
     {
         if(ringScore >= ringtossWinningScore)
         {
-            objectiveManager.GetComponent<ObjectiveManager>().itemCollected++;
-            objectiveManager.GetComponent<ObjectiveManager>().Objective();
+            //objectiveManager.GetComponent<ObjectiveManager>().itemCollected++;
+            //objectiveManager.GetComponent<ObjectiveManager>().Objective();
             Debug.Log("You win");
+            GetComponent<GivePrizes>().GrantPrize("B");
+
         }
         else if (ringScore < ringtossWinningScore)
         {
@@ -182,13 +183,14 @@ public class CarnivalGamesManager : MonoBehaviour
         ringScore = 0;
         index = 0;
     }
-    // Duck game Properties
+    // Duck game rules
     public void DuckGameOver()
     {
         if (duckScore >= duckWinningScore)
         {
-            objectiveManager.GetComponent<ObjectiveManager>().itemCollected++;
-             objectiveManager.GetComponent<ObjectiveManager>().Objective();
+            //objectiveManager.GetComponent<ObjectiveManager>().itemCollected++;
+            // objectiveManager.GetComponent<ObjectiveManager>().Objective();
+            GetComponent<GivePrizes>().GrantPrize("A");
 
             Debug.Log("You win");
         }
