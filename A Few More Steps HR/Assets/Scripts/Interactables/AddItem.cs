@@ -34,7 +34,7 @@ public class AddItem : MonoBehaviour
                 // saves item into the inventory
                 inventory.GetComponent<Inventory>().inventory(hit.transform.gameObject.name);
                 hit.transform.gameObject.SetActive(false);
-                Debug.Log(hit.transform.name + "Has been collected!!!");
+               // Debug.Log(hit.transform.name + "Has been collected!!!");
             }
         }
         else

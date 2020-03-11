@@ -11,7 +11,7 @@ public class Talking : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log("TalkingRange");
+
         if (Input.GetKeyDown(KeyCode.E))
         {
             Debug.Log("talking to " + other.name);
