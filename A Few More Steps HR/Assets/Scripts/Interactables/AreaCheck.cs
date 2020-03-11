@@ -12,6 +12,6 @@ public class AreaCheck : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         objectiveManager.GetComponent<ObjectiveManager>().currentArea = other.name;
-        objectiveManager.GetComponent<ObjectiveManager>().Objective();
+        objectiveManager.GetComponent<ObjectiveManager>().Objective();  
     }
 }

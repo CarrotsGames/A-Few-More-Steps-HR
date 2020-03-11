@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/samplescene.unity
     guid: cbfe36cfddfde964d9dfce63a355d5dd
+  - enabled: 1
+    path: Assets/Scenes/House.unity
+    guid: ac78bd42bfe13074dbcf0b2342e1963e
+  - enabled: 1
+    path: Assets/Scenes/Carnival.unity
+    guid: 687960cc159e79f498554bf3f6df02d7
   m_configObjects: {}

@@ -31,6 +31,7 @@ public class ThrowBall : MonoBehaviour
             // Debug.Log(go.GetComponent<Rigidbody>().velocity);
             if (go.GetComponent<Rigidbody>().IsSleeping())
             {
+                // dunkTank win is located in Ball script because it needs to check collision
                 carnivalGameManager.DunkTankGameover("lose");
                 checkGameOver = false;
                 //CarnivalGamesManager.startRingToss = false;

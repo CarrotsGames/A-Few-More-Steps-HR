@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class ObjectiveManager : MonoBehaviour
 {
+    public GameObject screenFade;
+
     [Header("What are the objectives? (Collect, Talk, GoTo )")]
     public string[] objectives;
     private string objectiveType;
@@ -30,7 +32,8 @@ public class ObjectiveManager : MonoBehaviour
     public string[] goToArea;
     [HideInInspector]
     public string currentArea;
-  
+     
+
     ////[Header("What does the player need to pick up?")]
     ////public string specificItem;
     ////private string item;
@@ -46,6 +49,10 @@ public class ObjectiveManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(screenFade == null)
+        {
+            Debug.LogError("No Screenfade assigned!!");
+        }
         collectProgress = 0;
         talkProgress = 0;
         progressCap = amountOfItems.Length + talkToPerson.Length;
@@ -60,8 +67,6 @@ public class ObjectiveManager : MonoBehaviour
     // Handles the progression of the objectives
     void ObjectiveSteps()
     {
-
- 
          infoText.text = info[progress];
          switch (progress)
          {
@@ -124,7 +129,9 @@ public class ObjectiveManager : MonoBehaviour
                 if (currentArea == goToArea[goToProgress])
                 {
                     if (progress >= progressCap)
-                    {                      
+                    {
+                        infoText.text = "";
+                        screenFade.GetComponent<ScreenFade>().BeginFadeOut();
                         Debug.Log("ALL OBJECTIVES COMPLETE");
                     }
                     else

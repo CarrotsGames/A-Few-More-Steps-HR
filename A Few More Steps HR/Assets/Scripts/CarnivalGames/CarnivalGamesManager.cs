@@ -8,7 +8,7 @@ public class CarnivalGamesManager : MonoBehaviour
     public static int index = 0;
     public Text totalRingScore;
     public Text totalDuckScore;
-    public Text totalMoleScore;
+    //public Text totalMoleScore;
     public Text totalShotsFired;
     public Text totalStrength;
     [Header("Dunk tank game")]
@@ -53,11 +53,12 @@ public class CarnivalGamesManager : MonoBehaviour
     public static bool startStrengthTest;
     public static bool startDunkGame;
 
-    private IEnumerator coroutine;
     public static int shotsFired;
     public static bool resetMat;
-    bool spawnMoreDucks;
-    private void Start()
+    private IEnumerator coroutine;
+    private GameObject objectiveManager;
+
+     private void Start()
     {
         ballStore = numberOfBalls;
         startStrengthTest = false;
@@ -69,6 +70,7 @@ public class CarnivalGamesManager : MonoBehaviour
         totalShotsFired.text = "" + 0;
         totalStrength.text = "" + 0;
         shotsFired = numberOfBullets;
+        objectiveManager = GameObject.Find("ObjectiveManager");
         // creates all throwables before scene starts to avoid instantiate stutter
         for (int i = 0; i < numberOfThrowables; i++)
         {
@@ -109,15 +111,18 @@ public class CarnivalGamesManager : MonoBehaviour
     public void DunkTankGameover(string results)
     {
         startDunkGame = false;
-        switch(results)
+        if(results == "win")
         {
-            case "win":
-                Debug.Log("WIN");
-                break;
-            case "lose":
-                Debug.Log("LOST");
-                break;
-        }  
+            objectiveManager.GetComponent<ObjectiveManager>().itemCollected++;
+            objectiveManager.GetComponent<ObjectiveManager>().Objective();
+
+            Debug.Log("WIN");
+        }
+        else
+        {
+            Debug.Log("LOST");
+        }
+   
         Debug.Log("GAMEOVER");
     }
   // Strength test rules
@@ -132,6 +137,9 @@ public class CarnivalGamesManager : MonoBehaviour
     {
         if(strengthScore >= strengthWinningScore)
         {
+            objectiveManager.GetComponent<ObjectiveManager>().itemCollected++;
+            objectiveManager.GetComponent<ObjectiveManager>().Objective();
+
             Debug.Log("YOU WIN");
         }
         else if (strengthScore < strengthWinningScore)
@@ -144,6 +152,8 @@ public class CarnivalGamesManager : MonoBehaviour
     {
         if(ringScore >= ringtossWinningScore)
         {
+            objectiveManager.GetComponent<ObjectiveManager>().itemCollected++;
+            objectiveManager.GetComponent<ObjectiveManager>().Objective();
             Debug.Log("You win");
         }
         else if (ringScore < ringtossWinningScore)
@@ -177,6 +187,9 @@ public class CarnivalGamesManager : MonoBehaviour
     {
         if (duckScore >= duckWinningScore)
         {
+            objectiveManager.GetComponent<ObjectiveManager>().itemCollected++;
+             objectiveManager.GetComponent<ObjectiveManager>().Objective();
+
             Debug.Log("You win");
         }
         else
