@@ -72,6 +72,7 @@ public class ObjectiveManager : MonoBehaviour
         if(progress == changeDialogue)
         {
             GameManager.dialogueParts++;
+            changeDialogue--;
         }
         // PLAY AUDIO CLIP
         // CHECK WHEN AUDIO CLIP IS OVER

@@ -14,16 +14,18 @@ public class Talking : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         if (!inConversation)
-        {            
-            if (Input.GetKeyDown(KeyCode.E))        
+        {
+            if (other.gameObject.layer == 12)
             {
-                inConversation = true;       
-                other.GetComponentInParent<Conversation>().StartConversation();      
-                Debug.Log("talking to " + other.name);       
-                objectiveManager.GetComponent<ObjectiveManager>().playerTalkedTo = other.name;      
-                objectiveManager.GetComponent<ObjectiveManager>().Objective();       
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    inConversation = true;
+                    other.GetComponentInParent<Conversation>().StartConversation();
+                    Debug.Log("talking to " + other.name);
+                    objectiveManager.GetComponent<ObjectiveManager>().playerTalkedTo = other.name;
+                    objectiveManager.GetComponent<ObjectiveManager>().Objective();
+                }
             }
-
         }
     }
 }

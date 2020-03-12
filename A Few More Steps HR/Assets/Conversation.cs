@@ -1,7 +1,6 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Conversation : MonoBehaviour
 {
@@ -32,23 +31,32 @@ public class Conversation : MonoBehaviour
  
     void CheckPart()
     {
-        switch(GameManager.dialogueParts)
+         
+        switch (GameManager.dialogueParts)
         {
             case 0:
-                chatBox.text = partOneChat[chatProgress];
-                amountOfDialogue = partOneChat.Length;
+                if (chatProgress < partOneChat.Length)
+                {
+                    chatBox.text = partOneChat[chatProgress];
+                    amountOfDialogue = partOneChat.Length;
+                }
                 break;
             case 1:
-                chatBox.text = partTwoChat[chatProgress];
-                amountOfDialogue = partTwoChat.Length;
-
+                if (chatProgress < partTwoChat.Length)
+                {
+                    chatBox.text = partTwoChat[chatProgress];
+                    amountOfDialogue = partTwoChat.Length;
+                }
                 break;
             case 2:
-                chatBox.text = partThreeChat[chatProgress];
-                amountOfDialogue = partThreeChat.Length;
-
+                if (chatProgress < partThreeChat.Length)
+                {
+                    chatBox.text = partThreeChat[chatProgress];
+                    amountOfDialogue = partThreeChat.Length;
+                }
                 break;
         }
+
     }
     public void StartConversation()
     {
