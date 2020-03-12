@@ -6,12 +6,18 @@ using UnityEngine;
 public class Conversation : MonoBehaviour
 {
     [TextArea(1, 200)]
-    public string[] chat;
+    // Look into list within lists to show in inspector to
+    // make this less cluttered
+    public string[] partOneChat;
+    public string[] partTwoChat;
+    public string[] partThreeChat;
+    private int amountOfDialogue;
     private int chatProgress;
     public GameObject chatBoxGameObj;
     public Text chatBox;
     public int waitFor = 3;
     
+
     private IEnumerator coroutine;
     private void Start()
     {
@@ -23,14 +29,35 @@ public class Conversation : MonoBehaviour
             Debug.LogError("ChatBox is null");
         }
     }
-   
+ 
+    void CheckPart()
+    {
+        switch(GameManager.dialogueParts)
+        {
+            case 0:
+                chatBox.text = partOneChat[chatProgress];
+                amountOfDialogue = partOneChat.Length;
+                break;
+            case 1:
+                chatBox.text = partTwoChat[chatProgress];
+                amountOfDialogue = partTwoChat.Length;
+
+                break;
+            case 2:
+                chatBox.text = partThreeChat[chatProgress];
+                amountOfDialogue = partThreeChat.Length;
+
+                break;
+        }
+    }
     public void StartConversation()
     {
         
         chatBoxGameObj.SetActive(true);
-        chatBox.text = chat[chatProgress];
+        CheckPart();
+       // chatBox.text = chat[chatProgress];
         chatProgress++;
-        if (chatProgress < chat.Length)
+        if (chatProgress < amountOfDialogue)
         {
             coroutine = NextChat();
             StartCoroutine(NextChat());

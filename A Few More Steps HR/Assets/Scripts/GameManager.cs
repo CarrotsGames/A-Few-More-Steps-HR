@@ -7,11 +7,16 @@ public class GameManager : MonoBehaviour
     public static bool cameraOn;
     public GameObject player;
     public GameObject mainCam;
+    public static int dialogueParts;
     private void Update()
     {
         if (cameraOn)
         {
             PlayerMovement.stopMovement = false;
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            dialogueParts++;
         }
     }
     public void StopPlayerControls()

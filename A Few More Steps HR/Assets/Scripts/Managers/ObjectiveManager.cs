@@ -6,7 +6,8 @@ using UnityEngine;
 public class ObjectiveManager : MonoBehaviour
 {
     public GameObject screenFade;
-
+    [Header("Which objective should the dialogue change?")]
+    public int changeDialogue;
     [Header("What are the objectives? (Collect, Talk, GoTo )")]
     public string[] objectives;
     private string objectiveType;
@@ -49,7 +50,7 @@ public class ObjectiveManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(screenFade == null)
+        if (screenFade == null)
         {
             Debug.LogError("No Screenfade assigned!!");
         }
@@ -67,7 +68,11 @@ public class ObjectiveManager : MonoBehaviour
     // Handles the progression of the objectives
     void ObjectiveSteps()
     {
-         infoText.text = info[progress];
+        infoText.text = info[progress];
+        if(progress == changeDialogue)
+        {
+            GameManager.dialogueParts++;
+        }
         // PLAY AUDIO CLIP
         // CHECK WHEN AUDIO CLIP IS OVER
         // SHOW INFO TEXT
