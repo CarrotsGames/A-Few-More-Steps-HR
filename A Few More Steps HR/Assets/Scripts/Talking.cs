@@ -5,26 +5,25 @@ using UnityEngine;
 public class Talking : MonoBehaviour
 {
     private GameObject objectiveManager;
-    public static bool changeConversation;
+    public static bool inConversation;
     private void Start()
     {
-        changeConversation = true;
+        inConversation = false;
         objectiveManager = GameObject.Find("ObjectiveManager");
     }
     private void OnTriggerStay(Collider other)
     {
+        if (!inConversation)
+        {            
+            if (Input.GetKeyDown(KeyCode.E))        
+            {
+                inConversation = true;       
+                other.GetComponentInParent<Conversation>().StartConversation();      
+                Debug.Log("talking to " + other.name);       
+                objectiveManager.GetComponent<ObjectiveManager>().playerTalkedTo = other.name;      
+                objectiveManager.GetComponent<ObjectiveManager>().Objective();       
+            }
 
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            //if(!changeConversation)
-            //{
-            //    changeConversation = true;
-            //}
-            //changeConversation = false;
-            other.GetComponentInParent<Conversation>().StartConversation();
-            Debug.Log("talking to " + other.name);
-            objectiveManager.GetComponent<ObjectiveManager>().playerTalkedTo = other.name;
-            objectiveManager.GetComponent<ObjectiveManager>().Objective();
         }
     }
 }
