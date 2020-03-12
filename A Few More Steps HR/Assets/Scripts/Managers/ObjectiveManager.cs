@@ -68,6 +68,9 @@ public class ObjectiveManager : MonoBehaviour
     void ObjectiveSteps()
     {
          infoText.text = info[progress];
+        // PLAY AUDIO CLIP
+        // CHECK WHEN AUDIO CLIP IS OVER
+        // SHOW INFO TEXT
          switch (progress)
          {
              case 0:
