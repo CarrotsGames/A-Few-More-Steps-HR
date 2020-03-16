@@ -13,6 +13,7 @@ public class Shooting : MonoBehaviour
     public GameObject barrel;
     private void Start()
     {
+        bulletSpeed *= 10;
         carnivalGamesObj = GameObject.Find("CarnivalGamesManager");
         carnivalGameManager = carnivalGamesObj.GetComponent<CarnivalGamesManager>();
     }
@@ -40,8 +41,9 @@ public class Shooting : MonoBehaviour
                 bulletSpawer.transform.GetChild(CarnivalGamesManager.index).transform.position += barrel.transform.forward;
                 // enables rifle
                 bulletSpawer.transform.GetChild(CarnivalGamesManager.index).gameObject.SetActive(true);
+
                 // shoots bullet using forward force
-                bulletSpawer.transform.GetChild(CarnivalGamesManager.index).GetComponent<Rigidbody>().AddForce(barrel.transform.forward * 1000 * bulletSpeed * Time.deltaTime);
+                bulletSpawer.transform.GetChild(CarnivalGamesManager.index).GetComponent<Rigidbody>().AddForce(barrel.transform.forward * bulletSpeed);
                 //bulletSpawer.transform.GetChild(CarnivalGameRules.index).GetComponent<Rigidbody>().AddForce(camera.transform.up * force * 50);
                 CarnivalGamesManager.index++;
             }
