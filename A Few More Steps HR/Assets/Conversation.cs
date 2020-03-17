@@ -55,6 +55,7 @@ public class Conversation : MonoBehaviour
                     amountOfDialogue = partThreeChat.Length;
                 }
                 break;
+
         }
 
     }

@@ -1131,7 +1131,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 114456117}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: -2.78, y: 1.8018754, z: -1.56}
@@ -1157,7 +1157,7 @@ BoxCollider:
   m_GameObject: {fileID: 119594750}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1.3697975, y: 2.4245496, z: 3.486776}
   m_Center: {x: -0.6848986, y: -1.2122748, z: 0.00000071525574}
@@ -2614,7 +2614,7 @@ BoxCollider:
   m_GameObject: {fileID: 283879241}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1.3697975, y: 2.4245496, z: 3.486776}
   m_Center: {x: -0.6848991, y: -1.2122748, z: -0.0000009536743}
@@ -4215,6 +4215,107 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.09265137, y: 1.1456531, z: 0.9510748}
   m_Center: {x: 0.032264404, y: -0.5728267, z: 0.47553745}
+--- !u!114 &404055905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59b6606ef2548734bb6d11b9d160bc7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  rotation:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 360
+  skyIntensityMode:
+    m_OverrideState: 0
+    m_Value: 0
+  exposure:
+    m_OverrideState: 0
+    m_Value: 1
+  multiplier:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+  upperHemisphereLuxValue:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+  upperHemisphereLuxColor:
+    m_OverrideState: 0
+    m_Value: {x: 0, y: 0, z: 0}
+  desiredLuxValue:
+    m_OverrideState: 0
+    m_Value: 20000
+  updateMode:
+    m_OverrideState: 0
+    m_Value: 0
+  updatePeriod:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+  includeSunInBaking:
+    m_OverrideState: 0
+    m_Value: 0
+  hdriSky:
+    m_OverrideState: 0
+    m_Value: {fileID: 8900000, guid: 54a3a0570aebe8949bec4966f1376581, type: 3}
+  enableBackplate:
+    m_OverrideState: 0
+    m_Value: 0
+  backplateType:
+    m_OverrideState: 0
+    m_Value: 0
+  groundLevel:
+    m_OverrideState: 0
+    m_Value: 0
+  scale:
+    m_OverrideState: 0
+    m_Value: {x: 32, y: 32}
+  projectionDistance:
+    m_OverrideState: 0
+    m_Value: 16
+    min: 0.0000001
+  plateRotation:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 360
+  plateTexRotation:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 360
+  plateTexOffset:
+    m_OverrideState: 0
+    m_Value: {x: 0, y: 0}
+  blendAmount:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 100
+  shadowTint:
+    m_OverrideState: 0
+    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    hdr: 0
+    showAlpha: 1
+    showEyeDropper: 1
+  pointLightShadow:
+    m_OverrideState: 0
+    m_Value: 0
+  dirLightShadow:
+    m_OverrideState: 0
+    m_Value: 0
+  rectLightShadow:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!1 &408690462 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 3a657433672116942a4d4d4b7db558df,
@@ -4230,7 +4331,7 @@ BoxCollider:
   m_GameObject: {fileID: 408690462}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 2.5354664, y: 2.4245493, z: 3.4851701}
   m_Center: {x: -1.267733, y: -1.2122747, z: 0.00000047683716}
@@ -4576,7 +4677,7 @@ BoxCollider:
   m_GameObject: {fileID: 430133117}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 2.8496337, y: 2.432526, z: 3.4851713}
   m_Center: {x: -1.4248176, y: -1.216263, z: 0.00000047683716}
@@ -5945,7 +6046,7 @@ BoxCollider:
   m_GameObject: {fileID: 494679416}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 2.5354664, y: 2.4245493, z: 3.4851701}
   m_Center: {x: -1.267733, y: -1.2122747, z: 0.00000071525574}
@@ -12163,7 +12264,7 @@ PrefabInstance:
     - target: {fileID: 7192815972234500824, guid: cad8b7f550ad1a746b7a151d3427c75f,
         type: 3}
       propertyPath: partOneChat.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7192815972234500824, guid: cad8b7f550ad1a746b7a151d3427c75f,
         type: 3}
@@ -12183,7 +12284,7 @@ PrefabInstance:
     - target: {fileID: 7192815972234500824, guid: cad8b7f550ad1a746b7a151d3427c75f,
         type: 3}
       propertyPath: partOneChat.Array.data[2]
-      value: "A date at the carnival?\t"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7192815972234500824, guid: cad8b7f550ad1a746b7a151d3427c75f,
         type: 3}
@@ -12193,7 +12294,17 @@ PrefabInstance:
     - target: {fileID: 7192815972234500824, guid: cad8b7f550ad1a746b7a151d3427c75f,
         type: 3}
       propertyPath: partOneChat.Array.data[3]
-      value: How could i refuse such an offer woopy
+      value: "A date at the carnival?\t"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7192815972234500824, guid: cad8b7f550ad1a746b7a151d3427c75f,
+        type: 3}
+      propertyPath: partOneChat.Array.data[4]
+      value: How could i refuse?
+      objectReference: {fileID: 0}
+    - target: {fileID: 7192815972234500824, guid: cad8b7f550ad1a746b7a151d3427c75f,
+        type: 3}
+      propertyPath: waitFor
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cad8b7f550ad1a746b7a151d3427c75f, type: 3}
@@ -15399,6 +15510,11 @@ PrefabInstance:
         type: 3}
       propertyPath: goToArea.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4618570725955023759, guid: c9a07b72e37a03748bc5cb8dc59f3b07,
+        type: 3}
+      propertyPath: amountOfItems.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4618570725955023759, guid: c9a07b72e37a03748bc5cb8dc59f3b07,
         type: 3}
@@ -18651,7 +18767,7 @@ BoxCollider:
   m_GameObject: {fileID: 1051094144}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 2.5354664, y: 2.4245493, z: 3.4851701}
   m_Center: {x: -1.267733, y: -1.2122747, z: 0.00000071525574}
@@ -19243,107 +19359,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6bd3e49bb1b7c840a67c8d58e28cfca, type: 3}
---- !u!114 &1168494026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59b6606ef2548734bb6d11b9d160bc7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  active: 1
-  m_AdvancedMode: 0
-  rotation:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 360
-  skyIntensityMode:
-    m_OverrideState: 0
-    m_Value: 0
-  exposure:
-    m_OverrideState: 0
-    m_Value: 1
-  multiplier:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
-  upperHemisphereLuxValue:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
-  upperHemisphereLuxColor:
-    m_OverrideState: 0
-    m_Value: {x: 0, y: 0, z: 0}
-  desiredLuxValue:
-    m_OverrideState: 0
-    m_Value: 20000
-  updateMode:
-    m_OverrideState: 0
-    m_Value: 0
-  updatePeriod:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-  includeSunInBaking:
-    m_OverrideState: 0
-    m_Value: 0
-  hdriSky:
-    m_OverrideState: 0
-    m_Value: {fileID: 8900000, guid: 54a3a0570aebe8949bec4966f1376581, type: 3}
-  enableBackplate:
-    m_OverrideState: 0
-    m_Value: 0
-  backplateType:
-    m_OverrideState: 0
-    m_Value: 0
-  groundLevel:
-    m_OverrideState: 0
-    m_Value: 0
-  scale:
-    m_OverrideState: 0
-    m_Value: {x: 32, y: 32}
-  projectionDistance:
-    m_OverrideState: 0
-    m_Value: 16
-    min: 0.0000001
-  plateRotation:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 360
-  plateTexRotation:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 360
-  plateTexOffset:
-    m_OverrideState: 0
-    m_Value: {x: 0, y: 0}
-  blendAmount:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 100
-  shadowTint:
-    m_OverrideState: 0
-    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    hdr: 0
-    showAlpha: 1
-    showEyeDropper: 1
-  pointLightShadow:
-    m_OverrideState: 0
-    m_Value: 0
-  dirLightShadow:
-    m_OverrideState: 0
-    m_Value: 0
-  rectLightShadow:
-    m_OverrideState: 0
-    m_Value: 0
 --- !u!43 &1172668476
 Mesh:
   m_ObjectHideFlags: 0
@@ -19645,7 +19660,7 @@ BoxCollider:
   m_GameObject: {fileID: 1192893648}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 2.5354664, y: 2.4245493, z: 3.4851701}
   m_Center: {x: -1.267733, y: -1.2122747, z: 0.00000047683716}
@@ -23006,7 +23021,7 @@ BoxCollider:
   m_GameObject: {fileID: 1437788030}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 2.5354664, y: 2.4245493, z: 3.4851701}
   m_Center: {x: -1.2677332, y: -1.2122747, z: 0.00000047683716}
@@ -25954,7 +25969,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Profile: {fileID: 11400000, guid: 582adbd84082fdb4faf7cd4beb1ccd14, type: 2}
   m_StaticLightingSkyUniqueID: 1
-  m_SkySettings: {fileID: 1168494026}
+  m_SkySettings: {fileID: 404055905}
   m_SkySettingsFromProfile: {fileID: 448115243408767295, guid: 582adbd84082fdb4faf7cd4beb1ccd14,
     type: 2}
 --- !u!4 &1554779741
@@ -26249,7 +26264,7 @@ BoxCollider:
   m_GameObject: {fileID: 1601846184}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 2.8496337, y: 2.432526, z: 3.4851713}
   m_Center: {x: -1.4248176, y: -1.216263, z: 0.00000047683716}
@@ -29922,7 +29937,7 @@ BoxCollider:
   m_GameObject: {fileID: 1759438402}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 2.5354664, y: 2.4245493, z: 3.4851701}
   m_Center: {x: -1.2677335, y: -1.2122747, z: 0.00000047683716}
@@ -30606,7 +30621,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 491975351, guid: 2ab708988b3134040addd4c2b725a56e, type: 3}
       propertyPath: nextScene
-      value: House 1 Part 2
+      value: House 1 Night
       objectReference: {fileID: 0}
     - target: {fileID: 4055625570934982459, guid: 2ab708988b3134040addd4c2b725a56e,
         type: 3}
