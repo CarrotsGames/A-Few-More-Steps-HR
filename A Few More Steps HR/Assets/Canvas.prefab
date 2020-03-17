@@ -3823,6 +3823,83 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &1590444730
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1590444731}
+  - component: {fileID: 1590444733}
+  - component: {fileID: 1590444732}
+  m_Layer: 5
+  m_Name: ChatBoxText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1590444731
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1590444730}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2136941700}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -11.7, y: -426}
+  m_SizeDelta: {x: 927.8, y: 197.7}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1590444733
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1590444730}
+  m_CullTransparentMesh: 0
+--- !u!114 &1590444732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1590444730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 60
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 300
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
 --- !u!1 &1621203086
 GameObject:
   m_ObjectHideFlags: 0
@@ -4701,6 +4778,42 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &2136941699
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2136941700}
+  m_Layer: 5
+  m_Name: ChatBox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2136941700
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136941699}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1590444731}
+  m_Father: {fileID: 4055625570934982459}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1848908235387898092
 GameObject:
   m_ObjectHideFlags: 0
@@ -5081,8 +5194,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3b72c64ad4f8094e8f9ab6c7fa324b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  mask:
+    serializedVersion: 2
+    m_Bits: 0
   exit: {fileID: 4055625572212775917}
   itemName: C
+  itemStorage: {fileID: 0}
+  inpsectCamera: {fileID: 0}
 --- !u!1 &4055625570578778447
 GameObject:
   m_ObjectHideFlags: 0
@@ -5507,6 +5626,7 @@ RectTransform:
   - {fileID: 398798370}
   - {fileID: 161569327}
   - {fileID: 1102165297}
+  - {fileID: 2136941700}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6820,8 +6940,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3b72c64ad4f8094e8f9ab6c7fa324b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  mask:
+    serializedVersion: 2
+    m_Bits: 0
   exit: {fileID: 4055625572212775917}
   itemName: B
+  itemStorage: {fileID: 0}
+  inpsectCamera: {fileID: 0}
 --- !u!1 &4055625571932477959
 GameObject:
   m_ObjectHideFlags: 0
@@ -6896,7 +7022,7 @@ GameObject:
   - component: {fileID: 4055625572212775912}
   - component: {fileID: 4055625572212775913}
   - component: {fileID: 4055625572212775918}
-  - component: {fileID: 4055625572212775919}
+  - component: {fileID: 1169460701}
   m_Layer: 5
   m_Name: Exit
   m_TagString: Untagged
@@ -7002,8 +7128,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4055625572212775919}
-        m_MethodName: StopInspecting
+      - m_Target: {fileID: 1169460701}
+        m_MethodName: Exit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7013,7 +7139,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4055625572212775919
+--- !u!114 &1169460701
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7022,9 +7148,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4055625572212775917}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0abc1601b65e9df48b839232ad11e3a2, type: 3}
+  m_Script: {fileID: 11500000, guid: 0102a4b7749ce5547b4a4dcfb565e41d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemStore: {fileID: 0}
+  gameManager: {fileID: 0}
+  inspectCamera: {fileID: 0}
 --- !u!1 &4055625572247503935
 GameObject:
   m_ObjectHideFlags: 0
@@ -7358,8 +7487,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3b72c64ad4f8094e8f9ab6c7fa324b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  mask:
+    serializedVersion: 2
+    m_Bits: 0
   exit: {fileID: 4055625572212775917}
   itemName: A
+  itemStorage: {fileID: 0}
+  inpsectCamera: {fileID: 0}
 --- !u!1 &4147637444318426231
 GameObject:
   m_ObjectHideFlags: 0
@@ -7447,3 +7582,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeOut: 0
+  nextScene: Carnival

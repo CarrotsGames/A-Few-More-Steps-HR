@@ -3253,7 +3253,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7192815972234500824, guid: cad8b7f550ad1a746b7a151d3427c75f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cad8b7f550ad1a746b7a151d3427c75f, type: 3}
 --- !u!1 &71448179
 GameObject:
@@ -8012,7 +8013,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeOut: 0
-  nextScene: House
+  nextScene: House 1 Part 2
 --- !u!1 &1114346282
 GameObject:
   m_ObjectHideFlags: 0

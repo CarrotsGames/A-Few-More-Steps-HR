@@ -9,9 +9,18 @@ EditorBuildSettings:
     path: Assets/Scenes/samplescene.unity
     guid: cbfe36cfddfde964d9dfce63a355d5dd
   - enabled: 1
-    path: Assets/Scenes/House 1 Part 1.unity
+    path: Assets/Scenes/HouseScenes/House.unity
     guid: ac78bd42bfe13074dbcf0b2342e1963e
+  - enabled: 1
+    path: Assets/Scenes/Train Scene.unity
+    guid: 0ab1b21704a275644857e7ac7c77da81
   - enabled: 1
     path: Assets/Scenes/Carnival.unity
     guid: 687960cc159e79f498554bf3f6df02d7
+  - enabled: 1
+    path: Assets/Scenes/HouseScenes/House 1 Night.unity
+    guid: c85330dfcc79c6c4b8af2740bf0d3e69
+  - enabled: 1
+    path: Assets/Scenes/HouseScenes/House 2 Day.unity
+    guid: 2919dfada7d5902439ca6b6db7a5f124
   m_configObjects: {}

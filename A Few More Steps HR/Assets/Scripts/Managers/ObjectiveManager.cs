@@ -15,13 +15,14 @@ public class ObjectiveManager : MonoBehaviour
     [Header("Tell player what to do")]
     public string[] info;
     public Text infoText;
-  
+
     // Collect X items
     [Header("how many items does the player collect?")]
+    public string[] itemNames;
     public int[] amountOfItems;
     [HideInInspector]
     public int itemCollected;
-  
+    
     // Talk to objective
     [Header("Who does player have to talk to?")]
     public string[] talkToPerson;
@@ -33,23 +34,26 @@ public class ObjectiveManager : MonoBehaviour
     public string[] goToArea;
     [HideInInspector]
     public string currentArea;
-     
+
 
     ////[Header("What does the player need to pick up?")]
     ////public string specificItem;
     ////private string item;
+    public static bool levelEnded;
     [SerializeField]
     private int progressCap;
     // the progress of all objectives
-    private int progress;
+    public int progress;
+    [HideInInspector]
+    public int collectProgress;
     // the progress of each objective
     private int talkProgress;
-    private int collectProgress;
     private int goToProgress;
 
     // Start is called before the first frame update
     void Start()
     {
+        levelEnded = false;
         if (screenFade == null)
         {
             Debug.LogError("No Screenfade assigned!!");
@@ -80,6 +84,7 @@ public class ObjectiveManager : MonoBehaviour
          switch (progress)
          {
              case 0:
+                 levelEnded = false;
                  objectiveType = objectives[progress];
                  // ADD STRING/TEXT THAT TELLS PLAYER WHAT TO DO 
                  Objective();
@@ -110,53 +115,56 @@ public class ObjectiveManager : MonoBehaviour
     }
     // keeps all info of what needs to be done with each objective
    public void Objective()
-    {
-        switch(objectiveType)
+    { 
+        if(!levelEnded)
         {
-            case "Collect":
-                if(itemCollected >= amountOfItems[collectProgress])
-                {
-                    progress++;
-                    collectProgress++;
-                    ResetObjectiveStats();
-                    Debug.Log("ObjectiveComplete!!");
-                    ObjectiveSteps();
-                }
-                break;
-            case "Talk":
-                if (playerTalkedTo == talkToPerson[talkProgress])
-                {
-                    progress++;
-                    talkProgress++;
-                    ResetObjectiveStats();
-                    Debug.Log("ObjectiveComplete!!");
-                    ObjectiveSteps();
-                }
-                break;
-            case "GoTo":
-              
-                if (currentArea == goToArea[goToProgress])
-                {
-                    if (progress >= progressCap)
-                    {
-                        GameManager.dialogueParts = 0;
-                        progress = 0;
-                        infoText.text = "";
-                        screenFade.GetComponent<ScreenFade>().BeginFadeOut();
-                        Debug.Log("ALL OBJECTIVES COMPLETE");
-                    }
-                    else
+            switch (objectiveType)
+            {
+                case "Collect":
+                    if (itemCollected >= amountOfItems[collectProgress])
                     {
                         progress++;
-                        goToProgress++;
+                        collectProgress++;
                         ResetObjectiveStats();
                         Debug.Log("ObjectiveComplete!!");
                         ObjectiveSteps();
                     }
-                }
-                
-                break;
-     
+                    break;
+                case "Talk":
+                    if (playerTalkedTo == talkToPerson[talkProgress])
+                    {
+                        progress++;
+                        talkProgress++;
+                        ResetObjectiveStats();
+                        Debug.Log("ObjectiveComplete!!");
+                        ObjectiveSteps();
+                    }
+                    break;
+                case "GoTo":
+
+                    if (currentArea == goToArea[goToProgress])
+                    {
+                        if (progress >= progressCap)
+                        {
+                            screenFade.GetComponent<ScreenFade>().BeginFadeOut();
+                            GameManager.dialogueParts = 0;
+                            progress = 0;
+                            infoText.text = "";
+                            levelEnded = true;
+                            Debug.Log("ALL OBJECTIVES COMPLETE");
+                        }
+                        else
+                        {
+                            progress++;
+                            goToProgress++;
+                            ResetObjectiveStats();
+                            Debug.Log("ObjectiveComplete!!");
+                            ObjectiveSteps();
+                        }
+                    }
+
+                    break;
+            }
 
         }
     }
