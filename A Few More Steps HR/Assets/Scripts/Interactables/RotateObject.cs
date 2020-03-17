@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RotateObject : MonoBehaviour
 {
- 
+    public Camera inspectCam;
     // Update is called once per frame
     void Update()
     {
@@ -20,15 +20,15 @@ public class RotateObject : MonoBehaviour
         {
             transform.Rotate(new Vector3(Input.GetAxis("Mouse Y"), - Input.GetAxis("Mouse X"), 0) * Time.deltaTime * 100);
         }
-       // // zooms forward
-       // if (Input.GetAxis("Mouse ScrollWheel") > 0f && transform.GetComponentInParent<Camera>().fieldOfView > 30)
-       // {
-       //     transform.GetComponentInParent<Camera>().fieldOfView -= 1;
-       // }
-       // // zooms  back
-       // else if (Input.GetAxis("Mouse ScrollWheel") < 0f && transform.GetComponentInParent<Camera>().fieldOfView < 80 ) 
-       // {
-       //     transform.GetComponentInParent<Camera>().fieldOfView += 1;
-       // }
+        // zooms forward
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f && inspectCam.fieldOfView > 30)
+        {
+            inspectCam.fieldOfView -= 1;
+        }
+        // zooms  back
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0f && inspectCam.fieldOfView < 80 ) 
+        {
+            inspectCam.fieldOfView += 1;
+        }
     }
 }

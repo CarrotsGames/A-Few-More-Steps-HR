@@ -23,6 +23,7 @@ public class Inspect : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 5, mask))
         {
+            reticle.HighliteObject();
             if(Input.GetKeyDown(KeyCode.E) && !inspectingItem)            
             {
                 Debug.Log("InspectMe");
@@ -34,17 +35,7 @@ public class Inspect : MonoBehaviour
             }
             
         }
-        //if(inspectingItem)
-        //{
-        //    // freezes players movement until player exits inspect
-        //    gameManager.GetComponent<GameManager>().StopPlayerControls();
-        //    if (Input.GetKeyDown(KeyCode.E))
-        //    {
-        //        //itemStorage.transform.GetChild(i).gameObject.SetActive(false);
-        //        inpsectCamera.SetActive(false);
 
-        //    }
-        //}
     }
     public void InspectItem(GameObject Item)
     {
@@ -56,7 +47,7 @@ public class Inspect : MonoBehaviour
         for (int i = 0; i < itemStorage.transform.childCount; i++)
         {
             itemStorage.transform.GetChild(i).gameObject.SetActive(false);
-            if ( itemStorage.transform.GetChild(i).name == Item.name)
+            if (itemStorage.transform.GetChild(i).name == Item.name)
             {
                 itemStorage.transform.GetChild(i).gameObject.SetActive(true);
                 itemStorage.transform.GetChild(i).transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));

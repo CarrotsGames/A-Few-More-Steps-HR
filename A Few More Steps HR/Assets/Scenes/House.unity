@@ -227,6 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c1f81df3c4e23242847052b9b0808a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inspectCam: {fileID: 2140795791}
 --- !u!1001 &11998289
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1830,6 +1831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c1f81df3c4e23242847052b9b0808a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inspectCam: {fileID: 2140795791}
 --- !u!1 &721269500 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 426065649587948638, guid: 6d994a5c476f7a040beb85092cb9af28,
@@ -2155,6 +2157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c1f81df3c4e23242847052b9b0808a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inspectCam: {fileID: 2140795791}
 --- !u!1001 &852502825
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2492,6 +2495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c1f81df3c4e23242847052b9b0808a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inspectCam: {fileID: 2140795791}
 --- !u!1001 &949361243
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4518,6 +4522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c1f81df3c4e23242847052b9b0808a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inspectCam: {fileID: 2140795791}
 --- !u!1 &1590444730
 GameObject:
   m_ObjectHideFlags: 0
@@ -5903,6 +5908,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c1f81df3c4e23242847052b9b0808a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inspectCam: {fileID: 2140795791}
 --- !u!1001 &1922626279
 PrefabInstance:
   m_ObjectHideFlags: 0
