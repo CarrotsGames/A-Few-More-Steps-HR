@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.25618857, g: 0.3174317, b: 0.42013627, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1236,8 +1236,8 @@ MonoBehaviour:
   partOneChat: []
   partTwoChat: []
   partThreeChat: []
-  chatBoxGameObj: {fileID: 2136941699}
-  chatBox: {fileID: 1590444732}
+  chatBoxGameObj: {fileID: 0}
+  chatBox: {fileID: 0}
   waitFor: 3
 --- !u!1 &445807995 stripped
 GameObject:
@@ -4928,83 +4928,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inspectCam: {fileID: 2140795791}
---- !u!1 &1590444730
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1590444731}
-  - component: {fileID: 1590444733}
-  - component: {fileID: 1590444732}
-  m_Layer: 5
-  m_Name: ChatBoxText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1590444731
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1590444730}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2136941700}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -11.7, y: -426}
-  m_SizeDelta: {x: 927.8, y: 197.7}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1590444732
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1590444730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 60
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 300
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 
---- !u!222 &1590444733
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1590444730}
-  m_CullTransparentMesh: 0
 --- !u!1001 &1590727338
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5453,13 +5376,19 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 4055625572212775919, guid: 2ab708988b3134040addd4c2b725a56e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2ab708988b3134040addd4c2b725a56e, type: 3}
---- !u!224 &1757445756 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4055625570934982459, guid: 2ab708988b3134040addd4c2b725a56e,
+--- !u!114 &1807628701 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1807628701, guid: 2ab708988b3134040addd4c2b725a56e,
     type: 3}
   m_PrefabInstance: {fileID: 1757445755}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1802188275
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1849466524
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5560,18 +5489,6 @@ MonoBehaviour:
   rectLightShadow:
     m_OverrideState: 0
     m_Value: 0
---- !u!114 &1807628701 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1807628701, guid: 2ab708988b3134040addd4c2b725a56e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1757445755}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1862919692 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 426065648458389678, guid: 6d994a5c476f7a040beb85092cb9af28,
@@ -5696,7 +5613,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Profile: {fileID: 11400000, guid: 582adbd84082fdb4faf7cd4beb1ccd14, type: 2}
   m_StaticLightingSkyUniqueID: 1
-  m_SkySettings: {fileID: 1802188275}
+  m_SkySettings: {fileID: 1849466524}
   m_SkySettingsFromProfile: {fileID: 448115243408767295, guid: 582adbd84082fdb4faf7cd4beb1ccd14,
     type: 2}
 --- !u!4 &1904733374
@@ -7524,42 +7441,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &2136941699
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2136941700}
-  m_Layer: 5
-  m_Name: ChatBox
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2136941700
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2136941699}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1590444731}
-  m_Father: {fileID: 1757445756}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2140795787
 GameObject:
   m_ObjectHideFlags: 0
@@ -8110,7 +7991,7 @@ PrefabInstance:
     - target: {fileID: 4618570725955023759, guid: c9a07b72e37a03748bc5cb8dc59f3b07,
         type: 3}
       propertyPath: objectives.Array.data[2]
-      value: 'Collect '
+      value: Collect
       objectReference: {fileID: 0}
     - target: {fileID: 4618570725955023759, guid: c9a07b72e37a03748bc5cb8dc59f3b07,
         type: 3}
@@ -8291,8 +8172,8 @@ MonoBehaviour:
   partTwoChat:
   - Hello husband ready to go to the glue factory?
   partThreeChat: []
-  chatBoxGameObj: {fileID: 2136941699}
-  chatBox: {fileID: 1590444732}
+  chatBoxGameObj: {fileID: 0}
+  chatBox: {fileID: 0}
   waitFor: 3
 --- !u!1001 &7486731228000616808
 PrefabInstance:

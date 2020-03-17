@@ -8013,7 +8013,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeOut: 0
-  nextScene: House 1 Part 2
+  nextScene: House 2 Night
 --- !u!1 &1114346282
 GameObject:
   m_ObjectHideFlags: 0
