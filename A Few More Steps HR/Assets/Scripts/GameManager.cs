@@ -14,10 +14,7 @@ public class GameManager : MonoBehaviour
         {
             PlayerMovement.stopMovement = false;
         }
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            dialogueParts++;
-        }
+
     }
     public void StopPlayerControls()
     {

@@ -6381,6 +6381,11 @@ PrefabInstance:
       propertyPath: amountOfItems.Array.data[0]
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4618570725955023759, guid: c9a07b72e37a03748bc5cb8dc59f3b07,
+        type: 3}
+      propertyPath: changeDialogue
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9a07b72e37a03748bc5cb8dc59f3b07, type: 3}
 --- !u!1001 &7192815972234500822
@@ -6390,6 +6395,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7192815970764912820, guid: cad8b7f550ad1a746b7a151d3427c75f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 7192815971262726946, guid: cad8b7f550ad1a746b7a151d3427c75f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6475,8 +6485,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 659940cc187923a4fbde05362c8352dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  partOneChat: []
-  partTwoChat: []
+  partOneChat:
+  - Did you grab your keys?
+  partTwoChat:
+  - Hello husband ready to go to the glue factory?
   partThreeChat: []
   chatBoxGameObj: {fileID: 2136941699}
   chatBox: {fileID: 1590444732}

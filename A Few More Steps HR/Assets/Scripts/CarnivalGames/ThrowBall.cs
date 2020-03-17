@@ -43,22 +43,22 @@ public class ThrowBall : MonoBehaviour
         }
         if (CarnivalGamesManager.startDunkGame)
         {
+            // The longer the mouse is held the more force 
             if (Input.GetKey(KeyCode.Mouse0))
             {
                 if (force < 5)
                 {
-
-                    force += 0.05f;
+                    force += 0.05f * Time.deltaTime * 100;
                     forceSlider.value = force;
                 }
             }
+            //throws ball
             if (Input.GetKeyUp(KeyCode.Mouse0))
             {
                 if (CarnivalGamesManager.index < ballSpawner.transform.childCount)
                 {
-                    ////resets velocity carried on the ring
+                    ////resets velocity carried on the ring from previous rounds
                     ballSpawner.transform.GetChild(CarnivalGamesManager.index).GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
-
                     //// Transports ring to players position + y ands x offset to appear in front
                     ballSpawner.transform.GetChild(CarnivalGamesManager.index).transform.position = transform.position;
                     ballSpawner.transform.GetChild(CarnivalGamesManager.index).transform.position += transform.forward * 1;
@@ -66,7 +66,6 @@ public class ThrowBall : MonoBehaviour
                     ballSpawner.transform.GetChild(CarnivalGamesManager.index).gameObject.SetActive(true);
                     //// Adds up and forward force to give a throwing feel. 
                     ballSpawner.transform.GetChild(CarnivalGamesManager.index).GetComponent<Rigidbody>().AddForce(camera.transform.forward * force * 300);
-
                     //// Marks ring as thrown
                     CarnivalGamesManager.index++;
                     ////resets force value and slider

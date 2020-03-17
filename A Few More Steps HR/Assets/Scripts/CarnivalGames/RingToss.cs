@@ -29,8 +29,6 @@ public class RingToss : MonoBehaviour
         {
             int lastRing = ringSpawner.transform.childCount - 1;
             GameObject go = carnivalGameManager.throwableSpawner.transform.GetChild(lastRing).gameObject;
-           // GameObject go = carnivalGameManager.throwableSpawner.transform.GetChild(CarnivalGamesManager.index - 1).gameObject;
-           // Debug.Log(go.GetComponent<Rigidbody>().velocity);
             if (go.GetComponent<Rigidbody>().IsSleeping())
             {
                 carnivalGameManager.RingTossGameover();
@@ -40,13 +38,11 @@ public class RingToss : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.R))  
         {
-
             carnivalGameManager.RestartRingToss();       
         }
         if (CarnivalGamesManager.startRingToss)
         {
             // if player holds down mouse 1 it increased throw force
-
             if (Input.GetKey(KeyCode.Mouse0))
             {
                 if (force < 5)
@@ -55,6 +51,7 @@ public class RingToss : MonoBehaviour
                     forceSlider.value = force;
                 }
             }
+            // throws ring
             if (Input.GetKeyUp(KeyCode.Mouse0))
             {
                 if (CarnivalGamesManager.index < ringSpawner.transform.childCount)
@@ -62,10 +59,11 @@ public class RingToss : MonoBehaviour
                     //resets velocity carried on the ring
                     ringSpawner.transform.GetChild(CarnivalGamesManager.index).GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
 
-                    // Transports ring to players position + y ands x offset to appear in front
+                    // Transports ring to players position and required height
                     ringSpawner.transform.GetChild(CarnivalGamesManager.index).transform.position = transform.position;
                     ringSpawner.transform.GetChild(CarnivalGamesManager.index).transform.position += transform.up / 3f;
                     ringSpawner.transform.GetChild(CarnivalGamesManager.index).transform.position += transform.forward * 0.5f;
+                   
                     // resets rotation to avoid throwing rotated ring
                     ringSpawner.transform.GetChild(CarnivalGamesManager.index).transform.rotation = Quaternion.Euler(0, 0, 0);
                     //enables ring
@@ -73,6 +71,7 @@ public class RingToss : MonoBehaviour
                     // Adds up and forward force to give a throwing feel. 
                     ringSpawner.transform.GetChild(CarnivalGamesManager.index).GetComponent<Rigidbody>().AddForce(camera.transform.forward * force * 100);
                     ringSpawner.transform.GetChild(CarnivalGamesManager.index).GetComponent<Rigidbody>().AddForce(camera.transform.up * force * 50);
+            
                     // Marks ring as thrown
                     CarnivalGamesManager.index++;
                     //resets force value and slider

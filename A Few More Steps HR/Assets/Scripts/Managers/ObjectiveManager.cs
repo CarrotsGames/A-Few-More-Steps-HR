@@ -139,6 +139,8 @@ public class ObjectiveManager : MonoBehaviour
                 {
                     if (progress >= progressCap)
                     {
+                        GameManager.dialogueParts = 0;
+                        progress = 0;
                         infoText.text = "";
                         screenFade.GetComponent<ScreenFade>().BeginFadeOut();
                         Debug.Log("ALL OBJECTIVES COMPLETE");
