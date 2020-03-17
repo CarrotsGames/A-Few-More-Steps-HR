@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/samplescene.unity
     guid: cbfe36cfddfde964d9dfce63a355d5dd
   - enabled: 1
-    path: Assets/Scenes/House.unity
+    path: Assets/Scenes/House 1 Part 1.unity
     guid: ac78bd42bfe13074dbcf0b2342e1963e
   - enabled: 1
     path: Assets/Scenes/Carnival.unity
