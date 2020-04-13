@@ -60,7 +60,7 @@ public class ObjectiveManager : MonoBehaviour
         }
         collectProgress = 0;
         talkProgress = 0;
-        progressCap = amountOfItems.Length + talkToPerson.Length;
+        progressCap = amountOfItems.Length + talkToPerson.Length + goToArea.Length;
         ObjectiveSteps();
         // gets amount of objectives the level has
         if(infoText == null)
@@ -124,38 +124,52 @@ public class ObjectiveManager : MonoBehaviour
                     if (itemCollected >= amountOfItems[collectProgress])
                     {
                         progress++;
-                        collectProgress++;
-                        ResetObjectiveStats();
-                        Debug.Log("ObjectiveComplete!!");
-                        ObjectiveSteps();
+
+                        // when all objectives are done
+                        if (progress >= progressCap)
+                        {
+                            EndScene();
+                        }
+                        else
+                        {
+                            collectProgress++;
+                            ResetObjectiveStats();
+                            Debug.Log("ObjectiveComplete!!");
+                            ObjectiveSteps();
+                        }
                     }
                     break;
                 case "Talk":
                     if (playerTalkedTo == talkToPerson[talkProgress])
                     {
                         progress++;
-                        talkProgress++;
-                        ResetObjectiveStats();
-                        Debug.Log("ObjectiveComplete!!");
-                        ObjectiveSteps();
+
+                        if (progress >= progressCap)
+                        {
+                            EndScene();
+                        }
+                        else
+                        {
+                            talkProgress++;
+                            ResetObjectiveStats();
+                            Debug.Log("ObjectiveComplete!!");
+                            ObjectiveSteps();
+                        }
                     }
                     break;
                 case "GoTo":
 
                     if (currentArea == goToArea[goToProgress])
                     {
+                        progress++;
+
                         if (progress >= progressCap)
                         {
-                            screenFade.GetComponent<ScreenFade>().BeginFadeOut();
-                            GameManager.dialogueParts = 0;
-                            progress = 0;
-                            infoText.text = "";
-                            levelEnded = true;
-                            Debug.Log("ALL OBJECTIVES COMPLETE");
+                            EndScene();
                         }
                         else
                         {
-                            progress++;
+                          
                             goToProgress++;
                             ResetObjectiveStats();
                             Debug.Log("ObjectiveComplete!!");
@@ -167,6 +181,15 @@ public class ObjectiveManager : MonoBehaviour
             }
 
         }
+    }
+    void EndScene()
+    {
+        screenFade.GetComponent<ScreenFade>().BeginFadeOut();
+        GameManager.dialogueParts = 0;
+        progress = 0;
+        infoText.text = "";
+        levelEnded = true;
+        Debug.Log("ALL OBJECTIVES COMPLETE");
     }
     void ResetObjectiveStats()
     {

@@ -6957,7 +6957,7 @@ MonoBehaviour:
   - {fileID: 234381235}
   - {fileID: 1436511499}
   numberOfBullets: 12
-  duckWinningScore: 17
+  duckWinningScore: 3
   rifle: {fileID: 1848762461}
   bullets: {fileID: 32070568772605385, guid: ae33e0eaad5c3664a9b9a35bd6b7fbf9, type: 3}
   fastDuck:
