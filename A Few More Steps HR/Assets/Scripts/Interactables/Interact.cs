@@ -4,17 +4,30 @@ using UnityEngine;
 // This script handles any interactions that arnt items
 public class Interact : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [Header("Match with door anim time")]
+    public float doorOpenTime = 1;
+    private bool doorCooldown;
+    private float doorOpenTimeStore;
+    private void Start()
     {
-        
+        doorCooldown = true;
+        doorOpenTimeStore = doorOpenTime;
     }
-
     // Update is called once per frame
     void Update()
     {
+        if(doorCooldown)
+        {
+            doorOpenTime -= Time.deltaTime;
+            if(doorOpenTime <= 0)
+            {
+                Debug.Log("CanUseDoorAgain");
+                doorCooldown = false;
+                doorOpenTime = doorOpenTimeStore;
+            }
+        }
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 5))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 3))
         {
             switch(hit.transform.gameObject.tag)
             { 
@@ -26,13 +39,15 @@ public class Interact : MonoBehaviour
                     }
                     break;
                 case "Handle":
-                    if (Input.GetKey(KeyCode.E))
+                    reticle.HighliteObject();
+                    // when door is opened
+                    if (Input.GetKeyDown(KeyCode.E) && !doorCooldown)
                     {
-                        reticle.HighliteObject();
-                        // when door is opened
-                        if(hit.transform.gameObject.GetComponentInParent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("OpenDoor"))                      
-                        {
-                            hit.transform.gameObject.GetComponentInParent<Animator>().SetBool("OpenDoor", false);
+                        doorCooldown = true;
+                       
+                        if(hit.transform.gameObject.GetComponentInParent<Animator>().GetBool("OpenDoor"))                      
+                        {                           
+                              hit.transform.gameObject.GetComponentInParent<Animator>().SetBool("OpenDoor", false);                                     
                         }
                         // when door is closed
                         else

@@ -35,6 +35,7 @@ public class Inspect : MonoBehaviour
             }
             
         }
+       
 
     }
     public void InspectItem(GameObject Item)

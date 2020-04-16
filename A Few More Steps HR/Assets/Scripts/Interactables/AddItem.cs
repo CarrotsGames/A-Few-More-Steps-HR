@@ -24,7 +24,13 @@ public class AddItem : MonoBehaviour
         RaycastHit hit;
         if(Physics.Raycast(transform.position, transform.forward,out hit, distance) && !PlayerMovement.stopMovement)
         {
-            reticle.HighliteObject();
+            // highlites if either object is Interactable
+            if (hit.transform.gameObject.layer == 14 || hit.transform.gameObject.layer == 11)
+            {
+                reticle.HighliteObject();
+            }
+         
+           
             if (Input.GetKeyDown(KeyCode.E) && hit.transform.gameObject.layer == 14)
             {
                 if (hit.transform.name == objectiveManagerScript.itemNames[objectiveManagerScript.collectProgress])
