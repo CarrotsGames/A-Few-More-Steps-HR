@@ -40,11 +40,11 @@ public class Interact : MonoBehaviour
                     break;
                 case "Handle":
                     reticle.HighliteObject();
-                    // when door is opened
+            
                     if (Input.GetKeyDown(KeyCode.E) && !doorCooldown)
                     {
                         doorCooldown = true;
-                       
+                       // when door is opened
                         if(hit.transform.gameObject.GetComponentInParent<Animator>().GetBool("OpenDoor"))                      
                         {                           
                               hit.transform.gameObject.GetComponentInParent<Animator>().SetBool("OpenDoor", false);                                     
