@@ -75,7 +75,7 @@ public class AddItem : MonoBehaviour
     IEnumerator CollectablesHalfASecond()
     {
         yield return new WaitForSeconds(0.5f);
-
+        pickUpArm.SetBool("PickUpItem", false);
         objectiveManager.GetComponent<ObjectiveManager>().itemCollected++;
         objectiveManager.GetComponent<ObjectiveManager>().Objective();
         // saves item into the inventory
