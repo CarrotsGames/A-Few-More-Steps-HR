@@ -97,7 +97,7 @@ public class AddItem : MonoBehaviour
     {
         pickUpArm.GetComponent<Animator>().SetBool("PickUpItem", true);
         yield return new WaitForSeconds(0.5f);
-        hitGameobject.transform.position = hand.transform.position + new Vector3(0,0, -0.0f);
+        hitGameobject.transform.position = hand.transform.position + new Vector3(0,0, 0);
         hitGameobject.transform.parent = hand.transform;
         pickUpArm.GetComponent<Animator>().SetBool("PickUpItem", false);
        // adds item progress to manager
@@ -105,7 +105,7 @@ public class AddItem : MonoBehaviour
         objectiveManager.GetComponent<ObjectiveManager>().Objective();
         // saves item into the inventory
         inventory.GetComponent<Inventory>().inventory(hitGameobject.transform.gameObject.name);
-        hitGameobject.transform.gameObject.SetActive(false);
+        
         yield return new WaitForSeconds(1);
         // disables arms and collected gameobject
         pickUpArm.SetActive(false);
