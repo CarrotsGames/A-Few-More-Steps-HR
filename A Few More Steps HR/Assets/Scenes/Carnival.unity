@@ -3799,12 +3799,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b391ef58e69c6249bee25cb7a719262, type: 3}
---- !u!4 &195823080 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1545882171276835667, guid: a8e3a60ab9c4c5445991196f55ed5fab,
-    type: 3}
-  m_PrefabInstance: {fileID: 6364503714660072982}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &207046190
 GameObject:
   m_ObjectHideFlags: 0
@@ -13276,50 +13270,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1927983861
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1927983862}
-  - component: {fileID: 1927983863}
-  m_Layer: 0
-  m_Name: Pick up point
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1927983862
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1927983861}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.081, y: -0.008, z: 0.019}
-  m_LocalScale: {x: 0.11997, y: 0.11997, z: 0.11997}
-  m_Children: []
-  m_Father: {fileID: 195823080}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1927983863
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1927983861}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1930500042 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 511289069568955470, guid: 9e70ccb2f346a3443aa3f62b9054f3fd,
@@ -14786,11 +14736,6 @@ PrefabInstance:
       propertyPath: bulletSpawer
       value: 
       objectReference: {fileID: 1909108783}
-    - target: {fileID: 6364503714642209184, guid: a8e3a60ab9c4c5445991196f55ed5fab,
-        type: 3}
-      propertyPath: hand
-      value: 
-      objectReference: {fileID: 1927983861}
     - target: {fileID: 8050107873680862788, guid: a8e3a60ab9c4c5445991196f55ed5fab,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14850,41 +14795,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerCarnival
-      objectReference: {fileID: 0}
-    - target: {fileID: 8050107874322258974, guid: a8e3a60ab9c4c5445991196f55ed5fab,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8050107874322258974, guid: a8e3a60ab9c4c5445991196f55ed5fab,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8050107874322258974, guid: a8e3a60ab9c4c5445991196f55ed5fab,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8050107874322258974, guid: a8e3a60ab9c4c5445991196f55ed5fab,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.000000039464794
-      objectReference: {fileID: 0}
-    - target: {fileID: 8050107874322258974, guid: a8e3a60ab9c4c5445991196f55ed5fab,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.61000204
-      objectReference: {fileID: 0}
-    - target: {fileID: 8050107874322258974, guid: a8e3a60ab9c4c5445991196f55ed5fab,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.1641532e-10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8050107874322258974, guid: a8e3a60ab9c4c5445991196f55ed5fab,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8e3a60ab9c4c5445991196f55ed5fab, type: 3}
