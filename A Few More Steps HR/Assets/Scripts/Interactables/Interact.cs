@@ -27,7 +27,7 @@ public class Interact : MonoBehaviour
             }
         }
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 3))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 2))
         {
             switch(hit.transform.gameObject.tag)
             { 

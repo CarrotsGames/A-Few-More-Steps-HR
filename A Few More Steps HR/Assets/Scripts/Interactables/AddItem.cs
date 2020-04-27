@@ -46,6 +46,9 @@ public class AddItem : MonoBehaviour
             {
                 if (hit.transform.name == objectiveManagerScript.itemNames[objectiveManagerScript.collectProgress])
                 {
+                    MouseLook.canLook = false;
+                    PlayerMovement.stopMovement = true;
+
                     pickUpArm.SetActive(true);
                     hitGameobject = hit.transform.gameObject;
                    
@@ -55,6 +58,8 @@ public class AddItem : MonoBehaviour
             }
             else if (Input.GetKeyDown(KeyCode.E) && hit.transform.gameObject.layer == 11)
             {
+                PlayerMovement.stopMovement = true;
+                MouseLook.canLook = false;
                 pickUpArm.SetActive(true);
                 // saves name of object
                 items.Add(hit.transform.gameObject);
@@ -68,15 +73,19 @@ public class AddItem : MonoBehaviour
     // waits half second for non collectable items
     IEnumerator WaitForHalfASecond()
     {
+
         pickUpArm.GetComponent<Animator>().SetBool("PickUpItem", true);
         yield return new WaitForSeconds(0.5f);
         Debug.Log("Half second");
         pickUpArm.GetComponent<Animator>().SetBool("PickUpItem", false);
-        hitGameobject.transform.gameObject.SetActive(false);
+       
         objectiveManager.GetComponent<ObjectiveManager>().itemCollected++;
         objectiveManager.GetComponent<ObjectiveManager>().Objective();
         yield return new WaitForSeconds(1);
         pickUpArm.SetActive(false);
+        hitGameobject.transform.gameObject.SetActive(false);
+        MouseLook.canLook = true;
+        PlayerMovement.stopMovement = false;
 
     }
     // waits half second for collectbles
@@ -92,6 +101,10 @@ public class AddItem : MonoBehaviour
         hitGameobject.transform.gameObject.SetActive(false);
         yield return new WaitForSeconds(1);
         pickUpArm.SetActive(false);
-     }
-    
+        hitGameobject.transform.gameObject.SetActive(false);
+        MouseLook.canLook = true;
+        PlayerMovement.stopMovement = false;
+
+    }
+
 }
