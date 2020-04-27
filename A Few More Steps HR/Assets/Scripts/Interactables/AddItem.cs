@@ -5,6 +5,7 @@ using UnityEngine;
 public class AddItem : MonoBehaviour
 {
     public GameObject pickUpArm;
+    public GameObject hand;
     public float distance;
     [Header("Collected Items")]
     public List<GameObject> items;
@@ -18,9 +19,9 @@ public class AddItem : MonoBehaviour
     {
         pickUpArm.SetActive(false);
 
-        if (pickUpArm == null)
+        if (pickUpArm == null || hand == null)
         {
-            Debug.LogError("ARM GAMEOBJECT IS NOT SET ON CMCAMERA ADD ITEM SCRIPT");
+            Debug.LogError("ARM OR ITEMPICKUPPOINT GAMEOBJECT IS NOT SET ON CMCAMERA ADD ITEM SCRIPT");
         }
         items = new List<GameObject>();
         inventory = GameObject.Find("Inventory");
@@ -76,14 +77,17 @@ public class AddItem : MonoBehaviour
 
         pickUpArm.GetComponent<Animator>().SetBool("PickUpItem", true);
         yield return new WaitForSeconds(0.5f);
-        Debug.Log("Half second");
+        hitGameobject.transform.position = hand.transform.position + new Vector3(0, 0, -0.05f); ;
+        hitGameobject.transform.parent = hand.transform;
         pickUpArm.GetComponent<Animator>().SetBool("PickUpItem", false);
-       
+        // adds item progress to manager
         objectiveManager.GetComponent<ObjectiveManager>().itemCollected++;
         objectiveManager.GetComponent<ObjectiveManager>().Objective();
         yield return new WaitForSeconds(1);
+       // disables arms and collected gameobject
         pickUpArm.SetActive(false);
         hitGameobject.transform.gameObject.SetActive(false);
+        //movement resumed
         MouseLook.canLook = true;
         PlayerMovement.stopMovement = false;
 
@@ -93,15 +97,20 @@ public class AddItem : MonoBehaviour
     {
         pickUpArm.GetComponent<Animator>().SetBool("PickUpItem", true);
         yield return new WaitForSeconds(0.5f);
+        hitGameobject.transform.position = hand.transform.position + new Vector3(0,0, -0.0f);
+        hitGameobject.transform.parent = hand.transform;
         pickUpArm.GetComponent<Animator>().SetBool("PickUpItem", false);
+       // adds item progress to manager
         objectiveManager.GetComponent<ObjectiveManager>().itemCollected++;
         objectiveManager.GetComponent<ObjectiveManager>().Objective();
         // saves item into the inventory
         inventory.GetComponent<Inventory>().inventory(hitGameobject.transform.gameObject.name);
         hitGameobject.transform.gameObject.SetActive(false);
         yield return new WaitForSeconds(1);
+        // disables arms and collected gameobject
         pickUpArm.SetActive(false);
         hitGameobject.transform.gameObject.SetActive(false);
+        //movement resumed
         MouseLook.canLook = true;
         PlayerMovement.stopMovement = false;
 
