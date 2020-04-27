@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AddItem : MonoBehaviour
 {
-    public Animator pickUpArm;
+    public GameObject pickUpArm;
     public float distance;
     [Header("Collected Items")]
     public List<GameObject> items;
@@ -16,9 +16,11 @@ public class AddItem : MonoBehaviour
     
     private void Start()
     {
-        if(pickUpArm == null)
+        pickUpArm.SetActive(false);
+
+        if (pickUpArm == null)
         {
-            Debug.LogError("ARM ANIMATOR IS NOT SET ON CMCAMERA ADD ITEM SCRIPT");
+            Debug.LogError("ARM GAMEOBJECT IS NOT SET ON CMCAMERA ADD ITEM SCRIPT");
         }
         items = new List<GameObject>();
         inventory = GameObject.Find("Inventory");
@@ -44,18 +46,20 @@ public class AddItem : MonoBehaviour
             {
                 if (hit.transform.name == objectiveManagerScript.itemNames[objectiveManagerScript.collectProgress])
                 {
+                    pickUpArm.SetActive(true);
                     hitGameobject = hit.transform.gameObject;
-                    pickUpArm.SetBool("PickUpItem", true);
+                   
                     StartCoroutine(WaitForHalfASecond());
                    
                 }
             }
             else if (Input.GetKeyDown(KeyCode.E) && hit.transform.gameObject.layer == 11)
             {
+                pickUpArm.SetActive(true);
                 // saves name of object
                 items.Add(hit.transform.gameObject);
                 hitGameobject = hit.transform.gameObject;
-                pickUpArm.SetBool("PickUpItem", true);
+              
                 StartCoroutine(CollectablesHalfASecond());
             }
             
@@ -64,23 +68,30 @@ public class AddItem : MonoBehaviour
     // waits half second for non collectable items
     IEnumerator WaitForHalfASecond()
     {
+        pickUpArm.GetComponent<Animator>().SetBool("PickUpItem", true);
         yield return new WaitForSeconds(0.5f);
         Debug.Log("Half second");
-        pickUpArm.SetBool("PickUpItem", false);
+        pickUpArm.GetComponent<Animator>().SetBool("PickUpItem", false);
         hitGameobject.transform.gameObject.SetActive(false);
         objectiveManager.GetComponent<ObjectiveManager>().itemCollected++;
         objectiveManager.GetComponent<ObjectiveManager>().Objective();
+        yield return new WaitForSeconds(1);
+        pickUpArm.SetActive(false);
+
     }
     // waits half second for collectbles
     IEnumerator CollectablesHalfASecond()
     {
+        pickUpArm.GetComponent<Animator>().SetBool("PickUpItem", true);
         yield return new WaitForSeconds(0.5f);
-        pickUpArm.SetBool("PickUpItem", false);
+        pickUpArm.GetComponent<Animator>().SetBool("PickUpItem", false);
         objectiveManager.GetComponent<ObjectiveManager>().itemCollected++;
         objectiveManager.GetComponent<ObjectiveManager>().Objective();
         // saves item into the inventory
         inventory.GetComponent<Inventory>().inventory(hitGameobject.transform.gameObject.name);
         hitGameobject.transform.gameObject.SetActive(false);
-    }
+        yield return new WaitForSeconds(1);
+        pickUpArm.SetActive(false);
+     }
     
 }
