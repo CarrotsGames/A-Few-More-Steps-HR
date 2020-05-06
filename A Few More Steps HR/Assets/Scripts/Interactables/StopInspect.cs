@@ -11,6 +11,10 @@ public class StopInspect : MonoBehaviour
     {
         gameManager = GameObject.Find("GameManager");
     }
+    private void Update()
+    {
+        Debug.Log(this.gameObject);
+    }
     public void Exit()
     {
         for (int i = 0; i < itemStore.transform.childCount; i++)
