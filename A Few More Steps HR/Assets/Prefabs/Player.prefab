@@ -202,6 +202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorOpenTime: 1
+  armAnim: {fileID: 0}
 --- !u!114 &978580131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -811,8 +812,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4027616773942155175}
-  m_LocalRotation: {x: -0, y: -0, z: 2.3498146e-12, w: 1}
-  m_LocalPosition: {x: -0.0000028059005, y: 0.6099969, z: 0.00000027525758}
+  m_LocalRotation: {x: 0.0010646292, y: -0.000001021897, z: -0.0011868117, w: 0.9999988}
+  m_LocalPosition: {x: 96.95818, y: 114.924355, z: -33.909813}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4027616773248722430}

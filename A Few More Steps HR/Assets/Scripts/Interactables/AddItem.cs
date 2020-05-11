@@ -36,43 +36,64 @@ public class AddItem : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.forward,out hit, distance) && !PlayerMovement.stopMovement)
         {
             // highlites if either object is Interactable
-            // Layer 11 refers to collectable items (toys , Pictures , etc)
-            // Layer 14 refers to collected items that are not collectables (keys , clothes, etc)
-            if (hit.transform.gameObject.layer == 14 || hit.transform.gameObject.layer == 11)
+            // Layer 11 refers to collectable items that are added to the house scenes (toys , Pictures , etc)
+            // Layer 14 refers to collected items that are not collectables but are used to progress in the level (keys , etc)
+            // Layer 15 refers to picking up clothing so we can give it a custom animation (also adds to progress in level)
+            if (hit.transform.gameObject.layer == 14 || hit.transform.gameObject.layer == 11 || hit.transform.gameObject.layer == 15)
             {
                 reticle.HighliteObject();
             }
-
-            if (Input.GetKeyDown(KeyCode.E) && hit.transform.gameObject.layer == 14)
+            if(Input.GetKeyDown(KeyCode.E))
             {
-                if (hit.transform.name == objectiveManagerScript.itemNames[objectiveManagerScript.collectProgress])
+                ItemSorter(hit.transform.gameObject);
+            }
+                   
+        }
+    }
+    void ItemSorter(GameObject Item)
+    {
+        switch (Item.transform.gameObject.layer)
+        {
+            // toys , pictures, pets
+            case 11:
+                if (Item.transform.name == objectiveManagerScript.itemNames[objectiveManagerScript.collectProgress])
+                {
+                    PlayerMovement.stopMovement = true;
+                    MouseLook.canLook = false;
+                    pickUpArm.SetActive(true);
+                    // saves name of object
+                    items.Add(Item.transform.gameObject);
+                    hitGameobject = Item.transform.gameObject;
+                    StartCoroutine(CollectablePickUp());
+                }
+                break;
+                // Keys and other
+            case 14:
+                if (Item.transform.name == objectiveManagerScript.itemNames[objectiveManagerScript.collectProgress])
                 {
                     MouseLook.canLook = false;
                     PlayerMovement.stopMovement = true;
-
                     pickUpArm.SetActive(true);
-                    hitGameobject = hit.transform.gameObject;
-                   
-                    StartCoroutine(WaitForHalfASecond());
-                   
+                    hitGameobject = Item.transform.gameObject;
+                    StartCoroutine(NonCollectablePickUp());
                 }
-            }
-            else if (Input.GetKeyDown(KeyCode.E) && hit.transform.gameObject.layer == 11)
-            {
-                PlayerMovement.stopMovement = true;
-                MouseLook.canLook = false;
-                pickUpArm.SetActive(true);
-                // saves name of object
-                items.Add(hit.transform.gameObject);
-                hitGameobject = hit.transform.gameObject;
-              
-                StartCoroutine(CollectablesHalfASecond());
-            }
-            
+                break;
+                // Clothing
+            case 15:
+                if (Item.transform.name == objectiveManagerScript.itemNames[objectiveManagerScript.collectProgress])
+                {
+                    MouseLook.canLook = false;
+                    PlayerMovement.stopMovement = true;
+                    pickUpArm.SetActive(true);
+                    hitGameobject = Item.transform.gameObject;
+                    StartCoroutine(ClothingPickUp());
+                }
+                break;
+
         }
-    }    
+    }
     // waits half second for non collectable items
-    IEnumerator WaitForHalfASecond()
+    IEnumerator NonCollectablePickUp()
     {
 
         pickUpArm.GetComponent<Animator>().SetBool("PickUpItem", true);
@@ -93,7 +114,7 @@ public class AddItem : MonoBehaviour
 
     }
     // waits half second for collectbles
-    IEnumerator CollectablesHalfASecond()
+    IEnumerator CollectablePickUp()
     {
         pickUpArm.GetComponent<Animator>().SetBool("PickUpItem", true);
         yield return new WaitForSeconds(0.5f);
@@ -115,5 +136,23 @@ public class AddItem : MonoBehaviour
         PlayerMovement.stopMovement = false;
 
     }
+    IEnumerator ClothingPickUp()
+    {
+        pickUpArm.GetComponent<Animator>().SetBool("PickUpClothing", true);
+        yield return new WaitForSeconds(1.5f);
+        hitGameobject.transform.position = hand.transform.position + new Vector3(0, 0, 0);
+        hitGameobject.transform.parent = hand.transform;
+        pickUpArm.GetComponent<Animator>().SetBool("PickUpClothing", false);
+        // adds item progress to manager
+        objectiveManager.GetComponent<ObjectiveManager>().itemCollected++;
+        objectiveManager.GetComponent<ObjectiveManager>().Objective();  
+        yield return new WaitForSeconds(2);
+        // disables arms and collected gameobject
+        pickUpArm.SetActive(false);
+        hitGameobject.transform.gameObject.SetActive(false);
+        //movement resumed
+        MouseLook.canLook = true;
+        PlayerMovement.stopMovement = false;
 
+    }
 }

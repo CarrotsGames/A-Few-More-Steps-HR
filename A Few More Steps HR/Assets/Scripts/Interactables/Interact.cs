@@ -8,10 +8,16 @@ public class Interact : MonoBehaviour
     public float doorOpenTime = 1;
     private bool doorCooldown;
     private float doorOpenTimeStore;
+    public GameObject armAnim;
+
     private void Start()
     {
         doorCooldown = true;
         doorOpenTimeStore = doorOpenTime;
+        if(armAnim == null)
+        {
+            Debug.LogError("ARM ANIM NOT ADDED TO INTERACT SCRIPT ON CMCAMERA");
+        }
     }
     // Update is called once per frame
     void Update()
@@ -47,12 +53,15 @@ public class Interact : MonoBehaviour
                        // when door is opened
                         if(hit.transform.gameObject.GetComponentInParent<Animator>().GetBool("OpenDoor"))                      
                         {                           
-                              hit.transform.gameObject.GetComponentInParent<Animator>().SetBool("OpenDoor", false);                                     
+                          //  hit.transform.gameObject.GetComponentInParent<Animator>().SetBool("OpenDoor", false);
                         }
                         // when door is closed
                         else
                         {
+                            armAnim.SetActive(true);
+                            StartCoroutine(OpeningDoor());
                             hit.transform.gameObject.GetComponentInParent<Animator>().SetBool("OpenDoor", true);
+
                         }
                     }
                     break;
@@ -66,5 +75,19 @@ public class Interact : MonoBehaviour
         {
             reticle.disableHighlite();
         }
+    }
+    IEnumerator OpeningDoor( )
+    {
+        armAnim.GetComponent<Animator>().SetBool("OpenDoor", true);
+        yield return new WaitForSeconds(1.5f);
+        armAnim.GetComponent<Animator>().SetBool("OpenDoor", false);
+        // adds item progress to manager  
+        yield return new WaitForSeconds(2.5f);
+        // disables arms and collected gameobject
+        armAnim.SetActive(false);
+        //movement resumed
+        MouseLook.canLook = true;
+        PlayerMovement.stopMovement = false;
+
     }
 }

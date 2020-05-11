@@ -49,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
         // Gets movement using WASD
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
+        //   Vector3 forwardDir = Vector3.ProjectOnPlane(transform.forward, groundCheck.position).normalized;
 
         // movement 
         Vector3 movement = transform.right * x + transform.forward * z;
