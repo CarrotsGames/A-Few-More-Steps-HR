@@ -34,6 +34,10 @@ public class ScreenFade : MonoBehaviour
     }
     public void BeginCutscene()
     {
+        Image image = GetComponent<Image>();
+        var tempColor = image.color;
+        tempColor.a = 0;
+        image.color = tempColor;
         coroutine = CutsceneFade();
         StartCoroutine(CutsceneFade());
     }

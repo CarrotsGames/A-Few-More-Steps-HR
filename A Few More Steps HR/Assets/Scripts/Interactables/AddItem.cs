@@ -159,11 +159,14 @@ public class AddItem : MonoBehaviour
        
 
         yield return new WaitForSeconds(2.75f);
-        
-        //cutsceneFade.GetComponent<ScreenFade>().BeginCutscene();
-        //yield return new WaitForSeconds(0.35f);
-        //cutsceneFade.GetComponent<ScreenFade>().EndCutsceneFade();
-
+        cutsceneFade.GetComponent<ScreenFade>().StopAllCoroutines();
+        yield return new WaitForSeconds(0.10f);
+        cutsceneFade.GetComponent<ScreenFade>().BeginCutscene();
+        yield return new WaitForSeconds(0.35f);
+        cutsceneFade.GetComponent<ScreenFade>().EndCutsceneFade();
+        // adds item progress to manager
+        objectiveManager.GetComponent<ObjectiveManager>().itemCollected++;
+        objectiveManager.GetComponent<ObjectiveManager>().Objective();
         clothingCam.SetActive(false);
         ClothingArm.SetActive(false);
 
