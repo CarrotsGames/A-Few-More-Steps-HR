@@ -7,6 +7,7 @@ public class AddItem : MonoBehaviour
     public GameObject pickUpArm;
     public GameObject ClothingArm;
     public GameObject clothingCam;
+    private GameObject cutsceneFade;
 
     public GameObject hand;
     public float distance;
@@ -20,6 +21,7 @@ public class AddItem : MonoBehaviour
     
     private void Start()
     {
+ 
         pickUpArm.SetActive(false);
         ClothingArm.SetActive(false);
 
@@ -31,6 +33,7 @@ public class AddItem : MonoBehaviour
         inventory = GameObject.Find("Inventory");
         objectiveManager = GameObject.Find("ObjectiveManager");
         objectiveManagerScript = objectiveManager.GetComponent<ObjectiveManager>();
+        cutsceneFade = GameObject.Find("ScreenFade");
     }
     // Update is called once per frame
     void Update()
@@ -89,10 +92,9 @@ public class AddItem : MonoBehaviour
                     MouseLook.canLook = false;
                     PlayerMovement.stopMovement = true;
                     // ClothingArm.transform.position += new Vector3(0, 0.25f, 0);
-                    clothingCam.SetActive(true);
-                    ClothingArm.SetActive(true);
+                
                     hitGameobject = Item.transform.gameObject;
-                    hitGameobject.SetActive(false);
+                    
                     StartCoroutine(ClothingPickUp());
                 }
                 break;
@@ -125,6 +127,7 @@ public class AddItem : MonoBehaviour
     {
         pickUpArm.GetComponent<Animator>().SetBool("PickUpItem", true);
         yield return new WaitForSeconds(0.5f);
+        
         hitGameobject.transform.position = hand.transform.position + new Vector3(0,0, 0);
         hitGameobject.transform.parent = hand.transform;
         pickUpArm.GetComponent<Animator>().SetBool("PickUpItem", false);
@@ -145,9 +148,22 @@ public class AddItem : MonoBehaviour
     }
     IEnumerator ClothingPickUp()
     {
+        cutsceneFade.GetComponent<ScreenFade>().BeginCutscene();
+
+        yield return new WaitForSeconds(0.35f);
+        hitGameobject.SetActive(false);
+        cutsceneFade.GetComponent<ScreenFade>().EndCutsceneFade();
+
+        clothingCam.SetActive(true);
         ClothingArm.SetActive(true);
+       
 
         yield return new WaitForSeconds(2.75f);
+        
+        //cutsceneFade.GetComponent<ScreenFade>().BeginCutscene();
+        //yield return new WaitForSeconds(0.35f);
+        //cutsceneFade.GetComponent<ScreenFade>().EndCutsceneFade();
+
         clothingCam.SetActive(false);
         ClothingArm.SetActive(false);
 

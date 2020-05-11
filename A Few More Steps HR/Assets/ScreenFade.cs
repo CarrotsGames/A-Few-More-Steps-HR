@@ -5,12 +5,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class ScreenFade : MonoBehaviour
 {
+ 
     private IEnumerator coroutine;
     public  bool fadeOut;
     public string nextScene;
     // Start is called before the first frame update
     private void Start()
     {
+   
         Image image = GetComponent<Image>();
         var tempColor = image.color;
         tempColor.a = 2;
@@ -30,6 +32,52 @@ public class ScreenFade : MonoBehaviour
         StartCoroutine(FadeOut());
         StartCoroutine(NewLevel());
     }
+    public void BeginCutscene()
+    {
+        coroutine = CutsceneFade();
+        StartCoroutine(CutsceneFade());
+    }
+    public void EndCutsceneFade()
+    {
+        StopCoroutine(CutsceneFade());
+
+        coroutine = CutsceneFadeEnd();
+        StartCoroutine(CutsceneFadeEnd());
+
+    }
+
+    IEnumerator CutsceneFade()
+    {
+
+        while (true) // you can put there some other condition
+        {
+            Image image = GetComponent<Image>();
+            var tempColor = image.color;
+            tempColor.a = 2;
+            image.color += tempColor * Time.deltaTime * 3;
+            yield return new WaitForSeconds(0);
+
+        }
+
+
+    }
+    IEnumerator CutsceneFadeEnd()
+    {
+
+        while (true) // you can put there some other condition
+        {
+            Image image = GetComponent<Image>();
+         
+            var tempColor = image.color;
+            tempColor.a = 2;
+         
+            image.color -= tempColor * Time.deltaTime * 6;
+            yield return new WaitForSeconds(0);
+        }
+
+
+    }
+    // Tints the screen to white
     public IEnumerator FadeIn()
     {
         while (true) // you can put there some other condition
@@ -42,6 +90,8 @@ public class ScreenFade : MonoBehaviour
             
         }
     }
+    // Tints the screen to black
+
     public IEnumerator FadeOut()
     {
         while (true) // you can put there some other condition

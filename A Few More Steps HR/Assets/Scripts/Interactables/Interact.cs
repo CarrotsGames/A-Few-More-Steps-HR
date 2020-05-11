@@ -9,7 +9,7 @@ public class Interact : MonoBehaviour
     private bool doorCooldown;
     private float doorOpenTimeStore;
     public GameObject armAnim;
-
+ 
     private void Start()
     {
         doorCooldown = true;
