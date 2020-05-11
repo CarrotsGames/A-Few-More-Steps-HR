@@ -5,6 +5,9 @@ using UnityEngine;
 public class AddItem : MonoBehaviour
 {
     public GameObject pickUpArm;
+    public GameObject ClothingArm;
+    public GameObject clothingCam;
+
     public GameObject hand;
     public float distance;
     [Header("Collected Items")]
@@ -18,8 +21,9 @@ public class AddItem : MonoBehaviour
     private void Start()
     {
         pickUpArm.SetActive(false);
+        ClothingArm.SetActive(false);
 
-        if (pickUpArm == null || hand == null)
+        if (pickUpArm == null || hand == null || ClothingArm == null)
         {
             Debug.LogError("ARM OR ITEMPICKUPPOINT GAMEOBJECT IS NOT SET ON CMCAMERA ADD ITEM SCRIPT");
         }
@@ -84,8 +88,11 @@ public class AddItem : MonoBehaviour
                 {
                     MouseLook.canLook = false;
                     PlayerMovement.stopMovement = true;
-                    pickUpArm.SetActive(true);
+                    // ClothingArm.transform.position += new Vector3(0, 0.25f, 0);
+                    clothingCam.SetActive(true);
+                    ClothingArm.SetActive(true);
                     hitGameobject = Item.transform.gameObject;
+                    hitGameobject.SetActive(false);
                     StartCoroutine(ClothingPickUp());
                 }
                 break;
@@ -138,21 +145,16 @@ public class AddItem : MonoBehaviour
     }
     IEnumerator ClothingPickUp()
     {
-        pickUpArm.GetComponent<Animator>().SetBool("PickUpClothing", true);
-        yield return new WaitForSeconds(1.5f);
-        hitGameobject.transform.position = hand.transform.position + new Vector3(0, 0, 0);
-        hitGameobject.transform.parent = hand.transform;
-        pickUpArm.GetComponent<Animator>().SetBool("PickUpClothing", false);
-        // adds item progress to manager
-        objectiveManager.GetComponent<ObjectiveManager>().itemCollected++;
-        objectiveManager.GetComponent<ObjectiveManager>().Objective();  
-        yield return new WaitForSeconds(2);
-        // disables arms and collected gameobject
-        pickUpArm.SetActive(false);
-        hitGameobject.transform.gameObject.SetActive(false);
-        //movement resumed
+        ClothingArm.SetActive(true);
+
+        yield return new WaitForSeconds(2.75f);
+        clothingCam.SetActive(false);
+        ClothingArm.SetActive(false);
+
         MouseLook.canLook = true;
         PlayerMovement.stopMovement = false;
+      //  pickUpArm.transform.position += new Vector3(0, -0.25f, 0);
+
 
     }
 }

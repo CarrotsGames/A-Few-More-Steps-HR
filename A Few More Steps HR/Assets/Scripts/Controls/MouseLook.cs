@@ -13,7 +13,7 @@ public class MouseLook : MonoBehaviour
     {
         canLook = true;
         player = GameObject.Find("Player");     
-        sensitivity *= 10;
+       
         Cursor.lockState = CursorLockMode.Locked;
     }
     // Update is called once per frame
@@ -22,8 +22,8 @@ public class MouseLook : MonoBehaviour
         if (canLook)
         {
             //NOTE: sensitivity may change depending on monitors due to Time
-            float mouseX = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
-            float mouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
+            float mouseX = Input.GetAxis("Mouse X") * sensitivity ;
+            float mouseY = Input.GetAxis("Mouse Y") * sensitivity ;
 
             rotateX -= mouseY;             //up  down
             rotateX = Mathf.Clamp(rotateX, -60, 60);
