@@ -49,7 +49,7 @@ public class AreaCheck : MonoBehaviour
         finalDoorGo.transform.GetChild(0).gameObject.SetActive(true);
         finalDoorFpsCam.SetActive(true);
         finalDoorGo.GetComponent<Animator>().SetBool("OpenFinalDoor", true);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(4);
         cutsceneFade.GetComponent<ScreenFade>().StopAllCoroutines();
         cutsceneFade.GetComponent<ScreenFade>().BeginCutscene();
         yield return new WaitForSeconds(0.5f);
