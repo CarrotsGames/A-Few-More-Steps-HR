@@ -12,6 +12,7 @@ TagManager:
   - Ring
   - Book
   - Handle
+  - FinalDoor
   layers:
   - Default
   - TransparentFX

@@ -184,6 +184,8 @@ public class ObjectiveManager : MonoBehaviour
     }
     void EndScene()
     {
+        screenFade.GetComponent<ScreenFade>().StopAllCoroutines();
+
         screenFade.GetComponent<ScreenFade>().BeginFadeOut();
         GameManager.dialogueParts = 0;
         progress = 0;

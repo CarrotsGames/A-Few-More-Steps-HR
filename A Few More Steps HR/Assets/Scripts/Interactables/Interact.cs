@@ -6,18 +6,22 @@ public class Interact : MonoBehaviour
 {
     [Header("Match with door anim time")]
     public float doorOpenTime = 1;
+    public GameObject armAnim;
+   
     private bool doorCooldown;
     private float doorOpenTimeStore;
-    public GameObject armAnim;
- 
+    private GameObject cutsceneFade;
+   
     private void Start()
     {
         doorCooldown = true;
         doorOpenTimeStore = doorOpenTime;
-        if(armAnim == null)
+         
+        if (armAnim == null)
         {
-            Debug.LogError("ARM ANIM NOT ADDED TO INTERACT SCRIPT ON CMCAMERA");
+            Debug.LogError("ARM ANIM /FINAL DOOR CAM /FINALDOOR GO NOT ADDED TO INTERACT SCRIPT ON CMCAMERA");
         }
+        cutsceneFade = GameObject.Find("ScreenFade");
     }
     // Update is called once per frame
     void Update()
@@ -35,45 +39,48 @@ public class Interact : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 2))
         {
-            switch(hit.transform.gameObject.tag)
-            { 
-                case "Book":
-                    reticle.HighliteObject();
-                    if (Input.GetKey(KeyCode.E))
-                    {
-                        hit.transform.gameObject.GetComponent<Notes>().ReadNote();
-                    }
-                    break;
-                case "Handle":
-                    reticle.HighliteObject();
-            
-                    if (Input.GetKeyDown(KeyCode.E) && !doorCooldown)
-                    {
-                        doorCooldown = true;
-                       // when door is opened
-                        if(hit.transform.gameObject.GetComponentInParent<Animator>().GetBool("OpenDoor"))                      
-                        {                           
-                          //  hit.transform.gameObject.GetComponentInParent<Animator>().SetBool("OpenDoor", false);
-                        }
-                        // when door is closed
-                        else
-                        {
-                            armAnim.SetActive(true);
-                            StartCoroutine(OpeningDoor());
-                            hit.transform.gameObject.GetComponentInParent<Animator>().SetBool("OpenDoor", true);
 
-                        }
-                    }
-                    break;
-
-            }
-           
-             
+            InteractingWith(hit.transform.gameObject);
 
         }
         else
         {
             reticle.disableHighlite();
+        }
+    }
+    void InteractingWith(GameObject interactedItem)
+    {
+        switch (interactedItem.tag)
+        {
+            case "Book":
+                reticle.HighliteObject();
+                if (Input.GetKey(KeyCode.E))
+                {
+                    interactedItem.GetComponent<Notes>().ReadNote();
+                }
+                break;
+            case "Handle":
+                reticle.HighliteObject();
+
+                if (Input.GetKeyDown(KeyCode.E) && !doorCooldown)
+                {
+                    doorCooldown = true;
+                    // when door is opened
+                    if (interactedItem.GetComponentInParent<Animator>().GetBool("OpenDoor"))
+                    {
+                        //  hit.transform.gameObject.GetComponentInParent<Animator>().SetBool("OpenDoor", false);
+                    }
+                    // when door is closed
+                    else
+                    {
+                        armAnim.SetActive(true);
+                        StartCoroutine(OpeningDoor());
+                        interactedItem.GetComponentInParent<Animator>().SetBool("OpenDoor", true);
+
+                    }
+                }
+                break;
+         
         }
     }
     IEnumerator OpeningDoor( )
@@ -90,4 +97,5 @@ public class Interact : MonoBehaviour
         PlayerMovement.stopMovement = false;
 
     }
+
 }

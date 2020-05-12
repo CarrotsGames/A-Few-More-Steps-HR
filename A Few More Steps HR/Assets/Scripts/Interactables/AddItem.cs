@@ -21,10 +21,11 @@ public class AddItem : MonoBehaviour
     
     private void Start()
     {
- 
+        if (ClothingArm != null)
+        {
+            ClothingArm.SetActive(false);
+        }
         pickUpArm.SetActive(false);
-        ClothingArm.SetActive(false);
-
         if (pickUpArm == null || hand == null || ClothingArm == null)
         {
             Debug.LogError("ARM OR ITEMPICKUPPOINT GAMEOBJECT IS NOT SET ON CMCAMERA ADD ITEM SCRIPT");
@@ -34,8 +35,8 @@ public class AddItem : MonoBehaviour
         objectiveManager = GameObject.Find("ObjectiveManager");
         objectiveManagerScript = objectiveManager.GetComponent<ObjectiveManager>();
         cutsceneFade = GameObject.Find("ScreenFade");
-    }
     // Update is called once per frame
+    }
     void Update()
     {
         
@@ -131,7 +132,8 @@ public class AddItem : MonoBehaviour
         hitGameobject.transform.position = hand.transform.position + new Vector3(0,0, 0);
         hitGameobject.transform.parent = hand.transform;
         pickUpArm.GetComponent<Animator>().SetBool("PickUpItem", false);
-       // adds item progress to manager
+        // adds item progress to manager
+        // FUTURE NOTE REPLACE THESE WITH JUST "objectiveManagerScript"
         objectiveManager.GetComponent<ObjectiveManager>().itemCollected++;
         objectiveManager.GetComponent<ObjectiveManager>().Objective();
         // saves item into the inventory
