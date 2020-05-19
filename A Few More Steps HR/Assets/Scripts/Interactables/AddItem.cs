@@ -5,9 +5,8 @@ using UnityEngine;
 public class AddItem : MonoBehaviour
 {
     public GameObject pickUpArm;
-    public GameObject ClothingArm;
-    public GameObject clothingCam;
-    private GameObject cutsceneFade;
+   
+    public GameObject animationManager;
 
     public GameObject hand;
     public float distance;
@@ -17,16 +16,15 @@ public class AddItem : MonoBehaviour
     private GameObject inventory;
     private GameObject objectiveManager;
     private ObjectiveManager objectiveManagerScript;
+    private AnimationManager animationManagerScript;
+
     GameObject hitGameobject;
     
     private void Start()
     {
-        if (ClothingArm != null)
-        {
-            ClothingArm.SetActive(false);
-        }
+      
         pickUpArm.SetActive(false);
-        if (pickUpArm == null || hand == null || ClothingArm == null)
+        if (pickUpArm == null || hand == null)
         {
             Debug.LogError("ARM OR ITEMPICKUPPOINT GAMEOBJECT IS NOT SET ON CMCAMERA ADD ITEM SCRIPT");
         }
@@ -34,8 +32,10 @@ public class AddItem : MonoBehaviour
         inventory = GameObject.Find("Inventory");
         objectiveManager = GameObject.Find("ObjectiveManager");
         objectiveManagerScript = objectiveManager.GetComponent<ObjectiveManager>();
-        cutsceneFade = GameObject.Find("ScreenFade");
-    // Update is called once per frame
+      
+        animationManager = GameObject.Find("AnimationManager");
+        animationManagerScript = animationManager.GetComponent<AnimationManager>();
+        // Update is called once per frame
     }
     void Update()
     {
@@ -93,10 +93,16 @@ public class AddItem : MonoBehaviour
                     MouseLook.canLook = false;
                     PlayerMovement.stopMovement = true;
                     // ClothingArm.transform.position += new Vector3(0, 0.25f, 0);
-                
                     hitGameobject = Item.transform.gameObject;
-                    
-                    StartCoroutine(ClothingPickUp());
+                    if (hitGameobject.name == "Clothes")
+                    {
+                        animationManagerScript.AnimationName("Clothing", hitGameobject);
+                    }
+                    else if(hitGameobject.name == "BabyCrib")
+                    {
+                        animationManagerScript.AnimationName("BabyCrib", hitGameobject);
+                    }
+
                 }
                 break;
 
@@ -148,34 +154,5 @@ public class AddItem : MonoBehaviour
         PlayerMovement.stopMovement = false;
 
     }
-    IEnumerator ClothingPickUp()
-    {
-        cutsceneFade.GetComponent<ScreenFade>().BeginCutscene();
-
-        yield return new WaitForSeconds(0.35f);
-        hitGameobject.SetActive(false);
-        cutsceneFade.GetComponent<ScreenFade>().EndCutsceneFade();
-
-        clothingCam.SetActive(true);
-        ClothingArm.SetActive(true);
-       
-
-        yield return new WaitForSeconds(2.75f);
-        cutsceneFade.GetComponent<ScreenFade>().StopAllCoroutines();
-        yield return new WaitForSeconds(0.10f);
-        cutsceneFade.GetComponent<ScreenFade>().BeginCutscene();
-        yield return new WaitForSeconds(0.35f);
-        cutsceneFade.GetComponent<ScreenFade>().EndCutsceneFade();
-        // adds item progress to manager
-        objectiveManager.GetComponent<ObjectiveManager>().itemCollected++;
-        objectiveManager.GetComponent<ObjectiveManager>().Objective();
-        clothingCam.SetActive(false);
-        ClothingArm.SetActive(false);
-
-        MouseLook.canLook = true;
-        PlayerMovement.stopMovement = false;
-      //  pickUpArm.transform.position += new Vector3(0, -0.25f, 0);
-
-
-    }
+   
 }
