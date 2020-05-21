@@ -94,14 +94,20 @@ public class AddItem : MonoBehaviour
                     PlayerMovement.stopMovement = true;
                     // ClothingArm.transform.position += new Vector3(0, 0.25f, 0);
                     hitGameobject = Item.transform.gameObject;
-                    if (hitGameobject.name == "Clothes")
+                   switch(hitGameobject.name)
                     {
-                        animationManagerScript.AnimationName("Clothing", hitGameobject);
+                        case "Clothes":
+                            animationManagerScript.AnimationName("Clothing", hitGameobject);
+                            break;
+                        case "BabyCrib":
+                            animationManagerScript.AnimationName("BabyCrib", hitGameobject);
+                            break;
+                        case "BabyDoorAnim":
+                            animationManagerScript.AnimationName("BabiesDoorAnim", hitGameobject);
+                            break;
                     }
-                    else if(hitGameobject.name == "BabyCrib")
-                    {
-                        animationManagerScript.AnimationName("BabyCrib", hitGameobject);
-                    }
+                    
+                    
 
                 }
                 break;
