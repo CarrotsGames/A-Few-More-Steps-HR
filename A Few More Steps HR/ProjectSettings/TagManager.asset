@@ -13,6 +13,7 @@ TagManager:
   - Book
   - Handle
   - FinalDoor
+  - Prize
   layers:
   - Default
   - TransparentFX

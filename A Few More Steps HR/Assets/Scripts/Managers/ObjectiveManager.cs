@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ObjectiveManager : MonoBehaviour
 {
+
     public GameObject screenFade;
     [Header("Which objective should the dialogue change?")]
     public int changeDialogue;
@@ -18,6 +19,7 @@ public class ObjectiveManager : MonoBehaviour
 
     // Collect X items
     [Header("how many items does the player collect?")]
+    [Header("NOTE: Layer 11 item names are its tag")]
     public string[] itemNames;
     public int[] amountOfItems;
     [HideInInspector]

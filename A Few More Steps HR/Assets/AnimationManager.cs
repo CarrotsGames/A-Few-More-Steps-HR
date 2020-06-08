@@ -58,7 +58,7 @@ public class AnimationManager : MonoBehaviour
             case "BabiesDoorAnim":
                 //  PlayGameAnimation(2.75f);
                 StartCoroutine(OpenBabyDoor(4.85f, hitObject, bDoorOpenAnim, bDoorCam));
-                cribBaby.SetActive(false);
+               // cribBaby.SetActive(false);
                 break;
             case "FinalDoor":
                 //  PlayGameAnimation(2.75f);

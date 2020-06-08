@@ -64,7 +64,7 @@ public class AddItem : MonoBehaviour
         {
             // toys , pictures, pets
             case 11:
-                if (Item.transform.name == objectiveManagerScript.itemNames[objectiveManagerScript.collectProgress])
+                if (Item.transform.tag == objectiveManagerScript.itemNames[objectiveManagerScript.collectProgress])
                 {
                     PlayerMovement.stopMovement = true;
                     MouseLook.canLook = false;

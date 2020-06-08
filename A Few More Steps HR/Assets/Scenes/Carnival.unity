@@ -2972,7 +2972,7 @@ GameObject:
   - component: {fileID: 49899446}
   m_Layer: 11
   m_Name: B
-  m_TagString: Untagged
+  m_TagString: Prize
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4203,6 +4203,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4618570725955023759, guid: c9a07b72e37a03748bc5cb8dc59f3b07,
         type: 3}
+      propertyPath: itemNames.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4618570725955023759, guid: c9a07b72e37a03748bc5cb8dc59f3b07,
+        type: 3}
       propertyPath: objectives.Array.data[1]
       value: Collect
       objectReference: {fileID: 0}
@@ -4275,6 +4280,26 @@ PrefabInstance:
         type: 3}
       propertyPath: changeDialogue
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4618570725955023759, guid: c9a07b72e37a03748bc5cb8dc59f3b07,
+        type: 3}
+      propertyPath: itemNames.Array.data[0]
+      value: Prize
+      objectReference: {fileID: 0}
+    - target: {fileID: 4618570725955023759, guid: c9a07b72e37a03748bc5cb8dc59f3b07,
+        type: 3}
+      propertyPath: itemNames.Array.data[1]
+      value: Prize
+      objectReference: {fileID: 0}
+    - target: {fileID: 4618570725955023759, guid: c9a07b72e37a03748bc5cb8dc59f3b07,
+        type: 3}
+      propertyPath: itemNames.Array.data[2]
+      value: Prize
+      objectReference: {fileID: 0}
+    - target: {fileID: 4618570725955023759, guid: c9a07b72e37a03748bc5cb8dc59f3b07,
+        type: 3}
+      propertyPath: itemNames.Array.data[3]
+      value: Prize
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9a07b72e37a03748bc5cb8dc59f3b07, type: 3}
@@ -4361,7 +4386,7 @@ GameObject:
   - component: {fileID: 280641938}
   m_Layer: 11
   m_Name: C
-  m_TagString: Untagged
+  m_TagString: Prize
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4732,6 +4757,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 426065648458389678, guid: 6d994a5c476f7a040beb85092cb9af28,
+        type: 3}
+      propertyPath: m_TagString
+      value: Prize
       objectReference: {fileID: 0}
     - target: {fileID: 426065648781748799, guid: 6d994a5c476f7a040beb85092cb9af28,
         type: 3}
@@ -11621,7 +11651,7 @@ GameObject:
   - component: {fileID: 1467992064}
   m_Layer: 11
   m_Name: A
-  m_TagString: Untagged
+  m_TagString: Prize
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14706,6 +14736,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6364503713718308792, guid: a8e3a60ab9c4c5445991196f55ed5fab,
+        type: 3}
+      propertyPath: sensitivity
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6364503714313538330, guid: a8e3a60ab9c4c5445991196f55ed5fab,
         type: 3}
       propertyPath: strength
