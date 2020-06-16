@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ObjectiveManager : MonoBehaviour
 {
-
+    public static bool talkingObjBool;
     public GameObject screenFade;
     [Header("Which objective should the dialogue change?")]
     public int changeDialogue;
@@ -51,7 +51,7 @@ public class ObjectiveManager : MonoBehaviour
     // the progress of each objective
     private int talkProgress;
     private int goToProgress;
-
+  
     // Start is called before the first frame update
     void Start()
     {
@@ -72,12 +72,11 @@ public class ObjectiveManager : MonoBehaviour
 
     }
     // Handles the progression of the objectives
-    void ObjectiveSteps()
+  public void ObjectiveSteps()
     {
         infoText.text = info[progress];
         if(progress == changeDialogue)
-        {
-            GameManager.dialogueParts++;
+        {          
             changeDialogue--;
         }
         // PLAY AUDIO CLIP
@@ -88,28 +87,35 @@ public class ObjectiveManager : MonoBehaviour
              case 0:
                  levelEnded = false;
                  objectiveType = objectives[progress];
-                 // ADD STRING/TEXT THAT TELLS PLAYER WHAT TO DO 
-                 Objective();
+                 GameManager.dialogueParts = 0;
+                // ADD STRING/TEXT THAT TELLS PLAYER WHAT TO DO 
+                Objective();
                  break;
              case 1:
                  objectiveType = objectives[progress];
-                 Objective();
+                GameManager.dialogueParts = 1;
+
+                Objective();
                  break;
              case 2:
                  objectiveType = objectives[progress];
-                 Objective();
+                GameManager.dialogueParts = 2;
+                Objective();
                  break;
              case 3:
                  objectiveType = objectives[progress];
-                 Objective();
+                GameManager.dialogueParts = 3;
+                Objective();
                  break;
              case 4:
                  objectiveType = objectives[progress];
-                 Objective();
+                GameManager.dialogueParts = 4;
+                Objective();
                  break;
              case 5:
                  objectiveType = objectives[progress];
-                 Objective();
+                GameManager.dialogueParts = 5;
+                Objective();
                  break;
 
          }
@@ -122,6 +128,7 @@ public class ObjectiveManager : MonoBehaviour
         {
             switch (objectiveType)
             {
+                // Collect objects like keys , toys etc
                 case "Collect":
                     if (itemCollected >= amountOfItems[collectProgress])
                     {
@@ -141,11 +148,12 @@ public class ObjectiveManager : MonoBehaviour
                         }
                     }
                     break;
+                    //talk to npcs
                 case "Talk":
                     if (playerTalkedTo == talkToPerson[talkProgress])
                     {
                         progress++;
-
+                        talkingObjBool = true;
                         if (progress >= progressCap)
                         {
                             EndScene();
@@ -154,11 +162,11 @@ public class ObjectiveManager : MonoBehaviour
                         {
                             talkProgress++;
                             ResetObjectiveStats();
-                            Debug.Log("ObjectiveComplete!!");
-                            ObjectiveSteps();
+                            Debug.Log("ObjectiveComplete!!");                        
                         }
                     }
                     break;
+                    // go to a specific area
                 case "GoTo":
 
                     if (currentArea == goToArea[goToProgress])

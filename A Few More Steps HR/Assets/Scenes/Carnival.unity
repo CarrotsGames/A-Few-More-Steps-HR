@@ -6700,17 +6700,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 659940cc187923a4fbde05362c8352dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  partOneChat:
-  - Win me prize husbUND
-  - "Now\t"
-  - husbUND
-  partTwoChat:
-  - take me to the grid
-  - I wanna go to grid
-  partThreeChat: []
   chatBoxGameObj: {fileID: 1414089704}
   chatBox: {fileID: 515948701}
   waitFor: 3
+  ListOfPointLists:
+    GameProgress:
+    - numOfConversations:
+      - Wow look at all these games..
+      - Could you win me a few prizes?
+      - Im really bad at these games but i like the prizes
+    - numOfConversations:
+      - How are the games treating you?
+    - numOfConversations:
+      - Wow thanks for the prizes
+      - Not gonna lie it was funny watching you fail
+      - You can leave this place now
 --- !u!1 &815455479
 GameObject:
   m_ObjectHideFlags: 0
@@ -11350,12 +11354,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 659940cc187923a4fbde05362c8352dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  partOneChat: []
-  partTwoChat: []
-  partThreeChat: []
   chatBoxGameObj: {fileID: 0}
   chatBox: {fileID: 0}
   waitFor: 3
+  ListOfPointLists:
+    GameProgress: []
 --- !u!1 &1414089704
 GameObject:
   m_ObjectHideFlags: 0
