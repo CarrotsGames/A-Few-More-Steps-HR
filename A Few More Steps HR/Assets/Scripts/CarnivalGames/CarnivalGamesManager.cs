@@ -120,8 +120,8 @@ public class CarnivalGamesManager : MonoBehaviour
         {
             Debug.Log("LOST");
         }
-   
-        Debug.Log("GAMEOVER");
+       StartGame.playingGame = false;
+       // Debug.Log("GAMEOVER");
     }
   // Strength test rules
     public void RestartStrengthTest()
