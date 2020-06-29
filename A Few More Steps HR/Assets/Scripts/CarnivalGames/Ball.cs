@@ -16,6 +16,7 @@ public class Ball : MonoBehaviour
         if(collision.gameObject.name == "Target")
         {
             carnivalGameManager.DunkTankGameover("win");
+            collision.gameObject.GetComponent<AudioSource>().Play();
             collision.gameObject.GetComponent<Renderer>().material.color = Color.green;
         }
     }

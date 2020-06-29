@@ -26,7 +26,7 @@ public class StartGame : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Escape))
+        if (Input.GetKeyUp(KeyCode.Escape) || !playingGame)
         {         
             gameManager.GetComponent<GameManager>().ResumePlayerControls();             
             player.GetComponent<RingToss>().enabled = false;
