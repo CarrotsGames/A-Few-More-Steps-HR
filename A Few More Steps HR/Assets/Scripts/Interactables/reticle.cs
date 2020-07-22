@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class reticle : MonoBehaviour
 {
+ 
     public static Image reticleImage;
     private void Start()
     {
         Debug.Log(this.gameObject);
         reticleImage = GetComponent<Image>();
+      
     }
     public static void HighliteObject()
     {
@@ -20,6 +22,16 @@ public class reticle : MonoBehaviour
     {
      //   reticleImage.color = Color.gray;
          reticleImage.color = Color.gray;
+    }
+    public void DisableReticle()
+    {
+        //   reticleImage.color = Color.gray;
+        this.gameObject.SetActive(false);
+    }
+    public void EnableReticle()
+    {
+        //   reticleImage.color = Color.gray;
+        this.gameObject.SetActive(true);
     }
     void deniedReticle()
     {

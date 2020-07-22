@@ -6,6 +6,7 @@ public class AreaCheck : MonoBehaviour
 {
     [Header("FDFC is only used in house scenes")]
     public GameObject finalDoorFpsCam;
+    [HideInInspector]
     public GameObject animationManager;
     private GameObject cutsceneFade;
     private GameObject objectiveManager;
@@ -36,26 +37,11 @@ public class AreaCheck : MonoBehaviour
            // StartCoroutine(OpeningFinalDoor(other.gameObject));
             animationManagerScript.AnimationName("FinalDoor" ,other.gameObject);
         }
+     
         else
         {
             objectiveManager.GetComponent<ObjectiveManager>().Objective();
         }
     }
-    //public IEnumerator OpeningFinalDoor(GameObject finalDoor)
-    //{
-    //    cutsceneFade.GetComponent<ScreenFade>().StopAllCoroutines();
-    //    cutsceneFade.GetComponent<ScreenFade>().BeginCutscene();
-    //    yield return new WaitForSeconds(0.35f);
-    //    cutsceneFade.GetComponent<ScreenFade>().EndCutsceneFade();
-
-    //    finalDoorGo.transform.GetChild(0).gameObject.SetActive(true);
-    //    finalDoorFpsCam.SetActive(true);
-    //    finalDoorGo.GetComponent<Animator>().SetBool("OpenFinalDoor", true);
-    //    yield return new WaitForSeconds(2);
-    //    //cutsceneFade.GetComponent<ScreenFade>().StopAllCoroutines();
-    //    //cutsceneFade.GetComponent<ScreenFade>().BeginCutscene();
-    //    //yield return new WaitForSeconds(0.5f);
-    //    objectiveManagerScript.itemCollected++;
-    //    objectiveManagerScript.Objective();
-    //}
+ 
 }

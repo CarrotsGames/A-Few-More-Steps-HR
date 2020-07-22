@@ -11,8 +11,7 @@ public class ObjectiveManager : MonoBehaviour
     public int changeDialogue;
     [Header("What are the objectives? (Collect, Talk, GoTo )")]
     public string[] objectives;
-    private string objectiveType;
-
+   
     [Header("Tell player what to do")]
     public string[] info;
     public Text infoText;
@@ -36,25 +35,27 @@ public class ObjectiveManager : MonoBehaviour
     public string[] goToArea;
     [HideInInspector]
     public string currentArea;
-
-
-    ////[Header("What does the player need to pick up?")]
-    ////public string specificItem;
-    ////private string item;
     public static bool levelEnded;
-    [SerializeField]
-    private int progressCap;
+  
     // the progress of all objectives
     public int progress;
     [HideInInspector]
     public int collectProgress;
+   
+    [SerializeField]
+    private int progressCap;
     // the progress of each objective
     private int talkProgress;
-    private int goToProgress;
-  
+    private int goToProgress; 
+   
+    //used to switch off highliteReticle
+    private GameObject highliteReticle;
+    private string objectiveType;
+   
     // Start is called before the first frame update
     void Start()
     {
+        highliteReticle = GameObject.Find("Reticle");
         levelEnded = false;
         if (screenFade == null)
         {
@@ -69,10 +70,20 @@ public class ObjectiveManager : MonoBehaviour
         {
             Debug.LogError("Forgot to set the infoText in objectiveManager");
         }
+    }
+    public void HideText()
+    {
+        infoText.text = "";
+        highliteReticle.GetComponent<reticle>().DisableReticle();
+    }
+    public void ShowText()
+    {
+        infoText.text = info[progress];
+        highliteReticle.GetComponent<reticle>().EnableReticle();
 
     }
     // Handles the progression of the objectives
-  public void ObjectiveSteps()
+    public void ObjectiveSteps()
     {
         infoText.text = info[progress];
         if(progress == changeDialogue)
@@ -126,6 +137,7 @@ public class ObjectiveManager : MonoBehaviour
     { 
         if(!levelEnded)
         {
+
             switch (objectiveType)
             {
                 // Collect objects like keys , toys etc

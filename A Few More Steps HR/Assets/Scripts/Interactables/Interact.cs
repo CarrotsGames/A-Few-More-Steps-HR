@@ -7,16 +7,19 @@ public class Interact : MonoBehaviour
     [Header("Match with door anim time")]
     public float doorOpenTime = 1;
     public GameObject armAnim;
+    [HideInInspector]
+    public GameObject animationManager;
    
     private bool doorCooldown;
     private float doorOpenTimeStore;
     private GameObject cutsceneFade;
-   
+    private AnimationManager animationManagerScript;
     private void Start()
     {
         doorCooldown = true;
         doorOpenTimeStore = doorOpenTime;
-         
+        animationManager = GameObject.Find("AnimationManager");
+        animationManagerScript = animationManager.GetComponent<AnimationManager>();
         if (armAnim == null)
         {
             Debug.LogError("ARM ANIM /FINAL DOOR CAM /FINALDOOR GO NOT ADDED TO INTERACT SCRIPT ON CMCAMERA");
@@ -50,7 +53,7 @@ public class Interact : MonoBehaviour
     }
     void InteractingWith(GameObject interactedItem)
     {
-        switch (interactedItem.tag)
+       switch (interactedItem.tag)
         {
             case "Book":
                 reticle.HighliteObject();
@@ -80,7 +83,14 @@ public class Interact : MonoBehaviour
                     }
                 }
                 break;
-         
+            case "BabyDoorHandle":
+                reticle.HighliteObject();
+
+                if (Input.GetKeyDown(KeyCode.E) && !doorCooldown)
+                {
+                    animationManagerScript.AnimationName("BabiesDoorAnim", interactedItem);
+                }
+                break;
         }
     }
     IEnumerator OpeningDoor( )

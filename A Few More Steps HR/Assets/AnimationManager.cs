@@ -33,6 +33,11 @@ public class AnimationManager : MonoBehaviour
         {
             clothingArm.SetActive(false);
         }
+
+        if (cribArms != null)
+        {
+            cribArms.SetActive(false);
+        }
         objectiveManager = GameObject.Find("ObjectiveManager");
         objectiveManagerScript = objectiveManager.GetComponent<ObjectiveManager>();
         cutsceneFade = GameObject.Find("ScreenFade");
@@ -44,6 +49,7 @@ public class AnimationManager : MonoBehaviour
     // Passes in animaton and object to get required animation
     public void AnimationName(string animName, GameObject hitObject)
     {
+        
         switch (animName)
         {
             case "Clothing":
@@ -53,6 +59,11 @@ public class AnimationManager : MonoBehaviour
             case "BabyCrib":
                 //  PlayGameAnimation(2.75f);
                 StartCoroutine(PlayAnimation(5.15f, hitObject, cribArms, cribCam));
+                cribBaby.SetActive(false);
+                break;
+            case "PanicBabyCrib":
+                //  PlayGameAnimation(2.75f);
+                StartCoroutine(PlayAnimation(14f, hitObject, cribArms, cribCam));
                 cribBaby.SetActive(false);
                 break;
             case "BabiesDoorAnim":
@@ -71,6 +82,8 @@ public class AnimationManager : MonoBehaviour
     IEnumerator PlayAnimation(float animTime, GameObject hitGameobject, 
         GameObject animArms, GameObject animCam)
     {
+        objectiveManagerScript.HideText();
+        cutsceneFade.GetComponent<ScreenFade>().StopAllCoroutines();
         cutsceneFade.GetComponent<ScreenFade>().BeginCutscene();
         yield return new WaitForSeconds(0.35f);
         hitGameobject.SetActive(false);
@@ -103,12 +116,15 @@ public class AnimationManager : MonoBehaviour
         MouseLook.canLook = true;
         PlayerMovement.stopMovement = false;
         //  pickUpArm.transform.position += new Vector3(0, -0.25f, 0);
+        objectiveManagerScript.ShowText();
 
 
     }
     IEnumerator OpenBabyDoor(float animTime, GameObject hitGameobject,
        GameObject animArms, GameObject animCam)
     {
+        objectiveManagerScript.HideText();
+        cutsceneFade.GetComponent<ScreenFade>().StopAllCoroutines();
         cutsceneFade.GetComponent<ScreenFade>().BeginCutscene();
       
         // Waits until screen is fully faded
@@ -134,9 +150,9 @@ public class AnimationManager : MonoBehaviour
         yield return new WaitForSeconds(0.35f);
         cutsceneFade.GetComponent<ScreenFade>().EndCutsceneFade();
       
-        // adds item progress to manager
-        objectiveManager.GetComponent<ObjectiveManager>().itemCollected++;
-        objectiveManager.GetComponent<ObjectiveManager>().Objective();
+        //// adds item progress to manager
+        //objectiveManager.GetComponent<ObjectiveManager>().itemCollected++;
+        //objectiveManager.GetComponent<ObjectiveManager>().Objective();
       
         // disables animation
         animCam.SetActive(false);
@@ -145,11 +161,14 @@ public class AnimationManager : MonoBehaviour
         // player can move again
         MouseLook.canLook = true;
         PlayerMovement.stopMovement = false;
- 
+        objectiveManagerScript.ShowText();
+
     }
+
     // Final door anim a bit different so needs its own function
     public IEnumerator OpeningFinalDoor(GameObject finalDoor)
     {
+        objectiveManagerScript.HideText();
         cutsceneFade.GetComponent<ScreenFade>().StopAllCoroutines();
         cutsceneFade.GetComponent<ScreenFade>().BeginCutscene();
         yield return new WaitForSeconds(0.35f);
@@ -162,7 +181,7 @@ public class AnimationManager : MonoBehaviour
         //cutsceneFade.GetComponent<ScreenFade>().StopAllCoroutines();
         //cutsceneFade.GetComponent<ScreenFade>().BeginCutscene();
         //yield return new WaitForSeconds(0.5f);
-        objectiveManagerScript.itemCollected++;
+       
         objectiveManagerScript.Objective();
     }
 }

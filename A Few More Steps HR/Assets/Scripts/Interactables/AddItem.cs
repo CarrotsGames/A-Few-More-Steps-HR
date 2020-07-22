@@ -47,7 +47,7 @@ public class AddItem : MonoBehaviour
             // Layer 11 refers to collectable items that are added to the house scenes (toys , Pictures , etc)
             // Layer 14 refers to collected items that are not collectables but are used to progress in the level (keys , etc)
             // Layer 15 refers to picking up clothing so we can give it a custom animation (also adds to progress in level)
-            if (hit.transform.gameObject.layer == 14 || hit.transform.gameObject.layer == 11 || hit.transform.gameObject.layer == 15)
+            if (hit.transform.gameObject.layer == 14 || hit.transform.gameObject.layer == 11 || hit.transform.gameObject.layer == 15 || hit.transform.gameObject.layer == 16)
             {
                 reticle.HighliteObject();
             }
@@ -111,7 +111,18 @@ public class AddItem : MonoBehaviour
 
                 }
                 break;
+            // Interact before animations
+            case 16:
+                if (Item.transform.name == objectiveManagerScript.itemNames[objectiveManagerScript.collectProgress])
+                {
+                    MouseLook.canLook = false;
+                    PlayerMovement.stopMovement = true;
+                    GameObject anim = GameObject.Find("IgnoreCube");
+                    animationManagerScript.AnimationName("PanicBabyCrib", anim);
 
+                }
+                break;
+                // Clothing
         }
     }
     // waits half second for non collectable items
