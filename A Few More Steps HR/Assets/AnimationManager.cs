@@ -16,11 +16,15 @@ public class AnimationManager : MonoBehaviour
     [Header("For when the player picks up baby in crib")]
     public GameObject cribArms;
     public GameObject cribCam;
+    public GameObject babyInArms;
+ 
     [Header("For when the player checks on baby")]
     public GameObject bDoorOpenAnim;
     public GameObject bDoorCam;
     [Header("The baby object in the crib before animation")]
     public GameObject cribBaby;
+    //Static tells player movement to play anim when player moves
+    public static bool playBabyAnim;
     private GameObject cutsceneFade;
     private GameObject objectiveManager;
     private ObjectiveManager objectiveManagerScript;
@@ -43,7 +47,7 @@ public class AnimationManager : MonoBehaviour
         cutsceneFade = GameObject.Find("ScreenFade");
         finalDoorFpsCam.SetActive(false);
         player = GameObject.Find("Player");
-
+        playBabyAnim = false;
     }
 
     // Passes in animaton and object to get required animation
@@ -64,6 +68,8 @@ public class AnimationManager : MonoBehaviour
             case "PanicBabyCrib":
                 //  PlayGameAnimation(2.75f);
                 StartCoroutine(PlayAnimation(14f, hitObject, cribArms, cribCam));
+                babyInArms.SetActive(true);
+                playBabyAnim = true;
                 cribBaby.SetActive(false);
                 break;
             case "BabiesDoorAnim":

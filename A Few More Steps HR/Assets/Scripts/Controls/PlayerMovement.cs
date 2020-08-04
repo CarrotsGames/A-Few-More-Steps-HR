@@ -21,12 +21,19 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController controller;
     [HideInInspector]
     public bool isGrounded;
+    private GameObject animationManager;
+    private GameObject babyAnimation;
     // Start is called before the first frame update
     void Start()
     {
         stopMovement = false;
         canMove = true;
         controller = GetComponent<CharacterController>();
+        animationManager = GameObject.Find("AnimationManager");
+        if (animationManager.GetComponent<AnimationManager>().babyInArms != null)
+        {
+            babyAnimation = animationManager.GetComponent<AnimationManager>().babyInArms;
+        }
     }
 
     // Update is called once per frame
@@ -35,6 +42,20 @@ public class PlayerMovement : MonoBehaviour
         if (!stopMovement)
         {
             Movement();
+            //When the player holds the baby the baby will move when the player moves
+            if(Input.GetKeyDown(KeyCode.W) & AnimationManager.playBabyAnim)
+            {
+                babyAnimation.GetComponent<Animator>().speed = 1;
+                babyAnimation.GetComponent<Animator>().SetBool("Running", true);
+                babyAnimation.GetComponent<Animator>().SetBool("Stopping", false);
+
+            }
+            else if (Input.GetKeyUp(KeyCode.W) & AnimationManager.playBabyAnim)
+            {
+                babyAnimation.GetComponent<Animator>().speed = 0;
+                babyAnimation.GetComponent<Animator>().SetBool("Stopping", true);
+                babyAnimation.GetComponent<Animator>().SetBool("Running", false);
+            }
         }
     }
     void Movement()
