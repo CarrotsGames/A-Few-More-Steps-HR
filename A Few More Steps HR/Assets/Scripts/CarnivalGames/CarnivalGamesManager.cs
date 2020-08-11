@@ -112,16 +112,17 @@ public class CarnivalGamesManager : MonoBehaviour
         startDunkGame = false;
         if(results == "win")
         {
-            //objectiveManager.GetComponent<ObjectiveManager>().itemCollected++;
-            //objectiveManager.GetComponent<ObjectiveManager>().Objective();
+            // Player is free to move around
+            StartGame.endTheGame = true;
             Debug.Log("WIN");
         }
         else
         {
+            StartGame.playingGame = false;
             Debug.Log("LOST");
-        }
-       StartGame.playingGame = false;
-       // Debug.Log("GAMEOVER");
+        }           
+        // Disables the stamina bar
+        StartGame.playingGame = false; 
     }
   // Strength test rules
     public void RestartStrengthTest()
@@ -130,18 +131,23 @@ public class CarnivalGamesManager : MonoBehaviour
         strenthTimer = strengthTimeStore;
         strengthScore = 0;
         startStrengthTest = true;
+        StartGame.playingGame = true;
+
     }
     public void StrenthTestGameover()
     {
         if(strengthScore >= strengthWinningScore)
         {
-            //objectiveManager.GetComponent<ObjectiveManager>().itemCollected++;
-            //objectiveManager.GetComponent<ObjectiveManager>().Objective();
             GetComponent<GivePrizes>().GrantPrize("C");
+            // Disables the stamina bar
+            StartGame.playingGame = false;
+            // Player is free to move around
+            StartGame.endTheGame = true;
             Debug.Log("YOU WIN");
         }
         else if (strengthScore < strengthWinningScore)
         {
+            StartGame.playingGame = false;
             Debug.Log("YOU LOSE");
         }
         startStrengthTest = false;
@@ -151,14 +157,16 @@ public class CarnivalGamesManager : MonoBehaviour
     {
         if(ringScore >= ringtossWinningScore)
         {
-            //objectiveManager.GetComponent<ObjectiveManager>().itemCollected++;
-            //objectiveManager.GetComponent<ObjectiveManager>().Objective();
             Debug.Log("You win");
             GetComponent<GivePrizes>().GrantPrize("B");
+            StartGame.endTheGame = true;
+            StartGame.playingGame = false;
 
         }
         else if (ringScore < ringtossWinningScore)
         {
+            StartGame.playingGame = false;
+
             Debug.Log("You lose");
         }
         startRingToss = false;
@@ -188,9 +196,10 @@ public class CarnivalGamesManager : MonoBehaviour
     {
         if (duckScore >= duckWinningScore)
         {
-            //objectiveManager.GetComponent<ObjectiveManager>().itemCollected++;
-            // objectiveManager.GetComponent<ObjectiveManager>().Objective();
             GetComponent<GivePrizes>().GrantPrize("A");
+           
+            StartGame.endTheGame = true;
+            
 
             Debug.Log("You win");
         }
@@ -201,6 +210,7 @@ public class CarnivalGamesManager : MonoBehaviour
         
 
     }
+    // Respawns all ducks 
     public void RestartDuckGame()
     {
         for (int i = 0; i < bulletSpawner.transform.childCount; i++)

@@ -30,9 +30,12 @@ public class PlayerMovement : MonoBehaviour
         canMove = true;
         controller = GetComponent<CharacterController>();
         animationManager = GameObject.Find("AnimationManager");
-        if (animationManager.GetComponent<AnimationManager>().babyInArms != null)
+        if (animationManager != null)
         {
-            babyAnimation = animationManager.GetComponent<AnimationManager>().babyInArms;
+            if (animationManager.GetComponent<AnimationManager>().babyInArms != null)
+            {
+                babyAnimation = animationManager.GetComponent<AnimationManager>().babyInArms;
+            }
         }
     }
 

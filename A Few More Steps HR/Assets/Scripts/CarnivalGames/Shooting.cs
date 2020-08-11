@@ -11,8 +11,10 @@ public class Shooting : MonoBehaviour
     private GameObject carnivalGamesObj;
     private CarnivalGamesManager carnivalGameManager;
     public GameObject barrel;
+  
     private void Start()
     {
+
         bulletSpeed *= 10;
         carnivalGamesObj = GameObject.Find("CarnivalGamesManager");
         carnivalGameManager = carnivalGamesObj.GetComponent<CarnivalGamesManager>();
@@ -24,7 +26,7 @@ public class Shooting : MonoBehaviour
         {
             carnivalGameManager.RestartDuckGame();           
         }
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape) )
         {
             carnivalGameManager.rifle.SetActive(false);
         }
@@ -32,7 +34,6 @@ public class Shooting : MonoBehaviour
         {
             if (CarnivalGamesManager.index < bulletSpawer.transform.childCount)
             {
-                TakenShot();
                 // resets velocity
                 bulletSpawer.transform.GetChild(CarnivalGamesManager.index).GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
                 // transports bullet to players pos 
@@ -43,8 +44,10 @@ public class Shooting : MonoBehaviour
                 // shoots bullet using forward force
                 bulletSpawer.transform.GetChild(CarnivalGamesManager.index).GetComponent<Rigidbody>().AddForce(barrel.transform.forward * bulletSpeed);
                 CarnivalGamesManager.index++;
+                TakenShot();
+
             }
-         }
+        }
     }
     public void TakenShot()
     {
@@ -52,6 +55,7 @@ public class Shooting : MonoBehaviour
         if (CarnivalGamesManager.shotsFired <= 0)
         {
             carnivalGameManager.DuckGameOver();
+            carnivalGameManager.rifle.SetActive(false);
         }
     }
 }

@@ -7,6 +7,7 @@ public class Settings : MonoBehaviour
 {
     public Slider soundEffectSlider;
     public Slider musicSlider;
+    public Slider sensitivtySlider;
     public Text qualityText;
     public Text resoltuionScreenText;
     public Text fullScreenText;
@@ -34,6 +35,7 @@ public class Settings : MonoBehaviour
         soundEffectSlider.value = audioManager.GetComponent<AudioManager>().soundSource.volume;
         musicSlider.value = audioManager.GetComponent<AudioManager>().musicSource.volume;
         Quality();
+        sensitivtySlider.value = MouseLook.globalSensitivity;
     }
     private void Update()
     {
@@ -42,6 +44,8 @@ public class Settings : MonoBehaviour
  
             audioManager.GetComponent<AudioManager>().soundSource.volume = soundEffectSlider.value;
             audioManager.GetComponent<AudioManager>().musicSource.volume = musicSlider.value;
+            MouseLook.globalSensitivity = sensitivtySlider.value;
+            PlayerPrefs.SetFloat("Sensitivity", MouseLook.globalSensitivity);
         }
     }
     //QUALITY SETTINGS

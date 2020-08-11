@@ -34,9 +34,13 @@ public class AddItem : MonoBehaviour
         objectiveManagerScript = objectiveManager.GetComponent<ObjectiveManager>();
       
         animationManager = GameObject.Find("AnimationManager");
-        animationManagerScript = animationManager.GetComponent<AnimationManager>();
-        // Update is called once per frame
+        if (animationManager != null)
+        {
+            animationManagerScript = animationManager.GetComponent<AnimationManager>();
+        }
+   
     }
+    // Update is called once per frame
     void Update()
     {
         

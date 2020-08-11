@@ -30,7 +30,7 @@ public class StrengthTest : MonoBehaviour
             }
         if (CarnivalGamesManager.startStrengthTest)
         {
-
+            strength.maxValue = 150;
             Debug.Log(carnivalGamesManager.strenthTimer);
             if (carnivalGamesManager.strenthTimer > 0)
             {
@@ -46,6 +46,7 @@ public class StrengthTest : MonoBehaviour
             {
                 carnivalGamesManager.strengthScore = numOfClicks;
                 carnivalGamesManager.StrenthTestGameover();
+                strength.maxValue = 5;
                 Debug.Log("Gameover");
                 numOfClicks = 0;
             }

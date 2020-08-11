@@ -19,8 +19,10 @@ public class AreaCheck : MonoBehaviour
        objectiveManagerScript = objectiveManager.GetComponent<ObjectiveManager>();
        cutsceneFade = GameObject.Find("ScreenFade");
        animationManager = GameObject.Find("AnimationManager");
-       animationManagerScript = animationManager.GetComponent<AnimationManager>();
-
+       if (animationManager != null)
+       {
+           animationManagerScript = animationManager.GetComponent<AnimationManager>();
+       }
     }
     private void OnTriggerEnter(Collider other)
     {
