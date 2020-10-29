@@ -2,7 +2,13 @@ fileFormatVersion: 2
 guid: 82268544ddf0eed459f4b56a649b979a
 ModelImporter:
   serializedVersion: 19300
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: 8184241691148570801
+    second: Restaurant_Table|Restaurant_TableAction
+  - first:
+      74: 2055447304746196948
+    second: Restaurant_Table|Restaurant_Table|Restaurant_Table|Restaurant_TableAction|Restau
   externalObjects: {}
   materials:
     materialImportMode: 1
